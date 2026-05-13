@@ -8,11 +8,9 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      "@db": path.resolve(__dirname, "./db"),
     },
   },
   build: {
     outDir: "dist",
-    emptyOutDir: true,
   },
 });
