@@ -61,6 +61,65 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
+// Assign artwork references to each course for flipping
+const courseArtwork: { [key: string]: string } = {
+  "Child Art": "/1000260410.jpg",
+  "Grade 7 Exam": "/1000260408.jpg",
+  "Grade 8 Exam": "/1000260409.jpg",
+  "Pencil Shading": "/4f649e27-45ee-4bf3-bd9f-d12dfb7907f3",
+  "Cartoons": "/1000260406.jpg",
+  "Watercolor Painting": "/1000260407.jpg",
+  "Acrylic Painting": "/1000260411.jpg",
+  "Charcoal Art": "/c6f1ac1c-5166-4e9a-969d-962df33b5534",
+  "Warli Painting": "/1000260409.jpg",
+  "Mandala Art": "/c6f1ac1c-5166-4e9a-969d-962df33b5534"
+};
+
+// Component for a course card that flips to show artwork
+const FlippableCourseCard = ({ card }: { card: { title: string; desc?: string; icon: any } }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const ArtworkIcon = card.icon;
+
+  return (
+    <div
+      className="relative w-full aspect-[3/4] [perspective:1000px] group cursor-pointer"
+      onClick={() => setIsFlipped(!isFlipped)}
+      data-testid={`flippable-card-${card.title.toLowerCase().replace(' ', '-')}`}
+    >
+      {/* Flip Container */}
+      <motion.div
+        className="w-full h-full rounded-2xl shadow-lg transition-all duration-500 [transform-style:preserve-3d]"
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+      >
+        {/* Front Face - Text */}
+        <div className="absolute inset-0 h-full w-full bg-primary text-white p-8 rounded-2xl [backface-visibility:hidden] flex flex-col justify-center border-4 border-primary shadow-inner">
+          <ArtworkIcon className="w-10 h-10 mb-6 opacity-90" />
+          <h4 className="text-xl font-bold uppercase mb-2 leading-tight tracking-tight">{card.title}</h4>
+          {card.desc && <p className="text-white/80 font-medium mb-12">{card.desc}</p>}
+          
+          {/* Visual indicator that card is flippable */}
+          <div className="absolute inset-0 bg-black/40 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
+              <Star className="w-8 h-8 text-white fill-white"/>
+              <span className="text-white font-bold text-sm tracking-wide">See Artwork</span>
+          </div>
+        </div>
+
+        {/* Back Face - Image */}
+        <div className="absolute inset-0 h-full w-full bg-muted rounded-2xl [transform:rotateY(180deg)] [backface-visibility:hidden] flex items-center justify-center overflow-hidden border-4 border-primary">
+          <img
+            src={courseArtwork[card.title] || "/hero.png"}
+            alt={`${card.title} Artwork`}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full z-10 flex items-center gap-2">
+            <span className="text-white font-bold text-xs uppercase tracking-wider">{card.title}</span>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -371,7 +430,7 @@ export default function Home() {
                 Programs & Courses
               </h3>
               <p className="text-lg text-foreground/70 font-medium">
-                Tailored instruction for every age and skill level. From early childhood development to professional government certifications.
+                Tailored instruction for every age and skill level. Click on standard classes below to flip them and see related artwork.
               </p>
             </div>
 
@@ -386,9 +445,9 @@ export default function Home() {
                 </TabsTrigger>
               </TabsList>
 
-              {/* Tab 1: Kids & Teens */}
-              <TabsContent value="tab1" className="animate-in fade-in-50 duration-500">
-                <div className="flex overflow-x-auto pb-8 pt-4 gap-6 snap-x hide-scrollbar">
+              {/* Tab 1: Kids & Teens - Now Flippable */}
+              <TabsContent value="tab1" className="animate-in fade-in-50 duration-500 pt-4">
+                <div className="flex overflow-x-auto pb-8 gap-6 snap-x hide-scrollbar">
                   {[
                     { title: "Child Art", desc: "Ages 4–10", icon: Palette },
                     { title: "Grade 7 Exam", desc: "Prep Course", icon: BookOpen },
@@ -396,107 +455,98 @@ export default function Home() {
                     { title: "Pencil Shading", desc: "Sketching", icon: Pencil },
                     { title: "Cartoons", desc: "Character Design", icon: Star }
                   ].map((card, i) => (
-                    <div key={i} className="bg-primary text-white p-8 rounded-2xl min-w-[240px] snap-center flex flex-col shadow-lg hover:-translate-y-1 transition-transform">
-                      <card.icon className="w-10 h-10 mb-6 opacity-90" />
-                      <h4 className="text-xl font-bold uppercase mb-2 leading-tight">{card.title}</h4>
-                      <p className="text-white/80 font-medium">{card.desc}</p>
+                    <div key={i} className="min-w-[280px] snap-center">
+                       <FlippableCourseCard card={card} />
                     </div>
                   ))}
                 </div>
               </TabsContent>
 
-              {/* Tab 2: Teens & Adults */}
-              <TabsContent value="tab2" className="animate-in fade-in-50 duration-500">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
+              {/* Tab 2: Teens & Adults - Now Flippable */}
+              <TabsContent value="tab2" className="animate-in fade-in-50 duration-500 pt-4">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
                     { title: "Watercolor Painting", icon: Palette },
                     { title: "Acrylic Painting", icon: Palette },
                     { title: "Charcoal Art", icon: Pencil },
-                    { title: "Pen & Ink Drawing", icon: Pencil },
                     { title: "Warli Painting", desc: "Traditional Indian", icon: Star },
                     { title: "Mandala Art", icon: Star }
                   ].map((card, i) => (
-                    <div key={i} className="bg-primary text-white p-8 rounded-2xl flex flex-col shadow-lg hover:-translate-y-1 transition-transform">
-                      <card.icon className="w-8 h-8 mb-4 opacity-90" />
-                      <h4 className="text-xl font-bold uppercase mb-2">{card.title}</h4>
-                      {card.desc && <p className="text-white/80 text-sm font-medium">{card.desc}</p>}
-                    </div>
+                     <FlippableCourseCard key={i} card={card} />
                   ))}
                 </div>
               </TabsContent>
 
               {/* Tab 3: Online Classes */}
-              <TabsContent value="tab3" className="max-w-4xl mx-auto animate-in fade-in-50 duration-500">
-                <div className="pt-4 flex flex-col gap-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-primary text-white p-8 rounded-2xl shadow-lg">
-                      <h4 className="text-2xl font-bold uppercase mb-4">Primary Level</h4>
-                      <p className="text-white/90 font-medium">Fundamentals & basic techniques tailored for beginners establishing their core skills over Zoom.</p>
-                    </div>
-                    <div className="bg-primary text-white p-8 rounded-2xl shadow-lg">
-                      <h4 className="text-2xl font-bold uppercase mb-4">Advanced Level</h4>
-                      <p className="text-white/90 font-medium">Intermediate subjects, complex compositions, and dedicated portfolio work over Zoom.</p>
-                    </div>
+              <TabsContent value="tab3" className="max-w-4xl mx-auto animate-in fade-in-50 duration-500 pt-4">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-primary text-white p-8 rounded-2xl shadow-lg flex flex-col hover:-translate-y-1 transition-transform">
+                    <Clock className="w-10 h-10 mb-6 opacity-90" />
+                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Primary Level</h4>
+                    <p className="text-white/90 font-medium mb-12">Fundamentals & basic techniques tailored for beginners establishing their core skills over Zoom.</p>
                   </div>
-                  <div className="bg-secondary text-white p-6 rounded-2xl flex items-center gap-4 justify-center text-center shadow-lg">
-                    <Clock className="w-6 h-6 shrink-0" />
-                    <p className="font-semibold">Classes available for students outside Mumbai. Flexible timings for different time zones.</p>
+                  <div className="bg-primary text-white p-8 rounded-2xl shadow-lg flex flex-col hover:-translate-y-1 transition-transform">
+                    <Clock className="w-10 h-10 mb-6 opacity-90" />
+                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Advanced Level</h4>
+                    <p className="text-white/90 font-medium mb-12">Intermediate subjects, complex compositions, and dedicated portfolio work over Zoom.</p>
                   </div>
+                </div>
+                <div className="bg-secondary text-white mt-6 p-6 rounded-2xl flex items-center gap-4 justify-center text-center shadow-lg">
+                  <Clock className="w-6 h-6 shrink-0" />
+                  <p className="font-semibold">Classes available for students outside Mumbai. Flexible timings for different time zones.</p>
                 </div>
               </TabsContent>
 
               {/* Tab 4: Certified Courses */}
-              <TabsContent value="tab4" className="animate-in fade-in-50 duration-500">
-                <div className="pt-4 flex flex-col gap-8">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-primary text-white p-8 rounded-2xl shadow-lg relative overflow-hidden">
-                      <BadgeCheck className="absolute top-4 right-4 w-16 h-16 opacity-20" />
-                      <h4 className="text-2xl font-bold uppercase mb-2 pr-12">Art Teacher's Training Course (ATTC)</h4>
-                      <div className="bg-white text-primary text-xs font-bold px-3 py-1 rounded-full inline-block mb-6">Government Certified</div>
-                      <ul className="space-y-3 font-medium text-white/90">
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="w-5 h-5 shrink-0" />
-                          <span>Prepares students to teach at school level</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="w-5 h-5 shrink-0" />
-                          <span>Affiliated with SDVTI & MBTB</span>
-                        </li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-primary text-white p-8 rounded-2xl shadow-lg relative overflow-hidden">
-                      <Award className="absolute top-4 right-4 w-16 h-16 opacity-20" />
-                      <h4 className="text-2xl font-bold uppercase mb-2">Fine Arts</h4>
-                      <div className="bg-transparent text-transparent text-xs font-bold px-3 py-1 mb-6 select-none">Placeholder</div>
-                      <ul className="space-y-3 font-medium text-white/90">
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="w-5 h-5 shrink-0" />
-                          <span>Foundational & advanced fine arts training</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="w-5 h-5 shrink-0" />
-                          <span>Professional portfolio development</span>
-                        </li>
-                      </ul>
-                    </div>
+              <TabsContent value="tab4" className="animate-in fade-in-50 duration-500 pt-4">
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  <div className="bg-primary text-white p-8 rounded-2xl shadow-lg relative overflow-hidden flex flex-col hover:-translate-y-1 transition-transform">
+                    <BadgeCheck className="absolute top-4 right-4 w-16 h-16 opacity-20" />
+                    <h4 className="text-2xl font-bold uppercase mb-2 pr-12 tracking-tight">Art Teacher's Training Course (ATTC)</h4>
+                    <div className="bg-white text-primary text-xs font-bold px-3 py-1 rounded-full inline-block mb-6 w-fit">Government Certified</div>
+                    <ul className="space-y-3 font-medium text-white/90 mb-10">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-5 h-5 shrink-0" />
+                        <span>Prepares students to teach at school level</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-5 h-5 shrink-0" />
+                        <span>Affiliated with SDVTI & MBTB</span>
+                      </li>
+                    </ul>
                   </div>
+                  
+                  <div className="bg-primary text-white p-8 rounded-2xl shadow-lg relative overflow-hidden flex flex-col hover:-translate-y-1 transition-transform">
+                    <Award className="absolute top-4 right-4 w-16 h-16 opacity-20" />
+                    <h4 className="text-2xl font-bold uppercase mb-2 tracking-tight">Fine Arts</h4>
+                    <div className="bg-transparent text-transparent text-xs font-bold px-3 py-1 mb-6 w-fit select-none">Placeholder</div>
+                    <ul className="space-y-3 font-medium text-white/90 mb-10">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-5 h-5 shrink-0" />
+                        <span>Foundational & advanced fine arts training</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-5 h-5 shrink-0" />
+                        <span>Professional portfolio development</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
 
-                  <div>
-                    <h4 className="text-xl font-bold text-foreground mb-6 text-center">Entrance Exam Preparation</h4>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      {[
-                        { code: "MH AAC CET", name: "Maharashtra Fine Arts" },
-                        { code: "NIFT", name: "Fashion Tech" },
-                        { code: "NID", name: "Design" },
-                        { code: "NATA", name: "Architecture" }
-                      ].map((exam, i) => (
-                        <div key={i} className="bg-secondary text-white p-6 rounded-2xl shadow-md text-center hover:-translate-y-1 transition-transform">
-                          <div className="font-bold text-xl mb-1">{exam.code}</div>
-                          <div className="text-sm font-medium text-white/90">{exam.name}</div>
-                        </div>
-                      ))}
-                    </div>
+                <div>
+                  <h4 className="text-xl font-bold text-foreground mb-6 text-center">Entrance Exam Preparation</h4>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {[
+                      { code: "MH AAC CET", name: "Maharashtra Fine Arts" },
+                      { code: "NIFT", name: "Fashion Tech" },
+                      { code: "NID", name: "Design" },
+                      { code: "NATA", name: "Architecture" }
+                    ].map((exam, i) => (
+                      <div key={i} className="bg-secondary text-white p-6 rounded-2xl shadow-md text-center hover:-translate-y-1 transition-transform">
+                        <div className="font-bold text-xl mb-1">{exam.code}</div>
+                        <div className="text-sm font-medium text-white/90">{exam.name}</div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </TabsContent>
@@ -504,7 +554,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 6.5 COURSE DETAILS */}
+        {/* 6.5 COURSE DETAILS SECTION */}
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
             <motion.div 
@@ -512,14 +562,15 @@ export default function Home() {
               className="relative"
             >
               <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/images/tech-memory.png" alt="Kids & Teens Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+              {/* Classified Image: Portrait reference for kids section */}
+              <img src="/1000260410.jpg" alt="Kids & Teens Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <h3 className="text-3xl md:text-4xl font-bold mb-4">Kids & Teens Art Classes</h3>
               <div className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary font-bold text-sm rounded-full mb-6">
                 Ideal for: Kids | Young Adults | Ages 4–15
               </div>
-              <p className="text-foreground/80 font-medium mb-8">
+              <p className="text-foreground/80 font-medium mb-8 leading-relaxed">
                 Our foundational art classes are designed to spark creativity and build core skills in young learners. From Child Art for beginners to Elementary and Intermediate Grade Exam Preparation, each session blends fun with structured learning.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -535,14 +586,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-muted/20">
+        <section className="py-16 md:py-24 bg-muted/20 overflow-hidden">
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="order-2 md:order-1">
               <h3 className="text-3xl md:text-4xl font-bold mb-4">Teens & Adults Classes</h3>
               <div className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary font-bold text-sm rounded-full mb-6">
                 All Mediums | All Skill Levels
               </div>
-              <p className="text-foreground/80 font-medium mb-8">
+              <p className="text-foreground/80 font-medium mb-8 leading-relaxed">
                 Whether you're a hobbyist or an aspiring professional, our adult classes offer a relaxed yet structured environment to explore a wide range of art mediums at your own pace.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -560,7 +611,8 @@ export default function Home() {
               className="relative order-1 md:order-2"
             >
               <div className="absolute inset-0 bg-secondary/10 rounded-3xl -translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/images/tech-watercolor.png" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+              {/* Classified Image: Watercolor landscape for Adults section */}
+              <img src="/1000260407.jpg" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
           </div>
         </section>
@@ -572,14 +624,15 @@ export default function Home() {
               className="relative"
             >
               <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/images/tech-strategy.png" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+              {/* Classified Image: Complex calligraphy piece for Professional section */}
+              <img src="/c6f1ac1c-5166-4e9a-969d-962df33b5534" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <h3 className="text-3xl md:text-4xl font-bold mb-4">Professional & Certified Courses</h3>
               <div className="inline-block px-4 py-1.5 bg-[#4285F4]/10 text-[#4285F4] font-bold text-sm rounded-full mb-6">
                 Govt. Certified | Affiliated with SDVTI & MBTB
               </div>
-              <p className="text-foreground/80 font-medium mb-8">
+              <p className="text-foreground/80 font-medium mb-8 leading-relaxed">
                 For those seeking a formal career in art and design, SNAA offers government-certified programs with proven results in national entrance examinations.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -600,21 +653,21 @@ export default function Home() {
           <div className="container mx-auto px-6 md:px-12">
             <h3 className="text-3xl font-bold text-center text-foreground mb-12">Recognised & Affiliated With</h3>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-primary flex items-center gap-4">
+              <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-primary flex items-center gap-4 hover:shadow-md transition-shadow">
                 <Shield className="w-8 h-8 text-primary shrink-0" />
                 <div>
                   <h4 className="font-bold text-lg">Skill India</h4>
                   <p className="text-sm text-foreground/70">Govt. of India Initiative</p>
                 </div>
               </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-primary flex items-center gap-4">
+              <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-primary flex items-center gap-4 hover:shadow-md transition-shadow">
                 <BadgeCheck className="w-8 h-8 text-primary shrink-0" />
                 <div>
                   <h4 className="font-bold text-lg">SDVTI</h4>
                   <p className="text-sm text-foreground/70">Vocational Training</p>
                 </div>
               </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-primary flex items-center gap-4">
+              <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-primary flex items-center gap-4 hover:shadow-md transition-shadow">
                 <Award className="w-8 h-8 text-primary shrink-0" />
                 <div>
                   <h4 className="font-bold text-lg">MBTB</h4>
@@ -625,36 +678,38 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 7.5 CTA BANNER */}
+        {/* 7.5 CTA BANNER SECTION */}
         <section className="py-12 bg-white" data-testid="section-cta-banner">
           <div className="container mx-auto px-6 md:px-12">
-            <div className="bg-secondary rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
-              <div className="md:w-[60%] z-10">
-                <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            <div className="bg-secondary rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative shadow-2xl">
+              <div className="md:w-[60%] z-10 text-center md:text-left flex flex-col items-center md:items-start">
+                <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
                   Begin Your Creative Journey at SNAA
                 </h3>
-                <p className="text-white/80 text-lg font-medium mb-8 max-w-xl">
+                <p className="text-white/80 text-lg font-medium mb-8 max-w-xl leading-relaxed">
                   Expert-led art classes, government-certified courses, and entrance exam preparation — all in one place. Admissions open for 2025–26.
                 </p>
-                <Button onClick={() => scrollToSection("contact")} className="bg-white hover:bg-white/90 text-secondary font-bold rounded-full px-8 py-6 h-auto shadow-lg hover:-translate-y-1 transition-transform">
+                <Button onClick={() => scrollToSection("contact")} className="bg-white hover:bg-white/90 text-secondary font-bold rounded-full px-8 py-6 h-auto shadow-lg hover:-translate-y-1 transition-all">
                   ENQUIRE NOW
                 </Button>
               </div>
-              <div className="md:w-[40%] grid grid-cols-2 gap-4 z-10 w-full">
-                <img src="/images/tech-watercolor.png" alt="Art 1" className="rounded-xl w-full h-32 md:h-40 object-cover shadow-md" />
-                <img src="/images/tech-traditional.png" alt="Art 2" className="rounded-xl w-full h-32 md:h-40 object-cover shadow-md translate-y-4" />
-                <img src="/images/gallery-1.png" alt="Art 3" className="rounded-xl w-full h-32 md:h-40 object-cover shadow-md -translate-y-4" />
-                <img src="/images/gallery-2.png" alt="Art 4" className="rounded-xl w-full h-32 md:h-40 object-cover shadow-md" />
+              
+              {/* Classified Gallery of Images */}
+              <div className="md:w-[40%] grid grid-cols-2 gap-4 z-10 w-full aspect-square md:aspect-auto">
+                <img src="/1000260408.jpg" alt="Artwork reference 1" className="rounded-xl w-full h-full object-cover shadow-md" />
+                <img src="/1000260411.jpg" alt="Artwork reference 2" className="rounded-xl w-full h-full object-cover shadow-md translate-y-4" />
+                <img src="/1000260405.jpg" alt="Artwork reference 3" className="rounded-xl w-full h-full object-cover shadow-md -translate-y-4" />
+                <img src="/4f649e27-45ee-4bf3-bd9f-d12dfb7907f3" alt="Artwork reference 4" className="rounded-xl w-full h-full object-cover shadow-md" />
               </div>
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
             </div>
           </div>
         </section>
 
-        {/* 8. GALLERY */}
+        {/* 8. GALLERY SECTION - Now with real images */}
         <section id="gallery" className="py-20 md:py-28 bg-white">
           <div className="container mx-auto px-6 md:px-12">
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-4">
                 Portfolio
               </div>
@@ -662,18 +717,20 @@ export default function Home() {
             </div>
             
             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+              {/* Populate with Classified Gallery Images */}
               {[
-                { src: "/images/gallery-1.png", alt: "Student Art 1" },
-                { src: "/images/gallery-2.png", alt: "Student Art 2" },
-                { src: "/images/gallery-3.png", alt: "Student Art 3" },
-                { src: "/images/tech-watercolor.png", alt: "Student Art 4" },
-                { src: "/images/tech-perspective.png", alt: "Student Art 5" },
-                { src: "/images/tech-still-life.png", alt: "Student Art 6" }
+                { src: "/1000260411.jpg", alt: "Sunset Landscape Painting" },
+                { src: "/4f649e27-45ee-4bf3-bd9f-d12dfb7907f3", alt: "Flute Sketch" },
+                { src: "/1000260408.jpg", alt: "Still Life Fruits Painting" },
+                { src: "/1000260406.jpg", alt: "Modern Portrait" },
+                { src: "/1000260405.jpg", alt: "Watercolor Portrait Woman" },
+                { src: "/1000260409.jpg", alt: "Still Life Objects Painting" }
               ].map((img, i) => (
-                <div key={i} className="relative rounded-2xl overflow-hidden group break-inside-avoid shadow-sm hover:shadow-lg transition-shadow">
+                <div key={i} className="relative rounded-2xl overflow-hidden group break-inside-avoid shadow-sm hover:shadow-xl transition-all cursor-pointer">
                   <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" />
-                  <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">View Artwork</span>
+                  <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center">
+                    <span className="text-white font-bold text-lg mb-2">View Artwork</span>
+                    <span className="text-white/80 text-sm font-medium">{img.alt}</span>
                   </div>
                 </div>
               ))}
@@ -681,10 +738,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 9. SOCIAL MEDIA */}
+        {/* 9. SOCIAL MEDIA SECTION */}
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-6 md:px-12">
-            <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6 text-center md:text-left">
               <div>
                 <h3 className="text-3xl font-bold text-foreground mb-2">SNAA Highlights</h3>
                 <p className="text-foreground/70">Follow us on Instagram for daily updates</p>
@@ -716,7 +773,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 10. TESTIMONIALS */}
+        {/* 10. TESTIMONIALS SECTION */}
         <section className="py-20 md:py-28 bg-muted/20 overflow-hidden">
           <div className="container mx-auto px-6 md:px-12">
              <div className="text-center mb-16">
@@ -733,14 +790,14 @@ export default function Home() {
                   { name: "Meera Patil", role: "Parent, Batch 2023", quote: "My son has been attending Child Art classes for 2 years now. The patience and encouragement from the teachers is remarkable. Highly recommended!", color: "bg-primary text-white" }
                 ].map((t, i) => (
                   <div key={i} className="min-w-full md:min-w-[calc(33.333%-16px)]">
-                    <div className="bg-white p-8 rounded-2xl shadow-lg border border-border mt-8 relative flex flex-col items-center text-center h-full">
-                      <div className={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-xl absolute -top-8 border-4 border-white shadow-sm ${t.color}`}>
+                    <div className="bg-white p-8 rounded-2xl shadow-lg border border-border mt-8 relative flex flex-col items-center text-center h-full hover:shadow-xl transition-shadow">
+                      <div className={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-xl absolute -top-8 border-4 border-white shadow-md ${t.color}`}>
                         {t.name.split(' ').map(n => n[0]).join('')}
                       </div>
                       <div className="flex gap-1 text-[#F59E0B] mt-6 mb-4">
                         {[1, 2, 3, 4, 5].map(star => <Star key={star} className="w-4 h-4 fill-current" />)}
                       </div>
-                      <p className="text-foreground/80 font-medium mb-6 flex-grow">"{t.quote}"</p>
+                      <p className="text-foreground/80 font-medium mb-6 flex-grow leading-relaxed">"{t.quote}"</p>
                       <div>
                         <div className="font-bold text-foreground">{t.name}</div>
                         <div className="text-sm text-foreground/60 font-medium">{t.role}</div>
@@ -768,14 +825,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 10.5 GOOGLE REVIEWS */}
+        {/* 10.5 GOOGLE REVIEWS SECTION */}
         <section className="py-20 bg-white border-y border-border">
           <div className="container mx-auto px-6 md:px-12">
             <h3 className="text-3xl font-bold text-center mb-12">Google Reviews</h3>
-            <div className="grid lg:grid-cols-[1fr_2fr] gap-12">
+            <div className="grid lg:grid-cols-[1fr_2fr] gap-12 items-start">
               <div className="bg-white rounded-2xl p-8 border border-border shadow-sm flex flex-col items-center justify-center text-center">
                 <h4 className="font-bold text-xl mb-4">Subodh Narvekar's Art Academy</h4>
-                <div className="text-6xl font-bold text-[#F59E0B] mb-2">4.9</div>
+                <div className="text-6xl font-bold text-[#F59E0B] mb-2 tracking-tight">4.9</div>
                 <div className="flex gap-1 text-[#F59E0B] mb-2">
                   {[1, 2, 3, 4, 5].map(star => <Star key={star} className="w-6 h-6 fill-current" />)}
                 </div>
@@ -791,7 +848,7 @@ export default function Home() {
                     <span className="text-[#EA4335]">e</span>
                   </span>
                 </div>
-                <Button variant="outline" className="rounded-full font-bold border-2">Review us on Google</Button>
+                <Button variant="outline" className="rounded-full font-bold border-2 hover:bg-muted">Review us on Google</Button>
               </div>
               
               <div className="grid sm:grid-cols-3 gap-6">
@@ -800,7 +857,7 @@ export default function Home() {
                   { name: "Raj M.", text: "Excellent faculty and well-structured course. Highly recommend for exam preparation. Great environment to learn!" },
                   { name: "Divya K.", text: "Amazing experience! The ATTC course was very well-organized. Got certified on first attempt. Thank you SNAA!" }
                 ].map((review, i) => (
-                  <div key={i} className="bg-muted/10 p-6 rounded-2xl border border-border">
+                  <div key={i} className="bg-muted/10 p-6 rounded-2xl border border-border flex flex-col hover:shadow-md transition-shadow">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-foreground text-white flex items-center justify-center font-bold">
@@ -818,7 +875,7 @@ export default function Home() {
                     <div className="flex gap-1 text-[#F59E0B] mb-3">
                       {[1, 2, 3, 4, 5].map(star => <Star key={star} className="w-3 h-3 fill-current" />)}
                     </div>
-                    <p className="text-sm font-medium text-foreground/80 line-clamp-4">{review.text}</p>
+                    <p className="text-sm font-medium text-foreground/80 leading-relaxed line-clamp-4">{review.text}</p>
                   </div>
                 ))}
               </div>
@@ -826,15 +883,15 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 10.6 FAQ */}
+        {/* 10.6 FAQ SECTION - Accurate Timings */}
         <section className="py-20 md:py-28 bg-muted/20">
-          <div className="container mx-auto px-6 md:px-12 grid lg:grid-cols-[1fr_2fr] gap-12">
-            <div>
-              <h3 className="text-secondary text-3xl md:text-5xl font-bold mb-4">Curious about us?</h3>
-              <p className="text-foreground/70 font-medium text-lg mb-8">
+          <div className="container mx-auto px-6 md:px-12 grid lg:grid-cols-[1fr_2fr] gap-12 items-start">
+            <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
+              <h3 className="text-secondary text-3xl md:text-5xl font-bold mb-4 leading-tight tracking-tight">Curious about us?</h3>
+              <p className="text-foreground/70 font-medium text-lg mb-8 leading-relaxed max-w-lg lg:max-w-none">
                 Find out more about why SNAA is the right place for you.
               </p>
-              <Button onClick={() => scrollToSection("contact")} className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-8 py-6 h-auto">
+              <Button onClick={() => scrollToSection("contact")} className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-8 py-6 h-auto shadow-lg hover:-translate-y-1 transition-all">
                 BOOK A CLASS
               </Button>
             </div>
@@ -844,7 +901,7 @@ export default function Home() {
                   { q: "Where are we located?", a: "Our studio is at Shop 4, Pushp Meet, Dhanukarwadi, Kandivali West, Mumbai - 400067. Easily accessible by road and local train (Kandivali station)." },
                   { q: "What courses do you offer?", a: "We offer Kids & Teens art classes, Grade exam preparation (Elementary & Intermediate), Teens & Adults hobby classes, Online Zoom-based sessions, Art Teacher's Training Course (ATTC), Fine Arts, and entrance exam preparation for NIFT, NID, NATA, and MH AAC CET." },
                   { q: "Who are the instructors?", a: "Classes are conducted by Subodh Narvekar (Founder) and supervised by Avdhut Narvekar and Hemangi Narvekar — all trained professional artists with decades of teaching experience." },
-                  { q: "What are your timings?", a: "Monday to Saturday: 4:00 PM – 7:00 PM. Sunday special batches are available by appointment. Online classes have flexible timings to accommodate different schedules." },
+                  { q: "What are your timings?", a: "Tuesday to Saturday: 4:00 PM – 8:00 PM. Sunday special batches are available by appointment. Online classes have flexible timings to accommodate different schedules." },
                   { q: "Are government certificates provided?", a: "Yes! Our ATTC and Fine Arts courses are government-certified through SDVTI and affiliated with the Maharashtra Business Training Board (MBTB) and Skill India." }
                 ].map((faq, i) => (
                   <AccordionItem key={i} value={`item-${i}`} className="bg-white px-6 rounded-xl border border-border shadow-sm data-[state=open]:shadow-md transition-all">
@@ -861,15 +918,15 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 11. CONTACT FORM */}
+        {/* 11. CONTACT FORM SECTION - Accurate Info & Clickable Maps */}
         <section id="contact" className="py-20 md:py-28 bg-muted/30">
           <div className="container mx-auto px-6 md:px-12">
-            <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
               <div className="grid lg:grid-cols-2">
                 <div className="p-10 md:p-16 bg-primary text-white flex flex-col justify-between">
                   <div>
-                    <h3 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h3>
-                    <p className="text-white/80 font-medium mb-10">Have questions about our courses or admissions? Drop us a message and we'll get back to you.</p>
+                    <h3 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Get in Touch</h3>
+                    <p className="text-white/80 font-medium mb-10 max-w-lg">Have questions about our courses or admissions? Drop us a message and we'll get back to you.</p>
                     
                     <div className="space-y-6">
                       <div className="flex items-start gap-4">
@@ -878,7 +935,9 @@ export default function Home() {
                         </div>
                         <div>
                           <h5 className="font-semibold text-lg mb-1">Our Studio</h5>
-                          <p className="text-white/80">SNAA Studio, 2nd Floor, Creative Complex<br />Borivali West, Mumbai 400092</p>
+                          <a href="https://www.google.com/maps/search/?api=1&query=Shop+4,+Pushp+Meet,+Dhanukarwadi,+Kandivali+West,+Mumbai" target="_blank" rel="noreferrer" className="text-white/80 hover:text-white transition-colors underline-offset-4 hover:underline block leading-relaxed">
+                            Shop 4, Pushp Meet, Dhanukarwadi,<br />Kandivali West, Mumbai – 400067
+                          </a>
                         </div>
                       </div>
                       
@@ -888,7 +947,7 @@ export default function Home() {
                         </div>
                         <div>
                           <h5 className="font-semibold text-lg mb-1">Call Us</h5>
-                          <p className="text-white/80">+91 8779739115<br/>+91 9326345790</p>
+                          <p className="text-white/80 leading-relaxed">+91 8779739115<br/>+91 9326345790</p>
                         </div>
                       </div>
                     </div>
@@ -974,7 +1033,7 @@ export default function Home() {
                             <FormControl>
                               <Textarea
                                 placeholder="Tell us about your art experience or specific requirements..."
-                                className="min-h-[120px] rounded-lg bg-muted/50 border-transparent focus-visible:bg-white"
+                                className="min-h-[120px] rounded-lg bg-muted/50 border-transparent focus-visible:bg-white leading-relaxed"
                                 {...field}
                                 data-testid="input-message"
                               />
@@ -995,7 +1054,7 @@ export default function Home() {
         </section>
       </main>
 
-      {/* 12. FOOTER */}
+      {/* 12. FOOTER SECTION - Accurate Info */}
       <footer className="bg-foreground text-white pt-20 pb-10">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
@@ -1006,7 +1065,7 @@ export default function Home() {
                   Subodh Narvekar's Art Academy
                 </span>
               </div>
-              <p className="text-white/60 font-medium mb-8">
+              <p className="text-white/60 font-medium mb-8 leading-relaxed max-w-sm">
                 Nurturing creativity since 2002. Offering comprehensive art education and government certified courses in Mumbai and online.
               </p>
               <div className="flex items-center gap-4">
@@ -1022,14 +1081,14 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="md:col-span-4 flex flex-col sm:flex-row gap-12 justify-between">
+            <div className="md:col-span-4 flex flex-col sm:flex-row gap-12 sm:justify-between">
               <div>
                 <h4 className="font-bold text-lg mb-6">Quick Links</h4>
                 <ul className="space-y-4">
-                  {["About", "Courses", "Affiliations", "Gallery", "Contact"].map((link) => (
-                    <li key={link}>
-                      <button onClick={() => scrollToSection(link.toLowerCase())} className="text-white/60 hover:text-white transition-colors font-medium">
-                        {link}
+                  {navLinks.map((link) => (
+                    <li key={link.id}>
+                      <button onClick={() => scrollToSection(link.id)} className="text-white/60 hover:text-white transition-colors font-medium">
+                        {link.label}
                       </button>
                     </li>
                   ))}
@@ -1049,21 +1108,23 @@ export default function Home() {
             <div className="md:col-span-4">
               <h4 className="font-bold text-lg mb-6">Contact Us</h4>
               <ul className="space-y-6">
-                <li className="flex items-start gap-3 text-white/60 font-medium">
-                  <MapPin className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
+                <li className="flex items-start gap-3 text-white/60 font-medium leading-relaxed">
+                  <MapPin className="w-5 h-5 text-secondary shrink-0 mt-1" />
                   <div>
                     <span className="block text-white mb-1">Find us at:</span>
-                    Shop 4, Pushp Meet, Dhanukarwadi,<br/>Kandivali West, Mumbai – 400067
+                    <a href="https://www.google.com/maps/search/?api=1&query=Shop+4,+Pushp+Meet,+Dhanukarwadi,+Kandivali+West,+Mumbai" target="_blank" rel="noreferrer" className="hover:text-white transition-colors underline-offset-4 hover:underline">
+                      Shop 4, Pushp Meet, Dhanukarwadi,<br/>Kandivali West, Mumbai – 400067
+                    </a>
                   </div>
                 </li>
-                <li className="flex items-start gap-3 text-white/60 font-medium">
-                  <Clock className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
+                <li className="flex items-start gap-3 text-white/60 font-medium leading-relaxed">
+                  <Clock className="w-5 h-5 text-secondary shrink-0 mt-1" />
                   <div>
                     <span className="block text-white mb-1">Timings:</span>
-                    Mon–Sat: 4:00 PM – 7:00 PM<br/>Sunday: Special batches by appointment
+                    Tue–Tue–Sat: 4:00 PM – 8:00 PM<br/>Sunday: Special batches by appointment
                   </div>
                 </li>
-                <li className="flex items-center gap-3 text-white/60 font-medium">
+                <li className="flex items-center gap-3 text-white/60 font-medium leading-relaxed">
                   <Phone className="w-5 h-5 text-secondary shrink-0" />
                   <span>+91 8779739115, +91 9326345790</span>
                 </li>
@@ -1072,7 +1133,7 @@ export default function Home() {
           </div>
 
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/40 font-medium">
-            <p>&copy; {new Date().getFullYear()} Subodh Narvekar's Art Academy. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Subodh Narvekar's Art Academy. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
@@ -1081,7 +1142,7 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* WhatsApp Floating Button */}
+      {/* WhatsApp Floating Button - Accurate Number */}
       <motion.a
         href="https://wa.me/918779739115?text=Hi%2C%20I'd%20like%20to%20know%20more%20about%20SNAA%20courses"
         target="_blank"
