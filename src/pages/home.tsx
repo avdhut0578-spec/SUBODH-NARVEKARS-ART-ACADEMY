@@ -118,13 +118,12 @@ export default function Home() {
       <div className="w-full bg-primary text-primary-foreground py-2 text-sm hidden md:block">
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-2"><Mail className="w-4 h-4"/> info@snaa.in</span>
-            <span>|</span>
-            <span className="flex items-center gap-2"><Phone className="w-4 h-4"/> +91 98765 43210</span>
+            <span className="flex items-center gap-2"><Phone className="w-4 h-4"/> +91 8779739115, +91 9326345790</span>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-primary-foreground/80 transition-colors" data-testid="topbar-instagram"><Instagram className="w-4 h-4"/></a>
-            <a href="#" className="hover:text-primary-foreground/80 transition-colors" data-testid="topbar-facebook"><Facebook className="w-4 h-4"/></a>
+            <a href="https://www.instagram.com/snaa.subodhnarvekarsartacademy?igsh=MWNkMXoxamd0NTBqcA==" target="_blank" rel="noreferrer" className="hover:text-primary-foreground/80 transition-colors"><Instagram className="w-4 h-4"/></a>
+            <a href="https://www.facebook.com/reel/1663614361350893/" target="_blank" rel="noreferrer" className="hover:text-primary-foreground/80 transition-colors"><Facebook className="w-4 h-4"/></a>
+            <a href="https://youtube.com/@avdhutnarvekarsnaa1850?si=U1Br-bhEh0GfYp2O" target="_blank" rel="noreferrer" className="hover:text-primary-foreground/80 transition-colors"><Youtube className="w-4 h-4"/></a>
           </div>
         </div>
       </div>
@@ -143,9 +142,7 @@ export default function Home() {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             data-testid="nav-logo"
           >
-            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-sans font-bold text-2xl leading-none shadow-md group-hover:scale-105 transition-transform">
-              SN
-            </div>
+            <img src="/logo.jpg" alt="SNAA Logo" className="w-12 h-12 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform" />
             <div className="flex flex-col">
               <span className="font-sans font-bold text-lg leading-tight tracking-tight text-foreground">
                 Subodh Narvekar's
@@ -285,7 +282,7 @@ export default function Home() {
             >
               <div className="absolute inset-0 bg-primary/20 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
               <img
-                src="/images/hero.png"
+                src="/homepage.jpg"
                 alt="Art Studio"
                 className="w-full h-auto rounded-2xl object-cover shadow-2xl"
               />
@@ -692,7 +689,7 @@ export default function Home() {
                 <h3 className="text-3xl font-bold text-foreground mb-2">SNAA Highlights</h3>
                 <p className="text-foreground/70">Follow us on Instagram for daily updates</p>
               </div>
-              <Button className="rounded-full bg-primary hover:bg-primary/90 gap-2">
+              <Button className="rounded-full bg-primary hover:bg-primary/90 gap-2" onClick={() => window.open('https://www.instagram.com/snaa.subodhnarvekarsartacademy?igsh=MWNkMXoxamd0NTBqcA==', '_blank')}>
                 <Instagram className="w-4 h-4" /> Follow @subodhnarvekarartacademy
               </Button>
             </div>
@@ -891,17 +888,7 @@ export default function Home() {
                         </div>
                         <div>
                           <h5 className="font-semibold text-lg mb-1">Call Us</h5>
-                          <p className="text-white/80">+91 98765 43210</p>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                          <Mail className="w-5 h-5 text-white" />
-                        </div>
-                        <div>
-                          <h5 className="font-semibold text-lg mb-1">Email</h5>
-                          <p className="text-white/80">info@snaa.in</p>
+                          <p className="text-white/80">+91 8779739115<br/>+91 9326345790</p>
                         </div>
                       </div>
                     </div>
@@ -1014,9 +1001,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
             <div className="md:col-span-4">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl leading-none">
-                  SN
-                </div>
+                <img src="/logo.jpg" alt="SNAA Logo" className="w-10 h-10 rounded-full object-cover" />
                 <span className="font-bold text-lg tracking-tight">
                   Subodh Narvekar's Art Academy
                 </span>
@@ -1025,11 +1010,14 @@ export default function Home() {
                 Nurturing creativity since 2002. Offering comprehensive art education and government certified courses in Mumbai and online.
               </p>
               <div className="flex items-center gap-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors">
+                <a href="https://www.instagram.com/snaa.subodhnarvekarsartacademy?igsh=MWNkMXoxamd0NTBqcA==" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors">
                   <Instagram className="w-5 h-5" />
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors">
+                <a href="https://www.facebook.com/reel/1663614361350893/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors">
                   <Facebook className="w-5 h-5" />
+                </a>
+                <a href="https://youtube.com/@avdhutnarvekarsnaa1850?si=U1Br-bhEh0GfYp2O" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors">
+                  <Youtube className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -1077,11 +1065,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-center gap-3 text-white/60 font-medium">
                   <Phone className="w-5 h-5 text-secondary shrink-0" />
-                  <span>+91 98765 43210</span>
-                </li>
-                <li className="flex items-center gap-3 text-white/60 font-medium">
-                  <Mail className="w-5 h-5 text-secondary shrink-0" />
-                  <span>info@snaa.in</span>
+                  <span>+91 8779739115, +91 9326345790</span>
                 </li>
               </ul>
             </div>
@@ -1099,7 +1083,7 @@ export default function Home() {
 
       {/* WhatsApp Floating Button */}
       <motion.a
-        href="https://wa.me/919876543210?text=Hi%2C%20I'd%20like%20to%20know%20more%20about%20SNAA%20courses"
+        href="https://wa.me/918779739115?text=Hi%2C%20I'd%20like%20to%20know%20more%20about%20SNAA%20courses"
         target="_blank"
         rel="noreferrer"
         data-testid="btn-whatsapp"
