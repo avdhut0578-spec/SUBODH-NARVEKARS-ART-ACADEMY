@@ -151,6 +151,7 @@ export default function Home() {
     { label: "About", id: "about" },
     { label: "Faculty", id: "faculty" },
     { label: "Courses", id: "courses" },
+    { label: "Workshops", id: "workshops" },
     { label: "Gallery", id: "gallery" },
     { label: "Contact", id: "contact" },
   ];
@@ -246,7 +247,7 @@ export default function Home() {
 
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative hidden lg:block">
               <div className="absolute inset-0 bg-primary/20 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              {/* HERO IMAGE UPDATE */}
+              {/* IMAGE UPDATE 1: Hero Image */}
               <img src="/class.jpg" alt="Art Studio Class" className="w-full h-auto rounded-2xl object-cover shadow-2xl" />
             </motion.div>
           </div>
@@ -275,7 +276,6 @@ export default function Home() {
         <section id="about" className="py-20 md:py-28 bg-muted/30">
           <div className="container mx-auto px-6 md:px-12">
             
-            {/* Story */}
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.7 }}>
                 <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-6">Our Story</div>
@@ -301,27 +301,23 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Faculty Section */}
             <div id="faculty" className="text-center">
               <div className="inline-block px-4 py-1 bg-secondary/10 text-secondary font-semibold rounded-full text-sm mb-6">Our Team</div>
               <h3 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-12">Meet Our Instructors</h3>
               
               <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-                {/* Faculty 1 */}
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
                   <img src="/faculty1.jpg" alt="Subodh Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Subodh Narvekar</h4>
                   <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Founder & Lead Instructor</p>
                   <p className="text-foreground/70 text-sm">Decades of professional experience guiding students to national excellence in fine arts.</p>
                 </div>
-                {/* Faculty 2 */}
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
                   <img src="/faculty2.jpg" alt="Avdhut Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Avdhut Narvekar</h4>
                   <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-4">Senior Instructor</p>
                   <p className="text-foreground/70 text-sm">Specializes in advanced techniques, perspective, and preparing students for competitive entrance exams.</p>
                 </div>
-                {/* Faculty 3 */}
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
                   <img src="/faculty3.jpg" alt="Hemangi Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Hemangi Narvekar</h4>
@@ -340,55 +336,7 @@ export default function Home() {
             <div className="text-center max-w-3xl mx-auto mb-16">
               <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-4">Curriculum</div>
               <h3 className="text-3xl md:text-5xl font-sans font-bold text-foreground mb-6">Programs & Courses</h3>
-              <p className="text-lg text-foreground/70 font-medium">Tailored instruction for every age and skill level. Click on standard classes below to flip them and see related artwork.</p>
-            </div>
-
-            <Tabs defaultValue="tab1" className="w-full">
-              <TabsList className="flex flex-wrap h-auto w-full justify-center bg-transparent mb-12 border-b border-border p-0 gap-4 md:gap-8">
-                <TabsTrigger value="tab1" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60">Kids & Teens</TabsTrigger>
-                <TabsTrigger value="tab2" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60">Teens & Adults</TabsTrigger>
-                <TabsTrigger value="tab3" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60">Online Classes</TabsTrigger>
-                <TabsTrigger value="tab4" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60 relative">
-                  Certified Courses <span className="absolute top-1 -right-4 bg-secondary text-white text-[10px] px-2 py-0.5 rounded-full font-bold">GOVT</span>
-                </TabsTrigger>
-              </TabsList>
-
-              {/* Tab 1: Kids & Teens - UPDATED ARTWORK & TITLES */}
-              <TabsContent value="tab1" className="animate-in fade-in-50 duration-500 pt-4">
-                <div className="flex overflow-x-auto pb-8 gap-6 snap-x hide-scrollbar">
-                  {[
-                    { title: "Child Art", desc: "Ages 4–10", icon: Palette },
-                    // Renamed from Grade 7 Exam
-                    { title: "Elementary Exam", desc: "Prep Course", icon: BookOpen },
-                    // Renamed from Grade 8 Exam
-                    { title: "Intermediate Exam", desc: "Prep Course", icon: Award },
-                    { title: "Pencil Shading", desc: "Sketching", icon: Pencil },
-                    // Renamed from Cartoons
-                    { title: "Caricature", desc: "Character Design", icon: Star }
-                  ].map((card, i) => (
-                    <div key={i} className="min-w-[280px] snap-center">
-                       <FlippableCourseCard card={card} />
-                    </div>
-                  ))}
-                </div>
-              </TabsContent>
-
-              {/* Tab 2: Teens & Adults */}
-              <TabsContent value="tab2" className="animate-in fade-in-50 duration-500 pt-4">
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {[
-                    { title: "Watercolor Painting", icon: Palette },
-                    { title: "Acrylic Painting", icon: Palette },
-                    { title: "Charcoal Art", icon: Pencil },
-                    { title: "Warli Painting", desc: "Traditional Indian", icon: Star },
-                    { title: "Mandala Art", icon: Star }
-                  ].map((card, i) => (
-                     <FlippableCourseCard key={i} card={card} />
-                  ))}
-                </div>
-              </TabsContent>
-
-              {/* Tab 3: Online Classes */}
+              <p className="text-lg text-foreground/70 font-medium">Tailored instruction for{/* Tab 3: Online Classes */}
               <TabsContent value="tab3" className="max-w-4xl mx-auto animate-in fade-in-50 duration-500 pt-4">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-primary text-white p-8 rounded-2xl shadow-lg flex flex-col hover:-translate-y-1 transition-transform">
@@ -464,7 +412,201 @@ export default function Home() {
             </Tabs>
           </div>
         </section>
-        {/* 9. REPLACED: NEW WORKSHOPS SECTION */}
+
+        {/* 6.5 COURSE DETAILS SECTION - UPDATED IMAGE LINKS */}
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
+              {/* IMAGE UPDATE 3: Kids/Teens detailed image */}
+              <img src="/group7.jpg" alt="Kids & Teens Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">Kids & Teens Art Classes</h3>
+              <div className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary font-bold text-sm rounded-full mb-6">
+                Ideal for: Kids | Young Adults | Ages 4–15
+              </div>
+              <p className="text-foreground/80 font-medium mb-8 leading-relaxed">
+                Our foundational art classes are designed to spark creativity and build core skills in young learners. From Child Art for beginners to Elementary and Intermediate Grade Exam Preparation, each session blends fun with structured learning.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                {["Child Art (Ages 4–10)", "Elementary Grade Exam Prep", "Intermediate Grade Exam Prep", "Pencil Shading & Sketching", "Caricature & Character Design", "Still Life Drawing", "Memory Drawing", "Watercolor Basics"].map((item, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" />
+                    <span className="text-sm font-semibold">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <Button onClick={() => scrollToSection("contact")} className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-8 py-6 h-auto">ENQUIRE NOW</Button>
+            </motion.div>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-24 bg-muted/20 overflow-hidden">
+          <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="order-2 md:order-1">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">Teens & Adults Classes</h3>
+              <div className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary font-bold text-sm rounded-full mb-6">
+                All Mediums | All Skill Levels
+              </div>
+              <p className="text-foreground/80 font-medium mb-8 leading-relaxed">
+                Whether you're a hobbyist or an aspiring professional, our adult classes offer a relaxed yet structured environment to explore a wide range of art mediums at your own pace.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                {["Watercolor Painting", "Acrylic Painting", "Charcoal Art", "Pen & Ink Drawing", "Warli Painting", "Mandala Art", "Landscape Painting", "Portrait Drawing"].map((item, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" />
+                    <span className="text-sm font-semibold">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <Button onClick={() => scrollToSection("contact")} className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-8 py-6 h-auto">ENQUIRE NOW</Button>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+              className="relative order-1 md:order-2"
+            >
+              <div className="absolute inset-0 bg-secondary/10 rounded-3xl -translate-x-4 translate-y-4 -z-10"></div>
+              {/* IMAGE UPDATE 4: Teens/Adults detailed image */}
+              <img src="/student8.jpg" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+            </motion.div>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
+              {/* IMAGE UPDATE 5: Professional detailed image */}
+              <img src="/student5.jpg" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">Professional & Certified Courses</h3>
+              <div className="inline-block px-4 py-1.5 bg-[#4285F4]/10 text-[#4285F4] font-bold text-sm rounded-full mb-6">
+                Govt. Certified | Affiliated with SDVTI & MBTB
+              </div>
+              <p className="text-foreground/80 font-medium mb-8 leading-relaxed">
+                For those seeking a formal career in art and design, SNAA offers government-certified programs with proven results in national entrance examinations.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                {["Art Teacher's Training Course (ATTC)", "Fine Arts (Foundational & Advanced)", "MH AAC CET Entrance Prep", "NIFT Entrance Preparation", "NID Entrance Preparation", "NATA Entrance Preparation", "Portfolio Development", "Online Coaching Available"].map((item, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" />
+                    <span className="text-sm font-semibold">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <Button onClick={() => scrollToSection("contact")} className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-8 py-6 h-auto">ENQUIRE NOW</Button>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* 7. AFFILIATIONS SECTION */}
+        <section id="affiliations" className="py-20 bg-muted/30 border-y border-border">
+          <div className="container mx-auto px-6 md:px-12">
+            <h3 className="text-3xl font-bold text-center text-foreground mb-12">Recognised & Affiliated With</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-primary flex items-center gap-4 hover:shadow-md transition-shadow">
+                <Shield className="w-8 h-8 text-primary shrink-0" />
+                <div>
+                  <h4 className="font-bold text-lg">Skill India</h4>
+                  <p className="text-sm text-foreground/70">Govt. of India Initiative</p>
+                </div>
+              </div>
+              <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-primary flex items-center gap-4 hover:shadow-md transition-shadow">
+                <BadgeCheck className="w-8 h-8 text-primary shrink-0" />
+                <div>
+                  <h4 className="font-bold text-lg">SDVTI</h4>
+                  <p className="text-sm text-foreground/70">Vocational Training</p>
+                </div>
+              </div>
+              <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-primary flex items-center gap-4 hover:shadow-md transition-shadow">
+                <Award className="w-8 h-8 text-primary shrink-0" />
+                <div>
+                  <h4 className="font-bold text-lg">MBTB</h4>
+                  <p className="text-sm text-foreground/70">Technical Board</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 7.5 CTA BANNER SECTION - UPDATED IMAGE LINKS */}
+        <section className="py-12 bg-white">
+          <div className="container mx-auto px-6 md:px-12">
+            <div className="bg-secondary rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative shadow-2xl">
+              <div className="md:w-[60%] z-10 text-center md:text-left flex flex-col items-center md:items-start">
+                <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
+                  Begin Your Creative Journey at SNAA
+                </h3>
+                <p className="text-white/80 text-lg font-medium mb-8 max-w-xl leading-relaxed">
+                  Expert-led art classes, government-certified courses, and entrance exam preparation — all in one place. Admissions open for 2025–26.
+                </p>
+                <Button onClick={() => scrollToSection("contact")} className="bg-white hover:bg-white/90 text-secondary font-bold rounded-full px-8 py-6 h-auto shadow-lg hover:-translate-y-1 transition-all">
+                  ENQUIRE NOW
+                </Button>
+              </div>
+              
+              {/* IMAGE UPDATE 6: CTA BANNER */}
+              <div className="md:w-[40%] grid grid-cols-2 gap-4 z-10 w-full aspect-square md:aspect-auto">
+                <img src="/work5.jpg" alt="Artwork 1" className="rounded-xl w-full h-full object-cover shadow-md" />
+                <img src="/work2.jpg" alt="Artwork 2" className="rounded-xl w-full h-full object-cover shadow-md translate-y-4" />
+                <img src="/work8.jpg" alt="Artwork 3" className="rounded-xl w-full h-full object-cover shadow-md -translate-y-4" />
+                <img src="/work7.jpg" alt="Artwork 4" className="rounded-xl w-full h-full object-cover shadow-md" />
+              </div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+            </div>
+          </div>
+        </section>
+
+        {/* 8. GALLERY SECTION - COMPLETELY REPLACED LIST */}
+        <section id="gallery" className="py-20 md:py-28 bg-white">
+          <div className="container mx-auto px-6 md:px-12">
+            <div className="text-center mb-16">
+              <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-4">
+                Portfolio
+              </div>
+              <h3 className="text-3xl md:text-5xl font-sans font-bold text-foreground">Student Gallery</h3>
+            </div>
+            
+            {/* IMAGE UPDATE 7/8: GALLERY GRID */}
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+              {[
+                { src: "/group8.jpg", alt: "Academy Session" },
+                { src: "/group1.jpg", alt: "Student Gathering" },
+                { src: "/group2.jpg", alt: "Art Class" },
+                { src: "/group3.jpg", alt: "Exhibition View" },
+                { src: "/group4.jpg", alt: "Workshop Group" },
+                { src: "/group6.jpg", alt: "Creating Art" },
+                { src: "/homepage.jpg", alt: "Studio Life" },
+                { src: "/student1.jpg", alt: "Portrait Practice" },
+                { src: "/student2.jpg", alt: "Focus in Class" },
+                { src: "/student3.jpg", alt: "Foundational Sketching" },
+                { src: "/student6.jpg", alt: "Advanced Techniques" },
+                { src: "/student9.jpg", alt: "Art Student" },
+                { src: "/student10.jpg", alt: "Class Session" },
+                { src: "/student11.jpg", alt: "Creating Art" },
+                { src: "/student12.jpg", alt: "Academy Member" },
+                { src: "/work1.jpg", alt: "Fruits Still Life" },
+                { src: "/work3.jpg", alt: "Detailed Sketch" },
+                { src: "/work6.jpg", alt: "Charcoal Portrait" }
+              ].map((img, i) => (
+                <div key={i} className="relative rounded-2xl overflow-hidden group break-inside-avoid shadow-sm hover:shadow-xl transition-all cursor-pointer">
+                  <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" />
+                  <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center">
+                    <span className="text-white font-bold text-lg mb-2">View Artwork</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>{/* 9. REPLACED: NEW WORKSHOPS SECTION */}
         <section id="workshops" className="py-20 md:py-28 bg-muted/20">
           <div className="container mx-auto px-6 md:px-12">
             <div className="text-center max-w-3xl mx-auto mb-16">
