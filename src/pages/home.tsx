@@ -151,7 +151,6 @@ export default function Home() {
     { label: "About", id: "about" },
     { label: "Faculty", id: "faculty" },
     { label: "Courses", id: "courses" },
-    { label: "Workshops", id: "workshops" },
     { label: "Gallery", id: "gallery" },
     { label: "Contact", id: "contact" },
   ];
@@ -247,7 +246,7 @@ export default function Home() {
 
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative hidden lg:block">
               <div className="absolute inset-0 bg-primary/20 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              {/* IMAGE UPDATE 1: Hero Image */}
+              {/* HERO IMAGE UPDATE */}
               <img src="/class.jpg" alt="Art Studio Class" className="w-full h-auto rounded-2xl object-cover shadow-2xl" />
             </motion.div>
           </div>
@@ -276,6 +275,7 @@ export default function Home() {
         <section id="about" className="py-20 md:py-28 bg-muted/30">
           <div className="container mx-auto px-6 md:px-12">
             
+            {/* Story */}
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.7 }}>
                 <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-6">Our Story</div>
@@ -301,23 +301,27 @@ export default function Home() {
               </motion.div>
             </div>
 
+            {/* Faculty Section */}
             <div id="faculty" className="text-center">
               <div className="inline-block px-4 py-1 bg-secondary/10 text-secondary font-semibold rounded-full text-sm mb-6">Our Team</div>
               <h3 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-12">Meet Our Instructors</h3>
               
               <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+                {/* Faculty 1 */}
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
                   <img src="/faculty1.jpg" alt="Subodh Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Subodh Narvekar</h4>
                   <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Founder & Lead Instructor</p>
                   <p className="text-foreground/70 text-sm">Decades of professional experience guiding students to national excellence in fine arts.</p>
                 </div>
+                {/* Faculty 2 */}
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
                   <img src="/faculty2.jpg" alt="Avdhut Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Avdhut Narvekar</h4>
                   <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-4">Senior Instructor</p>
                   <p className="text-foreground/70 text-sm">Specializes in advanced techniques, perspective, and preparing students for competitive entrance exams.</p>
                 </div>
+                {/* Faculty 3 */}
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
                   <img src="/faculty3.jpg" alt="Hemangi Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Hemangi Narvekar</h4>
@@ -336,7 +340,52 @@ export default function Home() {
             <div className="text-center max-w-3xl mx-auto mb-16">
               <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-4">Curriculum</div>
               <h3 className="text-3xl md:text-5xl font-sans font-bold text-foreground mb-6">Programs & Courses</h3>
-              <p className="text-lg text-foreground/70 font-medium">Tailored instruction for{/* Tab 3: Online Classes */}
+              <p className="text-lg text-foreground/70 font-medium">Tailored instruction for every age and skill level. Click on standard classes below to flip them and see related artwork.</p>
+            </div>
+
+            <Tabs defaultValue="tab1" className="w-full">
+              <TabsList className="flex flex-wrap h-auto w-full justify-center bg-transparent mb-12 border-b border-border p-0 gap-4 md:gap-8">
+                <TabsTrigger value="tab1" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60">Kids & Teens</TabsTrigger>
+                <TabsTrigger value="tab2" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60">Teens & Adults</TabsTrigger>
+                <TabsTrigger value="tab3" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60">Online Classes</TabsTrigger>
+                <TabsTrigger value="tab4" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60 relative">
+                  Certified Courses <span className="absolute top-1 -right-4 bg-secondary text-white text-[10px] px-2 py-0.5 rounded-full font-bold">GOVT</span>
+                </TabsTrigger>
+              </TabsList>
+
+              {/* Tab 1: Kids & Teens */}
+              <TabsContent value="tab1" className="animate-in fade-in-50 duration-500 pt-4">
+                <div className="flex overflow-x-auto pb-8 gap-6 snap-x hide-scrollbar">
+                  {[
+                    { title: "Child Art", desc: "Ages 4–10", icon: Palette },
+                    { title: "Elementary Exam", desc: "Prep Course", icon: BookOpen },
+                    { title: "Intermediate Exam", desc: "Prep Course", icon: Award },
+                    { title: "Pencil Shading", desc: "Sketching", icon: Pencil },
+                    { title: "Caricature", desc: "Character Design", icon: Star }
+                  ].map((card, i) => (
+                    <div key={i} className="min-w-[280px] snap-center">
+                       <FlippableCourseCard card={card} />
+                    </div>
+                  ))}
+                </div>
+              </TabsContent>
+
+              {/* Tab 2: Teens & Adults */}
+              <TabsContent value="tab2" className="animate-in fade-in-50 duration-500 pt-4">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {[
+                    { title: "Watercolor Painting", icon: Palette },
+                    { title: "Acrylic Painting", icon: Palette },
+                    { title: "Charcoal Art", icon: Pencil },
+                    { title: "Warli Painting", desc: "Traditional Indian", icon: Star },
+                    { title: "Mandala Art", icon: Star }
+                  ].map((card, i) => (
+                     <FlippableCourseCard key={i} card={card} />
+                  ))}
+                </div>
+              </TabsContent>
+
+              {/* Tab 3: Online Classes */}
               <TabsContent value="tab3" className="max-w-4xl mx-auto animate-in fade-in-50 duration-500 pt-4">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-primary text-white p-8 rounded-2xl shadow-lg flex flex-col hover:-translate-y-1 transition-transform">
@@ -413,7 +462,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 6.5 COURSE DETAILS SECTION - UPDATED IMAGE LINKS */}
+        {/* 6.5 COURSE DETAILS SECTION */}
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
             <motion.div 
@@ -537,7 +586,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 7.5 CTA BANNER SECTION - UPDATED IMAGE LINKS */}
+        {/* 7.5 CTA BANNER SECTION */}
         <section className="py-12 bg-white">
           <div className="container mx-auto px-6 md:px-12">
             <div className="bg-secondary rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative shadow-2xl">
@@ -565,7 +614,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 8. GALLERY SECTION - COMPLETELY REPLACED LIST */}
+        {/* 8. GALLERY SECTION */}
         <section id="gallery" className="py-20 md:py-28 bg-white">
           <div className="container mx-auto px-6 md:px-12">
             <div className="text-center mb-16">
@@ -606,7 +655,9 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>{/* 9. REPLACED: NEW WORKSHOPS SECTION */}
+        </section>
+
+        {/* 9. NEW WORKSHOPS SECTION */}
         <section id="workshops" className="py-20 md:py-28 bg-muted/20">
           <div className="container mx-auto px-6 md:px-12">
             <div className="text-center max-w-3xl mx-auto mb-16">
