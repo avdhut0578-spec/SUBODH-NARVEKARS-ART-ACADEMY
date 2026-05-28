@@ -60,21 +60,18 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
-// THE COMPREHENSIVE FLIPPABLE COURSE ARTWORK MAP (.PNG CORRECTIONS)
+// THE COMPREHENSIVE FLIPPABLE COURSE ARTWORK MAP (.JPG FIX)
 const courseArtwork: { [key: string]: string } = {
-  // Kids & Teens
-  "Child Art": "/student4.png",
-  "Elementary Exam": "/student13.png",
-  "Intermediate Exam": "/student7.png",
-  "Pencil Shading": "/work4.png",
-  "Caricature": "/caricature.png",
-  
-  // Teens & Adults Hobby
-  "Watercolor Painting": "/work1.png",
-  "Acrylic Painting": "/work3.png",
-  "Charcoal Art": "/work6.png",
-  "Warli Painting": "/workshop1.png",
-  "Mandala Art": "/workshop6.png",
+  "Child Art": "/student4.jpg",
+  "Elementary Exam": "/student13.jpg",
+  "Intermediate Exam": "/student7.jpg",
+  "Pencil Shading": "/work4.jpg",
+  "Caricature": "/caricature.jpg",
+  "Watercolor Painting": "/work1.jpg",
+  "Acrylic Painting": "/work3.jpg",
+  "Charcoal Art": "/work6.jpg",
+  "Warli Painting": "/workshop1.jpg",
+  "Mandala Art": "/workshop6.jpg",
 };
 
 const FlippableCourseCard = ({ card }: { card: { title: string; desc?: string; icon: any } }) => {
@@ -176,7 +173,7 @@ export default function Home() {
       <header className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-sm py-4 border-b border-border" : "bg-white py-4"}`}>
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <img src="/logo.png" alt="SNAA Logo" className="w-12 h-12 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform" />
+            <img src="/logo.jpg" alt="SNAA Logo" className="w-12 h-12 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform" />
             <div className="flex flex-col">
               <span className="font-sans font-bold text-lg leading-tight tracking-tight text-foreground">Subodh Narvekar's</span>
               <span className="text-xs uppercase tracking-wider text-primary font-semibold">Art Academy</span>
@@ -214,8 +211,8 @@ export default function Home() {
       </header>
 
       <main>
-        {/* 3. HERO SECTION */}
-        <section className="relative pt-20 pb-20 md:pt-32 md:pb-32 flex items-center overflow-hidden" style={{ background: "linear-gradient(135deg, #e8f4ff 0%, #f0e8ff 50%, #e8fff4 100%)" }}>
+        {/* 3. HERO SECTION - With Aesthetic Pink/Green Background */}
+        <section className="relative pt-20 pb-20 md:pt-32 md:pb-32 flex items-center overflow-hidden" style={{ background: "linear-gradient(135deg, #fce7f3 0%, #fdf2f8 50%, #d1fae5 100%)" }}>
           <div className="container mx-auto px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
             
             <div className="flex flex-col items-start text-left max-w-xl">
@@ -246,7 +243,7 @@ export default function Home() {
 
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative hidden lg:block">
               <div className="absolute inset-0 bg-primary/20 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              {/* IMAGE REPLACEMENT 1: class.png */}
+              {/* IMAGE FIX: class.png */}
               <img src="/class.png" alt="Art Studio Class" className="w-full h-auto rounded-2xl object-cover shadow-2xl" />
             </motion.div>
           </div>
@@ -275,7 +272,7 @@ export default function Home() {
         <section id="about" className="py-20 md:py-28 bg-muted/30">
           <div className="container mx-auto px-6 md:px-12">
             
-            {/* Our Story */}
+            {/* Story */}
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.7 }}>
                 <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-6">Our Story</div>
@@ -301,26 +298,26 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Faculty Spotlights */}
+            {/* Faculty Section */}
             <div id="faculty" className="text-center">
               <div className="inline-block px-4 py-1 bg-secondary/10 text-secondary font-semibold rounded-full text-sm mb-6">Our Team</div>
               <h3 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-12">Meet Our Instructors</h3>
               
               <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
-                  <img src="/faculty1.png" alt="Subodh Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
+                  <img src="/faculty1.jpg" alt="Subodh Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Subodh Narvekar</h4>
                   <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Founder & Lead Instructor</p>
                   <p className="text-foreground/70 text-sm">Decades of professional experience guiding students to national excellence in fine arts.</p>
                 </div>
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
-                  <img src="/faculty2.png" alt="Avdhut Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
+                  <img src="/faculty2.jpg" alt="Avdhut Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Avdhut Narvekar</h4>
                   <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-4">Senior Instructor</p>
                   <p className="text-foreground/70 text-sm">Specializes in advanced techniques, perspective, and preparing students for competitive entrance exams.</p>
                 </div>
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
-                  <img src="/faculty3.png" alt="Hemangi Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
+                  <img src="/faculty3.jpg" alt="Hemangi Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Hemangi Narvekar</h4>
                   <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-4">Senior Instructor</p>
                   <p className="text-foreground/70 text-sm">Expert in child art development, foundational sketching, and nurturing early creative talent.</p>
@@ -350,7 +347,6 @@ export default function Home() {
                 </TabsTrigger>
               </TabsList>
 
-              {/* Tab 1: Kids & Teens - UPDATED TITLES */}
               <TabsContent value="tab1" className="animate-in fade-in-50 duration-500 pt-4">
                 <div className="flex overflow-x-auto pb-8 gap-6 snap-x hide-scrollbar">
                   {[
@@ -367,7 +363,6 @@ export default function Home() {
                 </div>
               </TabsContent>
 
-              {/* Tab 2: Teens & Adults */}
               <TabsContent value="tab2" className="animate-in fade-in-50 duration-500 pt-4">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
@@ -382,7 +377,6 @@ export default function Home() {
                 </div>
               </TabsContent>
 
-              {/* Tab 3: Online Classes */}
               <TabsContent value="tab3" className="max-w-4xl mx-auto animate-in fade-in-50 duration-500 pt-4">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-primary text-white p-8 rounded-2xl shadow-lg flex flex-col hover:-translate-y-1 transition-transform">
@@ -402,7 +396,6 @@ export default function Home() {
                 </div>
               </TabsContent>
 
-              {/* Tab 4: Certified Courses */}
               <TabsContent value="tab4" className="animate-in fade-in-50 duration-500 pt-4">
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <div className="bg-primary text-white p-8 rounded-2xl shadow-lg relative overflow-hidden flex flex-col hover:-translate-y-1 transition-transform">
@@ -447,13 +440,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 6.5 COURSE DETAILS SECTION - IMAGE CORRECTIONS */}
+        {/* 6.5 COURSE DETAILS SECTION */}
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
               <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              {/* IMAGE UPDATE 3: group7.png */}
-              <img src="/group7.png" alt="Kids & Teens Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+              <img src="/group7.jpg" alt="Kids & Teens Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <h3 className="text-3xl md:text-4xl font-bold mb-4">Kids & Teens Art Classes</h3>
@@ -492,8 +484,7 @@ export default function Home() {
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative order-1 md:order-2">
               <div className="absolute inset-0 bg-secondary/10 rounded-3xl -translate-x-4 translate-y-4 -z-10"></div>
-              {/* IMAGE UPDATE 4: student8.png */}
-              <img src="/student8.png" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+              <img src="/student8.jpg" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
           </div>
         </section>
@@ -502,8 +493,7 @@ export default function Home() {
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
               <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              {/* IMAGE UPDATE 5: student5.png */}
-              <img src="/student5.png" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+              <img src="/student5.jpg" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <h3 className="text-3xl md:text-4xl font-bold mb-4">Professional & Certified Courses</h3>
@@ -544,7 +534,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 7.5 CTA BANNER SECTION - IMAGE UPDATES */}
+        {/* 7.5 CTA BANNER SECTION */}
         <section className="py-12 bg-white">
           <div className="container mx-auto px-6 md:px-12">
             <div className="bg-secondary rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative shadow-2xl">
@@ -558,19 +548,18 @@ export default function Home() {
                 </Button>
               </div>
               
-              {/* IMAGE UPDATE 6: CTA BANNER REF FIXES */}
               <div className="md:w-[40%] grid grid-cols-2 gap-4 z-10 w-full aspect-square md:aspect-auto">
-                <img src="/work5.png" alt="Artwork 1" className="rounded-xl w-full h-full object-cover shadow-md" />
-                <img src="/work2.png" alt="Artwork 2" className="rounded-xl w-full h-full object-cover shadow-md translate-y-4" />
-                <img src="/work8.png" alt="Artwork 3" className="rounded-xl w-full h-full object-cover shadow-md -translate-y-4" />
-                <img src="/work7.png" alt="Artwork 4" className="rounded-xl w-full h-full object-cover shadow-md" />
+                <img src="/work5.jpg" alt="Artwork 1" className="rounded-xl w-full h-full object-cover shadow-md" />
+                <img src="/work2.jpg" alt="Artwork 2" className="rounded-xl w-full h-full object-cover shadow-md translate-y-4" />
+                <img src="/work8.jpg" alt="Artwork 3" className="rounded-xl w-full h-full object-cover shadow-md -translate-y-4" />
+                <img src="/work7.jpg" alt="Artwork 4" className="rounded-xl w-full h-full object-cover shadow-md" />
               </div>
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
             </div>
           </div>
         </section>
 
-        {/* 8. GALLERY SECTION - THE CHOSEN 18 ARTWORKS */}
+        {/* 8. GALLERY SECTION */}
         <section id="gallery" className="py-20 md:py-28 bg-white">
           <div className="container mx-auto px-6 md:px-12">
             <div className="text-center mb-16">
@@ -580,24 +569,24 @@ export default function Home() {
             
             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
               {[
-                { src: "/group8.png", alt: "Academy Session" },
-                { src: "/group1.png", alt: "Student Gathering" },
-                { src: "/group2.png", alt: "Art Class" },
-                { src: "/group3.png", alt: "Exhibition View" },
-                { src: "/group4.png", alt: "Workshop Group" },
-                { src: "/group6.png", alt: "Creating Art" },
-                { src: "/homepage.png", alt: "Studio Life" },
-                { src: "/student1.png", alt: "Portrait Practice" },
-                { src: "/student2.png", alt: "Focus in Class" },
-                { src: "/student3.png", alt: "Foundational Sketching" },
-                { src: "/student6.png", alt: "Advanced Techniques" },
-                { src: "/student9.png", alt: "Art Student" },
-                { src: "/student10.png", alt: "Class Session" },
-                { src: "/student11.png", alt: "Creating Art" },
-                { src: "/student12.png", alt: "Academy Member" },
-                { src: "/work1.png", alt: "Fruits Still Life" },
-                { src: "/work3.png", alt: "Detailed Sketch" },
-                { src: "/work6.png", alt: "Charcoal Portrait" }
+                { src: "/group8.jpg", alt: "Academy Session" },
+                { src: "/group1.jpg", alt: "Student Gathering" },
+                { src: "/group2.jpg", alt: "Art Class" },
+                { src: "/group3.jpg", alt: "Exhibition View" },
+                { src: "/group4.jpg", alt: "Workshop Group" },
+                { src: "/group6.jpg", alt: "Creating Art" },
+                { src: "/homepage.jpg", alt: "Studio Life" },
+                { src: "/student1.jpg", alt: "Portrait Practice" },
+                { src: "/student2.jpg", alt: "Focus in Class" },
+                { src: "/student3.jpg", alt: "Foundational Sketching" },
+                { src: "/student6.jpg", alt: "Advanced Techniques" },
+                { src: "/student9.jpg", alt: "Art Student" },
+                { src: "/student10.jpg", alt: "Class Session" },
+                { src: "/student11.jpg", alt: "Creating Art" },
+                { src: "/student12.jpg", alt: "Academy Member" },
+                { src: "/work1.jpg", alt: "Fruits Still Life" },
+                { src: "/work3.jpg", alt: "Detailed Sketch" },
+                { src: "/work6.jpg", alt: "Charcoal Portrait" }
               ].map((img, i) => (
                 <div key={i} className="relative rounded-2xl overflow-hidden group break-inside-avoid shadow-sm hover:shadow-xl transition-all cursor-pointer">
                   <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" />
@@ -610,7 +599,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 9. SPECIAL WORKSHOPS SECTION (REPLACED REELS) */}
+        {/* 9. NEW WORKSHOPS SECTION */}
         <section id="workshops" className="py-20 md:py-28 bg-muted/20">
           <div className="container mx-auto px-6 md:px-12">
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -621,12 +610,12 @@ export default function Home() {
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {[
-                { src: "/workshop1.png", alt: "Complex Still Life" },
-                { src: "/workshop2.png", alt: "Watercolor Session" },
-                { src: "/workshop3.png", alt: "Perspective Drawing" },
-                { src: "/workshop4.png", alt: "Character Design" },
-                { src: "/workshop5.png", alt: "Traditional Techniques" },
-                { src: "/workshop6.png", alt: "Advanced Traditional Art" }
+                { src: "/workshop1.jpg", alt: "Complex Still Life" },
+                { src: "/workshop2.jpg", alt: "Watercolor Session" },
+                { src: "/workshop3.jpg", alt: "Perspective Drawing" },
+                { src: "/workshop4.jpg", alt: "Character Design" },
+                { src: "/workshop5.jpg", alt: "Traditional Techniques" },
+                { src: "/workshop6.jpg", alt: "Advanced Traditional Art" }
               ].map((img, i) => (
                 <div key={i} className="relative rounded-2xl overflow-hidden group aspect-[4/3] shadow-sm hover:shadow-xl transition-all cursor-pointer">
                   <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
