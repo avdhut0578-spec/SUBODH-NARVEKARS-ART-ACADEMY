@@ -60,18 +60,21 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
-// Assigned real artworks from your public folder
+// THE COMPREHENSIVE FLIPPABLE COURSE ARTWORK MAP
 const courseArtwork: { [key: string]: string } = {
-  "Child Art": "/student1.jpg",
-  "Grade 7 Exam": "/work1.jpg",
-  "Grade 8 Exam": "/work2.jpg",
-  "Pencil Shading": "/work3.jpg",
-  "Cartoons": "/student2.jpg",
-  "Watercolor Painting": "/work4.jpg",
-  "Acrylic Painting": "/work5.jpg",
+  // Kids & Teens
+  "Child Art": "/student4.jpg",
+  "Elementary Exam": "/student13.jpg",
+  "Intermediate Exam": "/student7.jpg",
+  "Pencil Shading": "/work4.jpg",
+  "Caricature": "/caricature.jpg",
+  
+  // Teens & Adults Hobby
+  "Watercolor Painting": "/work1.jpg",
+  "Acrylic Painting": "/work3.jpg",
   "Charcoal Art": "/work6.jpg",
   "Warli Painting": "/workshop1.jpg",
-  "Mandala Art": "/workshop6.jpg"
+  "Mandala Art": "/workshop6.jpg",
 };
 
 const FlippableCourseCard = ({ card }: { card: { title: string; desc?: string; icon: any } }) => {
@@ -162,9 +165,9 @@ export default function Home() {
             <span className="flex items-center gap-2"><Phone className="w-4 h-4"/> +91 8779739115, +91 9326345790</span>
           </div>
           <div className="flex items-center gap-4">
-            <a href="https://www.instagram.com/snaa.subodhnarvekarsartacademy?igsh=MWNkMXoxamd0NTBqcA==" target="_blank" rel="noreferrer" className="hover:text-primary-foreground/80"><Instagram className="w-4 h-4"/></a>
-            <a href="https://www.facebook.com/reel/1663614361350893/" target="_blank" rel="noreferrer" className="hover:text-primary-foreground/80"><Facebook className="w-4 h-4"/></a>
-            <a href="https://youtube.com/@avdhutnarvekarsnaa1850?si=U1Br-bhEh0GfYp2O" target="_blank" rel="noreferrer" className="hover:text-primary-foreground/80"><Youtube className="w-4 h-4"/></a>
+            <a href="https://www.instagram.com/snaa.subodhnarvekarsartacademy?igsh=MWNkMXoxamd0NTBqcA==" target="_blank" rel="noreferrer" className="hover:text-primary-foreground/80 transition-colors"><Instagram className="w-4 h-4"/></a>
+            <a href="https://www.facebook.com/reel/1663614361350893/" target="_blank" rel="noreferrer" className="hover:text-primary-foreground/80 transition-colors"><Facebook className="w-4 h-4"/></a>
+            <a href="https://youtube.com/@avdhutnarvekarsnaa1850?si=U1Br-bhEh0GfYp2O" target="_blank" rel="noreferrer" className="hover:text-primary-foreground/80 transition-colors"><Youtube className="w-4 h-4"/></a>
           </div>
         </div>
       </div>
@@ -243,6 +246,7 @@ export default function Home() {
 
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative hidden lg:block">
               <div className="absolute inset-0 bg-primary/20 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
+              {/* HERO IMAGE UPDATE */}
               <img src="/class.jpg" alt="Art Studio Class" className="w-full h-auto rounded-2xl object-cover shadow-2xl" />
             </motion.div>
           </div>
@@ -271,6 +275,7 @@ export default function Home() {
         <section id="about" className="py-20 md:py-28 bg-muted/30">
           <div className="container mx-auto px-6 md:px-12">
             
+            {/* Story */}
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.7 }}>
                 <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-6">Our Story</div>
@@ -296,23 +301,27 @@ export default function Home() {
               </motion.div>
             </div>
 
+            {/* Faculty Section */}
             <div id="faculty" className="text-center">
               <div className="inline-block px-4 py-1 bg-secondary/10 text-secondary font-semibold rounded-full text-sm mb-6">Our Team</div>
               <h3 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-12">Meet Our Instructors</h3>
               
               <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+                {/* Faculty 1 */}
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
                   <img src="/faculty1.jpg" alt="Subodh Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Subodh Narvekar</h4>
                   <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Founder & Lead Instructor</p>
                   <p className="text-foreground/70 text-sm">Decades of professional experience guiding students to national excellence in fine arts.</p>
                 </div>
+                {/* Faculty 2 */}
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
                   <img src="/faculty2.jpg" alt="Avdhut Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Avdhut Narvekar</h4>
                   <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-4">Senior Instructor</p>
                   <p className="text-foreground/70 text-sm">Specializes in advanced techniques, perspective, and preparing students for competitive entrance exams.</p>
                 </div>
+                {/* Faculty 3 */}
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
                   <img src="/faculty3.jpg" alt="Hemangi Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Hemangi Narvekar</h4>
@@ -344,20 +353,27 @@ export default function Home() {
                 </TabsTrigger>
               </TabsList>
 
+              {/* Tab 1: Kids & Teens - UPDATED ARTWORK & TITLES */}
               <TabsContent value="tab1" className="animate-in fade-in-50 duration-500 pt-4">
                 <div className="flex overflow-x-auto pb-8 gap-6 snap-x hide-scrollbar">
                   {[
                     { title: "Child Art", desc: "Ages 4–10", icon: Palette },
-                    { title: "Grade 7 Exam", desc: "Prep Course", icon: BookOpen },
-                    { title: "Grade 8 Exam", desc: "Prep Course", icon: Award },
+                    // Renamed from Grade 7 Exam
+                    { title: "Elementary Exam", desc: "Prep Course", icon: BookOpen },
+                    // Renamed from Grade 8 Exam
+                    { title: "Intermediate Exam", desc: "Prep Course", icon: Award },
                     { title: "Pencil Shading", desc: "Sketching", icon: Pencil },
-                    { title: "Cartoons", desc: "Character Design", icon: Star }
+                    // Renamed from Cartoons
+                    { title: "Caricature", desc: "Character Design", icon: Star }
                   ].map((card, i) => (
-                    <div key={i} className="min-w-[280px] snap-center"><FlippableCourseCard card={card} /></div>
+                    <div key={i} className="min-w-[280px] snap-center">
+                       <FlippableCourseCard card={card} />
+                    </div>
                   ))}
                 </div>
               </TabsContent>
 
+              {/* Tab 2: Teens & Adults */}
               <TabsContent value="tab2" className="animate-in fade-in-50 duration-500 pt-4">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
@@ -366,10 +382,13 @@ export default function Home() {
                     { title: "Charcoal Art", icon: Pencil },
                     { title: "Warli Painting", desc: "Traditional Indian", icon: Star },
                     { title: "Mandala Art", icon: Star }
-                  ].map((card, i) => (<FlippableCourseCard key={i} card={card} />))}
+                  ].map((card, i) => (
+                     <FlippableCourseCard key={i} card={card} />
+                  ))}
                 </div>
               </TabsContent>
 
+              {/* Tab 3: Online Classes */}
               <TabsContent value="tab3" className="max-w-4xl mx-auto animate-in fade-in-50 duration-500 pt-4">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-primary text-white p-8 rounded-2xl shadow-lg flex flex-col hover:-translate-y-1 transition-transform">
@@ -389,6 +408,7 @@ export default function Home() {
                 </div>
               </TabsContent>
 
+              {/* Tab 4: Certified Courses */}
               <TabsContent value="tab4" className="animate-in fade-in-50 duration-500 pt-4">
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <div className="bg-primary text-white p-8 rounded-2xl shadow-lg relative overflow-hidden flex flex-col hover:-translate-y-1 transition-transform">
@@ -396,8 +416,14 @@ export default function Home() {
                     <h4 className="text-2xl font-bold uppercase mb-2 pr-12 tracking-tight">Art Teacher's Training Course (ATTC)</h4>
                     <div className="bg-white text-primary text-xs font-bold px-3 py-1 rounded-full inline-block mb-6 w-fit">Government Certified</div>
                     <ul className="space-y-3 font-medium text-white/90 mb-10">
-                      <li className="flex items-start gap-2"><CheckCircle2 className="w-5 h-5 shrink-0" /><span>Prepares students to teach at school level</span></li>
-                      <li className="flex items-start gap-2"><CheckCircle2 className="w-5 h-5 shrink-0" /><span>Affiliated with SDVTI & MBTB</span></li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-5 h-5 shrink-0" />
+                        <span>Prepares students to teach at school level</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-5 h-5 shrink-0" />
+                        <span>Affiliated with SDVTI & MBTB</span>
+                      </li>
                     </ul>
                   </div>
                   
@@ -406,8 +432,14 @@ export default function Home() {
                     <h4 className="text-2xl font-bold uppercase mb-2 tracking-tight">Fine Arts</h4>
                     <div className="bg-transparent text-transparent text-xs font-bold px-3 py-1 mb-6 w-fit select-none">Placeholder</div>
                     <ul className="space-y-3 font-medium text-white/90 mb-10">
-                      <li className="flex items-start gap-2"><CheckCircle2 className="w-5 h-5 shrink-0" /><span>Foundational & advanced fine arts training</span></li>
-                      <li className="flex items-start gap-2"><CheckCircle2 className="w-5 h-5 shrink-0" /><span>Professional portfolio development</span></li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-5 h-5 shrink-0" />
+                        <span>Foundational & advanced fine arts training</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-5 h-5 shrink-0" />
+                        <span>Professional portfolio development</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -431,149 +463,34 @@ export default function Home() {
               </TabsContent>
             </Tabs>
           </div>
-        </section>{/* 6.5 COURSE DETAILS SECTION */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
-              <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/student5.jpg" alt="Kids & Teens Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">Kids & Teens Art Classes</h3>
-              <div className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary font-bold text-sm rounded-full mb-6">Ideal for: Kids | Young Adults | Ages 4–15</div>
-              <p className="text-foreground/80 font-medium mb-8 leading-relaxed">
-                Our foundational art classes are designed to spark creativity and build core skills in young learners. From Child Art for beginners to Elementary and Intermediate Grade Exam Preparation, each session blends fun with structured learning.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {["Child Art (Ages 4–10)", "Elementary Grade Exam Prep", "Intermediate Grade Exam Prep", "Pencil Shading & Sketching", "Cartoons & Character Design", "Still Life Drawing", "Memory Drawing", "Watercolor Basics"].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" /><span className="text-sm font-semibold">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <Button onClick={() => scrollToSection("contact")} className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-8 py-6 h-auto">ENQUIRE NOW</Button>
-            </motion.div>
-          </div>
         </section>
-
-        <section className="py-16 md:py-24 bg-muted/20 overflow-hidden">
-          <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="order-2 md:order-1">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">Teens & Adults Classes</h3>
-              <div className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary font-bold text-sm rounded-full mb-6">All Mediums | All Skill Levels</div>
-              <p className="text-foreground/80 font-medium mb-8 leading-relaxed">
-                Whether you're a hobbyist or an aspiring professional, our adult classes offer a relaxed yet structured environment to explore a wide range of art mediums at your own pace.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {["Watercolor Painting", "Acrylic Painting", "Charcoal Art", "Pen & Ink Drawing", "Warli Painting", "Mandala Art", "Landscape Painting", "Portrait Drawing"].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" /><span className="text-sm font-semibold">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <Button onClick={() => scrollToSection("contact")} className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-8 py-6 h-auto">ENQUIRE NOW</Button>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative order-1 md:order-2">
-              <div className="absolute inset-0 bg-secondary/10 rounded-3xl -translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/work5.jpg" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
-            </motion.div>
-          </div>
-        </section>
-
-        <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
-              <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/group7.jpg" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">Professional & Certified Courses</h3>
-              <div className="inline-block px-4 py-1.5 bg-[#4285F4]/10 text-[#4285F4] font-bold text-sm rounded-full mb-6">Govt. Certified | Affiliated with SDVTI & MBTB</div>
-              <p className="text-foreground/80 font-medium mb-8 leading-relaxed">
-                For those seeking a formal career in art and design, SNAA offers government-certified programs with proven results in national entrance examinations.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {["Art Teacher's Training Course (ATTC)", "Fine Arts (Foundational & Advanced)", "MH AAC CET Entrance Prep", "NIFT Entrance Preparation", "NID Entrance Preparation", "NATA Entrance Preparation", "Portfolio Development", "Online Coaching Available"].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" /><span className="text-sm font-semibold">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <Button onClick={() => scrollToSection("contact")} className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-8 py-6 h-auto">ENQUIRE NOW</Button>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* 7. AFFILIATIONS SECTION */}
-        <section id="affiliations" className="py-20 bg-muted/30 border-y border-border">
+        {/* 9. REPLACED: NEW WORKSHOPS SECTION */}
+        <section id="workshops" className="py-20 md:py-28 bg-muted/20">
           <div className="container mx-auto px-6 md:px-12">
-            <h3 className="text-3xl font-bold text-center text-foreground mb-12">Recognised & Affiliated With</h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-primary flex items-center gap-4 hover:shadow-md transition-shadow">
-                <Shield className="w-8 h-8 text-primary shrink-0" />
-                <div><h4 className="font-bold text-lg">Skill India</h4><p className="text-sm text-foreground/70">Govt. of India Initiative</p></div>
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-4">
+                Creative Learning
               </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-primary flex items-center gap-4 hover:shadow-md transition-shadow">
-                <BadgeCheck className="w-8 h-8 text-primary shrink-0" />
-                <div><h4 className="font-bold text-lg">SDVTI</h4><p className="text-sm text-foreground/70">Vocational Training</p></div>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-primary flex items-center gap-4 hover:shadow-md transition-shadow">
-                <Award className="w-8 h-8 text-primary shrink-0" />
-                <div><h4 className="font-bold text-lg">MBTB</h4><p className="text-sm text-foreground/70">Technical Board</p></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 7.5 CTA BANNER SECTION */}
-        <section className="py-12 bg-white">
-          <div className="container mx-auto px-6 md:px-12">
-            <div className="bg-secondary rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative shadow-2xl">
-              <div className="md:w-[60%] z-10 text-center md:text-left flex flex-col items-center md:items-start">
-                <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">Begin Your Creative Journey at SNAA</h3>
-                <p className="text-white/80 text-lg font-medium mb-8 max-w-xl leading-relaxed">
-                  Expert-led art classes, government-certified courses, and entrance exam preparation — all in one place. Admissions open for 2025–26.
-                </p>
-                <Button onClick={() => scrollToSection("contact")} className="bg-white hover:bg-white/90 text-secondary font-bold rounded-full px-8 py-6 h-auto shadow-lg hover:-translate-y-1 transition-all">
-                  ENQUIRE NOW
-                </Button>
-              </div>
-              
-              <div className="md:w-[40%] grid grid-cols-2 gap-4 z-10 w-full aspect-square md:aspect-auto">
-                <img src="/workshop2.jpg" alt="Artwork 1" className="rounded-xl w-full h-full object-cover shadow-md" />
-                <img src="/workshop3.jpg" alt="Artwork 2" className="rounded-xl w-full h-full object-cover shadow-md translate-y-4" />
-                <img src="/work8.jpg" alt="Artwork 3" className="rounded-xl w-full h-full object-cover shadow-md -translate-y-4" />
-                <img src="/workshop4.jpg" alt="Artwork 4" className="rounded-xl w-full h-full object-cover shadow-md" />
-              </div>
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-            </div>
-          </div>
-        </section>
-
-        {/* 8. GALLERY SECTION */}
-        <section id="gallery" className="py-20 md:py-28 bg-white">
-          <div className="container mx-auto px-6 md:px-12">
-            <div className="text-center mb-16">
-              <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-4">Portfolio</div>
-              <h3 className="text-3xl md:text-5xl font-sans font-bold text-foreground">Student Gallery</h3>
+              <h3 className="text-3xl md:text-5xl font-sans font-bold text-foreground mb-6">Special Workshops</h3>
+              <p className="text-lg text-foreground/70 font-medium">
+                Explore dedicated sessions focusing on specific traditional and modern art forms.
+              </p>
             </div>
             
-            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+            {/* IMAGE UPDATE 9: WORKSHOPS GRID */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {[
-                { src: "/work1.jpg", alt: "Student Masterpiece" },
-                { src: "/student10.jpg", alt: "Class Session" },
-                { src: "/work3.jpg", alt: "Pencil Sketching" },
-                { src: "/group1.jpg", alt: "Student Group" },
-                { src: "/work2.jpg", alt: "Painting Details" },
-                { src: "/group2.jpg", alt: "Academy Life" },
-                { src: "/work4.jpg", alt: "Watercolor Artwork" },
-                { src: "/group3.jpg", alt: "Student Exhibition" },
-                { src: "/student11.jpg", alt: "Creating Art" }
+                { src: "/workshop1.jpg", alt: "Complex Still Life" },
+                { src: "/workshop2.jpg", alt: "Watercolor Session" },
+                { src: "/workshop3.jpg", alt: "Perspective Drawing" },
+                { src: "/workshop4.jpg", alt: "Character Design" },
+                { src: "/workshop5.jpg", alt: "Traditional Techniques" },
+                { src: "/workshop6.jpg", alt: "Advanced Traditional Art" }
               ].map((img, i) => (
-                <div key={i} className="relative rounded-2xl overflow-hidden group break-inside-avoid shadow-sm hover:shadow-xl transition-all cursor-pointer">
-                  <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" />
-                  <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center">
-                    <span className="text-white font-bold text-lg mb-2">View Artwork</span>
+                <div key={i} className="relative rounded-2xl overflow-hidden group aspect-[4/3] shadow-sm hover:shadow-xl transition-all cursor-pointer">
+                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">Learn More</span>
                   </div>
                 </div>
               ))}
