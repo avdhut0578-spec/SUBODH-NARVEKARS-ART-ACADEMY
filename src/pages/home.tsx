@@ -60,13 +60,16 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
-// THE COMPREHENSIVE FLIPPABLE COURSE ARTWORK MAP (.JPG FIX)
+// THE COMPREHENSIVE FLIPPABLE COURSE ARTWORK MAP (.JPG EXTENSIONS ONLY)
 const courseArtwork: { [key: string]: string } = {
+  // Kids & Teens
   "Child Art": "/student4.jpg",
-  "Elementary Exam": "/student13.jpg",
+  "Elementary Exam": "/student13.jpg", // Update 1
   "Intermediate Exam": "/student7.jpg",
   "Pencil Shading": "/work4.jpg",
-  "Caricature": "/caricature.jpg",
+  "Caricature": "/caricature.jpg", // Update 2
+  
+  // Teens & Adults Hobby
   "Watercolor Painting": "/work1.jpg",
   "Acrylic Painting": "/work3.jpg",
   "Charcoal Art": "/work6.jpg",
@@ -100,7 +103,7 @@ const FlippableCourseCard = ({ card }: { card: { title: string; desc?: string; i
 
         <div className="absolute inset-0 h-full w-full bg-muted rounded-2xl [transform:rotateY(180deg)] [backface-visibility:hidden] flex items-center justify-center overflow-hidden border-4 border-primary">
           <img
-            src={courseArtwork[card.title] || "/class.png"}
+            src={courseArtwork[card.title] || "/class.jpg"} // Update 3 (Fallback)
             alt={`${card.title} Artwork`}
             className="w-full h-full object-cover"
           />
@@ -173,7 +176,7 @@ export default function Home() {
       <header className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-sm py-4 border-b border-border" : "bg-white py-4"}`}>
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <img src="/logo.jpg" alt="SNAA Logo" className="w-12 h-12 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform" />
+            <img src="/logo.jpg" alt="SNAA Logo" className="w-12 h-12 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform" /> // Update 4 (logo.jpg)
             <div className="flex flex-col">
               <span className="font-sans font-bold text-lg leading-tight tracking-tight text-foreground">Subodh Narvekar's</span>
               <span className="text-xs uppercase tracking-wider text-primary font-semibold">Art Academy</span>
@@ -211,14 +214,14 @@ export default function Home() {
       </header>
 
       <main>
-        {/* 3. HERO SECTION - With Aesthetic Pink/Green Background */}
+        {/* 3. HERO SECTION - Flawless Pink/Green Aesthetic */}
         <section className="relative pt-20 pb-20 md:pt-32 md:pb-32 flex items-center overflow-hidden" style={{ background: "linear-gradient(135deg, #fce7f3 0%, #fdf2f8 50%, #d1fae5 100%)" }}>
           <div className="container mx-auto px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
             
             <div className="flex flex-col items-start text-left max-w-xl">
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6 rounded-full">
-                  Nurturing Creativity Since 2002
+                  Nurturing Creativity Since 1984 // Update 5 (Since 1984)
                 </div>
               </motion.div>
 
@@ -243,8 +246,8 @@ export default function Home() {
 
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative hidden lg:block">
               <div className="absolute inset-0 bg-primary/20 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              {/* IMAGE FIX: class.png */}
-              <img src="/class.png" alt="Art Studio Class" className="w-full h-auto rounded-2xl object-cover shadow-2xl" />
+              {/* IMAGE FIX: class.jpg */}
+              <img src="/class.jpg" alt="Art Studio Class" className="w-full h-auto rounded-2xl object-cover shadow-2xl" /> // Update 6 (class.jpg)
             </motion.div>
           </div>
         </section>
@@ -254,7 +257,7 @@ export default function Home() {
           <div className="container mx-auto px-6 md:px-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                { value: "23+", label: "Years of Excellence" },
+                { value: "42+", label: "Years of Legacy" }, // Update 7 (Since 1984)
                 { value: "1000+", label: "Students Trained" },
                 { value: "Govt.", label: "Certified Courses" },
                 { value: "100%", label: "Dedicated Teaching" }
@@ -276,9 +279,9 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.7 }}>
                 <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-6">Our Story</div>
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-foreground mb-6 leading-tight">A Legacy of 23 Years in Art Education</h3>
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-foreground mb-6 leading-tight">A Legacy since 1984 in Art Education</h3> // Update 8 (Text: since 1984)
                 <div className="space-y-6 text-foreground/70 text-lg mb-10">
-                  <p>Established in 2002 by Subodh Narvekar, SNAA has grown into one of Mumbai's most respected art institutions.</p>
+                  <p>Established in 2002 by Subodh Narvekar, SNAA has grown into one of Mumbai's most respected art institutions, a legacy since 1984 in art education.</p> // Update 9 (Text: since 1984)
                   <p>From nurturing young children's creativity to preparing serious students for government-certified professional examinations, the academy combines disciplined classical training with an encouraging, studio-like atmosphere.</p>
                 </div>
               </motion.div>
@@ -305,19 +308,19 @@ export default function Home() {
               
               <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
-                  <img src="/faculty1.jpg" alt="Subodh Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
+                  <img src="/faculty1.jpg" alt="Subodh Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" /> // Update 10 (faculty1.jpg)
                   <h4 className="text-xl font-bold text-foreground mb-1">Subodh Narvekar</h4>
-                  <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Founder & Lead Instructor</p>
+                  <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Founder</p> // Update 11 (Founder only)
                   <p className="text-foreground/70 text-sm">Decades of professional experience guiding students to national excellence in fine arts.</p>
                 </div>
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
-                  <img src="/faculty2.jpg" alt="Avdhut Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
+                  <img src="/faculty2.jpg" alt="Avdhut Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" /> // Update 12 (faculty2.jpg)
                   <h4 className="text-xl font-bold text-foreground mb-1">Avdhut Narvekar</h4>
                   <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-4">Senior Instructor</p>
                   <p className="text-foreground/70 text-sm">Specializes in advanced techniques, perspective, and preparing students for competitive entrance exams.</p>
                 </div>
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
-                  <img src="/faculty3.jpg" alt="Hemangi Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
+                  <img src="/faculty3.jpg" alt="Hemangi Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" /> // Update 13 (faculty3.jpg)
                   <h4 className="text-xl font-bold text-foreground mb-1">Hemangi Narvekar</h4>
                   <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-4">Senior Instructor</p>
                   <p className="text-foreground/70 text-sm">Expert in child art development, foundational sketching, and nurturing early creative talent.</p>
@@ -341,12 +344,13 @@ export default function Home() {
               <TabsList className="flex flex-wrap h-auto w-full justify-center bg-transparent mb-12 border-b border-border p-0 gap-4 md:gap-8">
                 <TabsTrigger value="tab1" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60">Kids & Teens</TabsTrigger>
                 <TabsTrigger value="tab2" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60">Teens & Adults</TabsTrigger>
-                <TabsTrigger value="tab3" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60">Online Classes</TabsTrigger>
+                <TabsTrigger value="tab3" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60">Video Lectures</TabsTrigger> // Update 14 (Text: Video Lectures)
                 <TabsTrigger value="tab4" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60 relative">
                   Certified Courses <span className="absolute top-1 -right-4 bg-secondary text-white text-[10px] px-2 py-0.5 rounded-full font-bold">GOVT</span>
                 </TabsTrigger>
               </TabsList>
 
+              {/* Tab 1: Kids & Teens */}
               <TabsContent value="tab1" className="animate-in fade-in-50 duration-500 pt-4">
                 <div className="flex overflow-x-auto pb-8 gap-6 snap-x hide-scrollbar">
                   {[
@@ -363,6 +367,7 @@ export default function Home() {
                 </div>
               </TabsContent>
 
+              {/* Tab 2: Teens & Adults */}
               <TabsContent value="tab2" className="animate-in fade-in-50 duration-500 pt-4">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
@@ -377,25 +382,27 @@ export default function Home() {
                 </div>
               </TabsContent>
 
+              {/* Tab 3: Video Lectures */}
               <TabsContent value="tab3" className="max-w-4xl mx-auto animate-in fade-in-50 duration-500 pt-4">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-primary text-white p-8 rounded-2xl shadow-lg flex flex-col hover:-translate-y-1 transition-transform">
                     <Clock className="w-10 h-10 mb-6 opacity-90" />
                     <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Primary Level</h4>
-                    <p className="text-white/90 font-medium mb-12">Fundamentals & basic techniques tailored for beginners establishing their core skills over Zoom.</p>
+                    <p className="text-white/90 font-medium mb-12">Fundamentals & basic techniques tailored for beginners establishing their core skills via pre-recorded lessons.</p> // Update 15 (Text: via pre-recorded lessons)
                   </div>
                   <div className="bg-primary text-white p-8 rounded-2xl shadow-lg flex flex-col hover:-translate-y-1 transition-transform">
                     <Clock className="w-10 h-10 mb-6 opacity-90" />
                     <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Advanced Level</h4>
-                    <p className="text-white/90 font-medium mb-12">Intermediate subjects, complex compositions, and dedicated portfolio work over Zoom.</p>
+                    <p className="text-white/90 font-medium mb-12">Intermediate subjects, complex compositions, and dedicated portfolio work via pre-recorded lessons.</p> // Update 16 (Text: via pre-recorded lessons)
                   </div>
                 </div>
                 <div className="bg-secondary text-white mt-6 p-6 rounded-2xl flex items-center gap-4 justify-center text-center shadow-lg">
                   <Clock className="w-6 h-6 shrink-0" />
-                  <p className="font-semibold">Classes available for students outside Mumbai. Flexible timings for different time zones.</p>
+                  <p className="font-semibold">Classes available for students outside Mumbai. Access lessons anytime.</p> // Update 17 (Text: Access lessons anytime)
                 </div>
               </TabsContent>
 
+              {/* Tab 4: Certified Courses */}
               <TabsContent value="tab4" className="animate-in fade-in-50 duration-500 pt-4">
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <div className="bg-primary text-white p-8 rounded-2xl shadow-lg relative overflow-hidden flex flex-col hover:-translate-y-1 transition-transform">
@@ -440,11 +447,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 6.5 COURSE DETAILS SECTION */}
+        {/* 6.5 COURSE DETAILS SECTION - .JPG FIXES */}
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
               <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
+              {/* IMAGE UPDATE 18: group7.jpg */}
               <img src="/group7.jpg" alt="Kids & Teens Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
@@ -484,6 +492,7 @@ export default function Home() {
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative order-1 md:order-2">
               <div className="absolute inset-0 bg-secondary/10 rounded-3xl -translate-x-4 translate-y-4 -z-10"></div>
+              {/* IMAGE UPDATE 19: student8.jpg */}
               <img src="/student8.jpg" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
           </div>
@@ -493,6 +502,7 @@ export default function Home() {
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
               <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
+              {/* IMAGE UPDATE 20: student5.jpg */}
               <img src="/student5.jpg" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
@@ -534,7 +544,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 7.5 CTA BANNER SECTION */}
+        {/* 7.5 CTA BANNER SECTION - .JPG FIXES */}
         <section className="py-12 bg-white">
           <div className="container mx-auto px-6 md:px-12">
             <div className="bg-secondary rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative shadow-2xl">
@@ -548,6 +558,7 @@ export default function Home() {
                 </Button>
               </div>
               
+              {/* IMAGE UPDATE 21: banner artworks to .jpg */}
               <div className="md:w-[40%] grid grid-cols-2 gap-4 z-10 w-full aspect-square md:aspect-auto">
                 <img src="/work5.jpg" alt="Artwork 1" className="rounded-xl w-full h-full object-cover shadow-md" />
                 <img src="/work2.jpg" alt="Artwork 2" className="rounded-xl w-full h-full object-cover shadow-md translate-y-4" />
@@ -559,7 +570,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 8. GALLERY SECTION */}
+        {/* 8. GALLERY SECTION - .JPG FIXES ONLY */}
         <section id="gallery" className="py-20 md:py-28 bg-white">
           <div className="container mx-auto px-6 md:px-12">
             <div className="text-center mb-16">
@@ -567,6 +578,7 @@ export default function Home() {
               <h3 className="text-3xl md:text-5xl font-sans font-bold text-foreground">Student Gallery</h3>
             </div>
             
+            {/* IMAGE UPDATES 22-39: all gallery items are now .jpg */}
             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
               {[
                 { src: "/group8.jpg", alt: "Academy Session" },
@@ -599,7 +611,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 9. NEW WORKSHOPS SECTION */}
+        {/* 9. NEW WORKSHOPS SECTION - Verified standard .jpg */}
         <section id="workshops" className="py-20 md:py-28 bg-muted/20">
           <div className="container mx-auto px-6 md:px-12">
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -731,9 +743,9 @@ export default function Home() {
               <Accordion type="single" collapsible className="w-full space-y-4">
                 {[
                   { q: "Where are your studios located?", a: "We have two branches! Our Dhanukarwadi Branch is at Shop 4, Pushp Meet, Kandivali West. Our Mahavir Nagar Branch is at Shop no 8, Sai Sumit, near Pancholia School, Kandivali West." },
-                  { q: "What courses do you offer?", a: "We offer Kids & Teens art classes, Grade exam preparation (Elementary & Intermediate), Teens & Adults hobby classes, Online Zoom-based sessions, Art Teacher's Training Course (ATTC), Fine Arts, and entrance exam preparation for NIFT, NID, NATA, and MH AAC CET." },
+                  { q: "What courses do you offer?", a: "We offer Kids & Teens art classes, Grade exam preparation (Elementary & Intermediate), Teens & Adults hobby classes, Video Lecture based sessions, Art Teacher's Training Course (ATTC), Fine Arts, and entrance exam preparation for NIFT, NID, NATA, and MH AAC CET." }, // Update 40 (Text: Video Lecture based)
                   { q: "Who are the instructors?", a: "Classes are conducted by our Founder Subodh Narvekar, alongside Senior Instructors Avdhut Narvekar and Hemangi Narvekar — all trained professional artists." },
-                  { q: "What are your timings?", a: "Tuesday to Saturday: 4:00 PM – 8:00 PM. Sunday special batches are available by appointment. Online classes have flexible timings to accommodate different schedules." },
+                  { q: "What are your timings?", a: "Tuesday to Saturday: 4:00 PM – 8:00 PM. Sunday special batches are available by appointment. Video Lectures provide flexible access anytime." }, // Update 41 (Text: Video Lectures provide flexible access)
                   { q: "Are government certificates provided?", a: "Yes! Our ATTC and Fine Arts courses are government-certified through SDVTI and affiliated with the Maharashtra Business Training Board (MBTB) and Skill India." }
                 ].map((faq, i) => (
                   <AccordionItem key={i} value={`item-${i}`} className="bg-white px-6 rounded-xl border border-border shadow-sm data-[state=open]:shadow-md transition-all">
@@ -804,7 +816,7 @@ export default function Home() {
                               <SelectItem value="adults">Adults / Hobby Art</SelectItem>
                               <SelectItem value="attc">ATTC (Teacher Training)</SelectItem>
                               <SelectItem value="entrance">Entrance Exam Prep</SelectItem>
-                              <SelectItem value="online">Online Classes</SelectItem>
+                              <SelectItem value="online">Video Lectures</SelectItem> // Update 42 (Text: Video Lectures)
                             </SelectContent>
                           </Select>
                           <FormMessage />
@@ -829,11 +841,11 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
             <div className="md:col-span-4">
               <div className="flex items-center gap-3 mb-6">
-                <img src="/logo.jpg" alt="SNAA Logo" className="w-10 h-10 rounded-full object-cover bg-white p-0.5" />
+                <img src="/logo.jpg" alt="SNAA Logo" className="w-10 h-10 rounded-full object-cover bg-white p-0.5" /> // Update 43 (logo.jpg)
                 <span className="font-bold text-lg tracking-tight">Subodh Narvekar's Art Academy</span>
               </div>
               <p className="text-white/60 font-medium mb-8 leading-relaxed max-w-sm">
-                Nurturing creativity since 2002. Offering comprehensive art education and government certified courses in Mumbai and online.
+                Nurturing creativity since 1984. Offering comprehensive art education and government certified courses in Mumbai and Video Lectures. // Update 44 (Text: since 1984, Video Lectures)
               </p>
               <div className="flex items-center gap-4">
                 <a href="https://www.instagram.com/snaa.subodhnarvekarsartacademy?igsh=MWNkMXoxamd0NTBqcA==" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors"><Instagram className="w-5 h-5" /></a>
@@ -859,7 +871,7 @@ export default function Home() {
                   <li><button onClick={() => scrollToSection("courses")} className="text-white/60 hover:text-white transition-colors font-medium">Child Art</button></li>
                   <li><button onClick={() => scrollToSection("courses")} className="text-white/60 hover:text-white transition-colors font-medium">Exam Prep</button></li>
                   <li><button onClick={() => scrollToSection("courses")} className="text-white/60 hover:text-white transition-colors font-medium">ATTC Certification</button></li>
-                  <li><button onClick={() => scrollToSection("courses")} className="text-white/60 hover:text-white transition-colors font-medium">Online Classes</button></li>
+                  <li><button onClick={() => scrollToSection("courses")} className="text-white/60 hover:text-white transition-colors font-medium">Video Lectures</button></li> // Update 45 (Text: Video Lectures)
                 </ul>
               </div>
             </div>
