@@ -130,7 +130,6 @@ export default function Home() {
                 Subodh Narvekar's <br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary relative">
                   Art Academy
-                  <svg className="absolute w-full h-3 -bottom-2 left-0 text-secondary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="transparent"/></svg>
                 </span>
                 <span className="block mt-2 text-3xl md:text-4xl lg:text-5xl font-bold text-foreground/80">Your Creative Journey, Personalized</span>
               </motion.h1>
@@ -455,12 +454,42 @@ export default function Home() {
             </div>
             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
               {[
-                "/miss1.jpeg", "/miss2.jpeg", "/miss3.jpeg", "/miss4.jpeg", "/miss5.jpeg",
-                "/miss6.jpeg", "/miss7.jpeg", "/miss8.jpeg", "/miss9.jpeg", "/miss10.jpeg",
-                "/miss11.jpeg", "/miss12.jpeg", "/miss13.jpeg", "/miss14.jpeg", "/miss15.jpeg"
-              ].map((src, index) => (
+                { src: "/group8.jpg", alt: "Academy Session" },
+                { src: "/student12.jpg", alt: "Student Gathering" },
+                { src: "/class.jpg", alt: "Art Class" },
+                { src: "/group1.jpg", alt: "Exhibition View" },
+                { src: "/group2.jpg", alt: "Workshop Group" },
+                { src: "/group3.jpg", alt: "Creating Art" },
+                { src: "/group4.jpg", alt: "Studio Life" },
+                { src: "/student1.jpg", alt: "Portrait Practice" },
+                { src: "/student2.jpg", alt: "Focus in Class" },
+                { src: "/student3.jpg", alt: "Foundational Sketching" },
+                { src: "/student6.jpg", alt: "Advanced Techniques" },
+                { src: "/student9.jpg", alt: "Art Student" },
+                { src: "/group5.jpg", alt: "Class Session" },
+                { src: "/group6.jpg", alt: "Creating Art" },
+                { src: "/student10.jpg", alt: "Academy Member" },
+                { src: "/work4.jpg", alt: "Fruits Still Life" },
+                { src: "/work2.jpg", alt: "Detailed Sketch" },
+                { src: "/work6.jpg", alt: "Charcoal Portrait" },
+                { src: "/miss1.jpeg", alt: "Student Artwork 1" },
+                { src: "/miss2.jpeg", alt: "Student Artwork 2" },
+                { src: "/miss3.jpeg", alt: "Student Artwork 3" },
+                { src: "/miss4.jpeg", alt: "Student Artwork 4" },
+                { src: "/miss5.jpeg", alt: "Student Artwork 5" },
+                { src: "/miss6.jpeg", alt: "Student Artwork 6" },
+                { src: "/miss7.jpeg", alt: "Student Artwork 7" },
+                { src: "/miss8.jpeg", alt: "Student Artwork 8" },
+                { src: "/miss9.jpeg", alt: "Student Artwork 9" },
+                { src: "/miss10.jpeg", alt: "Student Artwork 10" },
+                { src: "/miss11.jpeg", alt: "Student Artwork 11" },
+                { src: "/miss12.jpeg", alt: "Student Artwork 12" },
+                { src: "/miss13.jpeg", alt: "Student Artwork 13" },
+                { src: "/miss14.jpeg", alt: "Student Artwork 14" },
+                { src: "/miss15.jpeg", alt: "Student Artwork 15" }
+              ].map((img, index) => (
                 <div key={index} className="break-inside-avoid relative rounded-2xl overflow-hidden group shadow-sm border border-border/40 bg-muted aspect-auto">
-                  <img src={src} alt={`Student Artwork ${index + 1}`} className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <img src={img.src} alt={img.alt} className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <span className="text-white font-semibold tracking-wide uppercase text-sm bg-primary/80 px-4 py-2 rounded-full backdrop-blur-sm">View Artwork</span>
                   </div>
