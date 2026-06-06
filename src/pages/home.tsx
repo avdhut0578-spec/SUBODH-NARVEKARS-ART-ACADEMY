@@ -60,7 +60,7 @@ const FlippableCourseCard = ({ card }: { card: { title: string; desc?: string; i
           </div>
         </div>
         <div className="absolute inset-0 h-full w-full bg-muted rounded-2xl [transform:rotateY(180deg)] [backface-visibility:hidden] flex items-center justify-center overflow-hidden border-4 border-primary">
-          <img src={courseArtwork[card.title] || "/class.jpg"} alt={`${card.title} Artwork`} className="w-full h-full object-cover" />
+          <img src={courseArtwork[card.title] || "/class.png"} alt={`${card.title} Artwork`} className="w-full h-full object-cover" />
         </div>
       </div>
     </div>
@@ -144,7 +144,7 @@ export default function Home() {
             </div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative hidden lg:block">
               <div className="absolute inset-0 bg-primary/20 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/class.jpg" alt="Art Studio Class" className="w-full h-auto rounded-2xl object-cover shadow-2xl" />
+              <img src="/class.png" alt="Art Studio Class" className="w-full h-auto rounded-2xl object-cover shadow-2xl" />
             </motion.div>
           </div>
         </section>
@@ -298,6 +298,14 @@ export default function Home() {
               <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Kids & Teens Art Classes</h3>
               <p className="text-secondary font-semibold uppercase tracking-wider text-sm mb-4">Ideal for: Kids | Young Adults | Ages 4–15</p>
               <p className="text-foreground/70 text-lg mb-8 leading-relaxed">Our foundational art classes are designed to spark creativity and build core skills in young learners. From Child Art for beginners to Elementary and Intermediate Grade Exam Preparation, each session blends fun with structured learning.</p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 mb-8">
+                {["Child Art (Ages 4–10)", "Elementary Grade Exam Prep", "Intermediate Grade Exam Prep", "Pencil Shading & Sketching", "Caricature & Character Design", "Still Life Drawing", "Memory Drawing", "Watercolor Basics"].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                    <span className="text-foreground/80 font-medium text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
               <Button onClick={() => scrollToSection("contact")} variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold rounded-full px-8 py-6">ENQUIRE NOW</Button>
             </motion.div>
           </div>
@@ -307,6 +315,14 @@ export default function Home() {
               <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Teens & Adults Classes</h3>
               <p className="text-secondary font-semibold uppercase tracking-wider text-sm mb-4">All Mediums | All Skill Levels</p>
               <p className="text-foreground/70 text-lg mb-8 leading-relaxed">Whether you're a hobbyist or an aspiring professional, our adult classes offer a relaxed yet structured environment to explore a wide range of art mediums at your own pace.</p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 mb-8">
+                {["Watercolor Painting", "Acrylic Painting", "Pen & Ink Drawing", "Mandala Art", "Landscape Painting", "Portrait Drawing"].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" />
+                    <span className="text-foreground/80 font-medium text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
               <Button onClick={() => scrollToSection("contact")} variant="outline" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-bold rounded-full px-8 py-6">ENQUIRE NOW</Button>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative order-1 md:order-2">
@@ -324,7 +340,15 @@ export default function Home() {
               <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Professional & Certified Courses</h3>
               <p className="text-secondary font-semibold uppercase tracking-wider text-sm mb-4">Govt. Certified | Affiliated with SDVTI & MBTB</p>
               <p className="text-foreground/70 text-lg mb-8 leading-relaxed">For those seeking a formal career in art and design, SNAA offers government-certified programs with proven results in national entrance examinations.</p>
-              <div className="flex gap-6 mb-8">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 mb-8">
+                {["Art Teacher's Training Course (ATTC)", "Fine Arts (Foundational & Advanced)", "MH AAC CET Entrance Prep", "NIFT Entrance Preparation", "NID Entrance Preparation", "NATA Entrance Preparation", "Portfolio Development", "Online Coaching Available"].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                    <span className="text-foreground/80 font-medium text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex gap-6 mb-8 pt-4 border-t border-border/50">
                 <div><h4 className="font-bold text-foreground mb-1">Skill India</h4><p className="text-sm text-foreground/60">Govt. of India Initiative</p></div>
                 <div><h4 className="font-bold text-foreground mb-1">SDVTI</h4><p className="text-sm text-foreground/60">Vocational Training</p></div>
                 <div><h4 className="font-bold text-foreground mb-1">MBTB</h4><p className="text-sm text-foreground/60">Technical Board</p></div>
