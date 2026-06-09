@@ -4,9 +4,27 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion } from "framer-motion";
 import {
-  Menu, X, Phone, Mail, MapPin, Instagram, Youtube, Facebook,
-  CheckCircle2, ChevronRight, ChevronLeft, Award, BadgeCheck,
-  Shield, Palette, GraduationCap, Users, Clock, BookOpen, Pencil, Star
+  Menu,
+  X,
+  Phone,
+  Mail,
+  MapPin,
+  Instagram,
+  Youtube,
+  Facebook,
+  CheckCircle2,
+  ChevronRight,
+  ChevronLeft,
+  Award,
+  BadgeCheck,
+  Shield,
+  Palette,
+  GraduationCap,
+  Users,
+  Clock,
+  BookOpen,
+  Pencil,
+  Star
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -14,10 +32,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  Form, FormControl, FormField, FormItem, FormLabel, FormMessage,
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
 } from "@/components/ui/form";
 import {
-  Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -34,11 +61,14 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 const courseArtwork: { [key: string]: string } = {
+  // Kids & Teens
   "Child Art": "/student4.jpg",
   "Elementary Exam": "/student13.jpeg",
   "Intermediate Exam": "/student7.jpg",
   "Pencil Shading": "/work4.jpg",
   "Caricature": "/caricature.jpg",
+  
+  // Teens & Adults Hobby
   "Watercolor Painting": "/work3.jpg",
   "Acrylic Painting": "/work1.jpg",
   "Mandala Art": "/student5.jpg",
@@ -434,7 +464,7 @@ export default function Home() {
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative order-1 md:order-2">
               <div className="absolute inset-0 bg-secondary/10 rounded-3xl -translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/work7.png" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+              <img src="/work7.jpg" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
           </div>
         </section>
@@ -443,7 +473,7 @@ export default function Home() {
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
               <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/work2.png" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+              <img src="/work2.jpg" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <h3 className="text-3xl md:text-4xl font-bold mb-4">Professional & Certified Courses</h3>
@@ -657,7 +687,7 @@ export default function Home() {
                   { q: "What courses do you offer?", a: "We offer Kids & Teens art classes, Grade exam preparation (Elementary & Intermediate), Teens & Adults hobby classes, Video Lecture based sessions, Art Teacher's Training Course (ATTC), Fine Arts, and entrance exam preparation for NIFT, NID, NATA, and MH AAC CET." },
                   { q: "Who are the instructors?", a: "Classes are conducted by our Founder Subodh Narvekar, alongside Senior Instructors Avdhut Narvekar and Hemangi Narvekar — all trained professional artists." },
                   { q: "What are your timings?", a: "Tuesday to Saturday: 4:00 PM – 8:00 PM. Sunday special batches are available by appointment. Video Lectures provide flexible access anytime." },
-                  { q: "Are government certificates provided?", a: "Yes! Our ATTC and Fine Arts courses are government-certified through SDVTI and affiliated with the Maharashtra Business Training Board (MBTB) and Skill India." }
+                  { q: "Are government certificates provided?", a: "Yes! Our ATTC and Fine Arts courses are government-certified through SDVTII and affiliated with the Maharashtra Business Training Board (MBTB) and Skill India." }
                 ].map((faq, i) => (
                   <AccordionItem key={i} value={`item-${i}`} className="bg-white px-6 rounded-xl border border-border shadow-sm data-[state=open]:shadow-md transition-all">
                     <AccordionTrigger className="font-semibold text-foreground text-base hover:no-underline py-4 text-left">{faq.q}</AccordionTrigger>
