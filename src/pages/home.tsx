@@ -4,27 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion } from "framer-motion";
 import {
-  Menu,
-  X,
-  Phone,
-  Mail,
-  MapPin,
-  Instagram,
-  Youtube,
-  Facebook,
-  CheckCircle2,
-  ChevronRight,
-  ChevronLeft,
-  Award,
-  BadgeCheck,
-  Shield,
-  Palette,
-  GraduationCap,
-  Users,
-  Clock,
-  BookOpen,
-  Pencil,
-  Star
+  Menu, X, Phone, Mail, MapPin, Instagram, Youtube, Facebook,
+  CheckCircle2, ChevronRight, ChevronLeft, Award, BadgeCheck,
+  Shield, Palette, GraduationCap, Users, Clock, BookOpen, Pencil, Star
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -32,19 +14,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
+  Form, FormControl, FormField, FormItem, FormLabel, FormMessage,
 } from "@/components/ui/form";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+  Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -60,16 +33,12 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
-// THE COMPREHENSIVE FLIPPABLE COURSE ARTWORK MAP (.JPG EXTENSIONS ONLY)
 const courseArtwork: { [key: string]: string } = {
-  // Kids & Teens
   "Child Art": "/student4.jpg",
   "Elementary Exam": "/student13.jpeg",
   "Intermediate Exam": "/student7.jpg",
   "Pencil Shading": "/work4.jpg",
   "Caricature": "/caricature.jpg",
-  
-  // Teens & Adults Hobby
   "Watercolor Painting": "/work3.jpg",
   "Acrylic Painting": "/work1.jpg",
   "Mandala Art": "/student5.jpg",
@@ -211,7 +180,7 @@ export default function Home() {
       </header>
 
       <main>
-        {/* 3. HERO SECTION - Flawless Pink/Green Aesthetic */}
+        {/* 3. HERO SECTION */}
         <section className="relative pt-20 pb-20 md:pt-32 md:pb-32 flex items-center overflow-hidden" style={{ background: "linear-gradient(135deg, #fce7f3 0%, #fdf2f8 50%, #d1fae5 100%)" }}>
           <div className="container mx-auto px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
             
@@ -253,8 +222,8 @@ export default function Home() {
           <div className="container mx-auto px-6 md:px-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                { value: "42+", label: "Years of Legacy" },
-                { value: "1000+", label: "Students Trained" },
+                { value: "Since 1984-", label: "in art education" },
+                { value: "20000+", label: "Students Trained" },
                 { value: "Govt.", label: "Certified Courses" },
                 { value: "100%", label: "Dedicated Teaching" }
               ].map((stat, i) => (
@@ -271,7 +240,6 @@ export default function Home() {
         <section id="about" className="py-20 md:py-28 bg-muted/30">
           <div className="container mx-auto px-6 md:px-12">
             
-            {/* Story */}
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.7 }}>
                 <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-6">Our Story</div>
@@ -284,7 +252,7 @@ export default function Home() {
 
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.7, delay: 0.2 }} className="grid sm:grid-cols-2 gap-6">
                 {[
-                  { icon: Palette, text: "Structured syllabus for exam excellence" },
+                  { icon: Palette, text: "Structured curriculum for exam excellence" },
                   { icon: Users, text: "Small batch sizes for personal attention" },
                   { icon: GraduationCap, text: "Classical techniques across all mediums" },
                   { icon: Award, text: "Professional certifications & career pathways" }
@@ -297,7 +265,6 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Faculty Section */}
             <div id="faculty" className="text-center">
               <div className="inline-block px-4 py-1 bg-secondary/10 text-secondary font-semibold rounded-full text-sm mb-6">Our Team</div>
               <h3 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-12">Meet Our Instructors</h3>
@@ -353,8 +320,7 @@ export default function Home() {
                     { title: "Child Art", desc: "Ages 4–10", icon: Palette },
                     { title: "Elementary Exam", desc: "Prep Course", icon: BookOpen },
                     { title: "Intermediate Exam", desc: "Prep Course", icon: Award },
-                    { title: "Pencil Shading", desc: "Sketching", icon: Pencil },
-                    { title: "Caricature", desc: "Character Design", icon: Star }
+                    { title: "Pencil Shading", desc: "Sketching", icon: Pencil }
                   ].map((card, i) => (
                     <div key={i} className="min-w-[280px] snap-center">
                        <FlippableCourseCard card={card} />
@@ -405,7 +371,7 @@ export default function Home() {
                     <div className="bg-white text-primary text-xs font-bold px-3 py-1 rounded-full inline-block mb-6 w-fit">Government Certified</div>
                     <ul className="space-y-3 font-medium text-white/90 mb-10">
                       <li className="flex items-start gap-2"><CheckCircle2 className="w-5 h-5 shrink-0" /><span>Prepares students to teach at school level</span></li>
-                      <li className="flex items-start gap-2"><CheckCircle2 className="w-5 h-5 shrink-0" /><span>Affiliated with SDVTI & MBTB</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle2 className="w-5 h-5 shrink-0" /><span>Affiliated with SDVTII & MBTB</span></li>
                     </ul>
                   </div>
                   
@@ -417,23 +383,6 @@ export default function Home() {
                       <li className="flex items-start gap-2"><CheckCircle2 className="w-5 h-5 shrink-0" /><span>Foundational & advanced fine arts training</span></li>
                       <li className="flex items-start gap-2"><CheckCircle2 className="w-5 h-5 shrink-0" /><span>Professional portfolio development</span></li>
                     </ul>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-xl font-bold text-foreground mb-6 text-center">Entrance Exam Preparation</h4>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {[
-                      { code: "MH AAC CET", name: "Maharashtra Fine Arts" },
-                      { code: "NIFT", name: "Fashion Tech" },
-                      { code: "NID", name: "Design" },
-                      { code: "NATA", name: "Architecture" }
-                    ].map((exam, i) => (
-                      <div key={i} className="bg-secondary text-white p-6 rounded-2xl shadow-md text-center hover:-translate-y-1 transition-transform">
-                        <div className="font-bold text-xl mb-1">{exam.code}</div>
-                        <div className="text-sm font-medium text-white/90">{exam.name}</div>
-                      </div>
-                    ))}
                   </div>
                 </div>
               </TabsContent>
@@ -455,7 +404,7 @@ export default function Home() {
                 Our foundational art classes are designed to spark creativity and build core skills in young learners. From Child Art for beginners to Elementary and Intermediate Grade Exam Preparation, each session blends fun with structured learning.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {["Child Art (Ages 4–10)", "Elementary Grade Exam Prep", "Intermediate Grade Exam Prep", "Pencil Shading & Sketching", "Caricature & Character Design", "Still Life Drawing", "Memory Drawing", "Watercolor Basics"].map((item, i) => (
+                {["Child art", "Advance painting", "Elementary exam preparation", "Intermediate exam preparation", "Pencil shading and sketching", "Cartoon art", "Art and craft", "Advance child art"].map((item, i) => (
                   <div key={i} className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" /><span className="text-sm font-semibold">{item}</span>
                   </div>
@@ -470,12 +419,12 @@ export default function Home() {
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="order-2 md:order-1">
               <h3 className="text-3xl md:text-4xl font-bold mb-4">Teens & Adults Classes</h3>
-              <div className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary font-bold text-sm rounded-full mb-6">All Mediums | All Skill Levels</div>
+              <div className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary font-bold text-sm rounded-full mb-6">14 years and above</div>
               <p className="text-foreground/80 font-medium mb-8 leading-relaxed">
-                Whether you're a hobbyist or an aspiring professional, our adult classes offer a relaxed yet structured environment to explore a wide range of art mediums at your own pace.
+                Whether you're a hobbyist or an aspiring professional, our adult classes offer a relaxed yet structured Curriculum to explore a wide range of art mediums at your own pace.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {["Watercolor Painting", "Acrylic Painting", "Pen & Ink Drawing", "Mandala Art", "Landscape Painting", "Portrait Drawing"].map((item, i) => (
+                {["pencil shading", "charcoal art", "Watercolor painting", "Acrylic painting"].map((item, i) => (
                   <div key={i} className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" /><span className="text-sm font-semibold">{item}</span>
                   </div>
@@ -485,7 +434,7 @@ export default function Home() {
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative order-1 md:order-2">
               <div className="absolute inset-0 bg-secondary/10 rounded-3xl -translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/miss2.jpeg" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+              <img src="/work7.png" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
           </div>
         </section>
@@ -494,16 +443,16 @@ export default function Home() {
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
               <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/student5.jpg" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+              <img src="/work2.png" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <h3 className="text-3xl md:text-4xl font-bold mb-4">Professional & Certified Courses</h3>
-              <div className="inline-block px-4 py-1.5 bg-[#4285F4]/10 text-[#4285F4] font-bold text-sm rounded-full mb-6">Govt. Certified | Affiliated with SDVTI & MBTB</div>
+              <div className="inline-block px-4 py-1.5 bg-[#4285F4]/10 text-[#4285F4] font-bold text-sm rounded-full mb-6">Govt. Certified | Affiliated with SDVTII & MBTB</div>
               <p className="text-foreground/80 font-medium mb-8 leading-relaxed">
                 For those seeking a formal career in art and design, SNAA offers government-certified programs with proven results in national entrance examinations.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {["Art Teacher's Training Course (ATTC)", "Fine Arts (Foundational & Advanced)", "MH AAC CET Entrance Prep", "NIFT Entrance Preparation", "NID Entrance Preparation", "NATA Entrance Preparation", "Portfolio Development", "Online Coaching Available"].map((item, i) => (
+                {["Art Teacher's Training course", "Fine Arts", "Video Courses", "Workshops"].map((item, i) => (
                   <div key={i} className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" /><span className="text-sm font-semibold">{item}</span>
                   </div>
@@ -525,7 +474,7 @@ export default function Home() {
               </div>
               <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-primary flex items-center gap-4 hover:shadow-md transition-shadow">
                 <BadgeCheck className="w-8 h-8 text-primary shrink-0" />
-                <div><h4 className="font-bold text-lg">SDVTI</h4><p className="text-sm text-foreground/70">Vocational Training</p></div>
+                <div><h4 className="font-bold text-lg">SDVTII</h4><p className="text-sm text-foreground/70">Vocational Training</p></div>
               </div>
               <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-primary flex items-center gap-4 hover:shadow-md transition-shadow">
                 <Award className="w-8 h-8 text-primary shrink-0" />
@@ -569,20 +518,20 @@ export default function Home() {
               <p className="text-lg text-foreground/70 font-medium">Explore dedicated sessions focusing on specific traditional and modern art forms.</p>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               {[
-                { src: "/workshop1.jpeg", alt: "Complex Still Life" },
-                { src: "/workshop2.jpeg", alt: "Watercolor Session" },
-                { src: "/workshop3.jpeg", alt: "Perspective Drawing" },
-                { src: "/workshop4.jpeg", alt: "Character Design" },
-                { src: "/workshop5.jpeg", alt: "Traditional Techniques" },
-                { src: "/workshop6.jpeg", alt: "Advanced Traditional Art" }
+                { src: "/workshop1.jpeg", alt: "Pichhwai Jharoka art" },
+                { src: "/workshop2.jpeg", alt: "Thread and Boho art" },
+                { src: "/workshop3.jpeg", alt: "Knife painting" },
+                { src: "/workshop4.jpeg", alt: "Moon Light" },
+                { src: "/workshop5.jpeg", alt: "Lord Shiva art" },
+                { src: "/workshop6.jpeg", alt: "Lippan Art" }
               ].map((img, i) => (
-                <div key={i} className="relative rounded-2xl overflow-hidden group aspect-[4/3] shadow-sm hover:shadow-xl transition-all cursor-pointer">
-                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">Learn More</span>
+                <div key={i} className="flex flex-col gap-4 group">
+                  <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-sm group-hover:shadow-xl transition-all cursor-pointer">
+                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
+                  <h4 className="font-bold text-foreground text-center text-lg">{img.alt}</h4>
                 </div>
               ))}
             </div>
