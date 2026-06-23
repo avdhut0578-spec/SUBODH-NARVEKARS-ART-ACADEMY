@@ -37,15 +37,14 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 const courseArtwork: { [key: string]: string } = {
   // Kids & Teens
   "Child Art": "/student4.jpg",
-  "Elementary Exam": "/student13.jpeg",
-  "Intermediate Exam": "/student7.jpg",
+  "Elementary & Intermediate Grade Exam": "/student13.jpeg",
+  "Advance Painting": "/student7.jpg",
   "Pencil Shading": "/work4.jpg",
   "Caricature": "/caricature.jpg",
   
   // Teens & Adults Hobby
   "Watercolor Painting": "/work3.jpg",
   "Acrylic Painting": "/work1.jpg",
-  "Mandala Art": "/student5.jpg",
 };
 
 const FlippableCourseCard = ({ card }: { card: { title: string; desc?: string; icon: any } }) => {
@@ -173,7 +172,11 @@ export default function Home() {
       <div className="w-full bg-primary text-primary-foreground py-2 text-sm hidden md:block">
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-2"><Phone className="w-4 h-4"/> +91 8779739115, +91 9326345790</span>
+            <span className="flex items-center gap-2">
+              <Phone className="w-4 h-4"/> 
+              <a href="tel:+918779739115" className="hover:underline">+91 8779739115</a>, 
+              <a href="tel:+919326345790" className="hover:underline">+91 9326345790</a>
+            </span>
           </div>
           <div className="flex items-center gap-4">
             <a href="https://www.instagram.com/snaa.subodhnarvekarsartacademy?igsh=MWNkMXoxamd0NTBqcA==" target="_blank" rel="noreferrer" className="hover:text-primary-foreground/80 transition-colors"><Instagram className="w-4 h-4"/></a>
@@ -238,7 +241,7 @@ export default function Home() {
 
               <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-foreground leading-[1.1] mb-4">
                 Subodh Narvekar's Art Academy –<br/>
-                <span className="text-secondary italic">Your Creative Journey, Personalized</span>
+                <span className="text-secondary italic">Where Art Meets Fun</span>
               </motion.h1>
 
               <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-lg md:text-xl text-foreground/80 mb-10 leading-relaxed font-medium">
@@ -287,10 +290,10 @@ export default function Home() {
             
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.7 }}>
-                <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-6">Our Story</div>
+                <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-6">About Us</div>
                 <h3 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-foreground mb-6 leading-tight">A Legacy since 1984 in Art Education</h3>
                 <div className="space-y-6 text-foreground/70 text-lg mb-10">
-                  <p>Established in 2002 by Subodh Narvekar, SNAA has grown into one of Mumbai's most respected art institutions, a legacy since 1984 in art education.</p>
+                  <p>Established by Subodh Narvekar, SNAA has grown into one of Mumbai's most respected art institutions, a legacy since 1984 in art education.</p>
                   <p>From nurturing young children's creativity to preparing serious students for government-certified professional examinations, the academy combines disciplined classical training with an encouraging, studio-like atmosphere.</p>
                 </div>
               </motion.div>
@@ -319,7 +322,7 @@ export default function Home() {
                   <img src="/faculty1.jpg" alt="Subodh Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Subodh Narvekar</h4>
                   <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Founder</p>
-                  <p className="text-foreground/70 text-sm">Decades of professional experience guiding students to national excellence in fine arts.</p>
+                  <p className="text-foreground/70 text-sm">Subodh Narvekar is an art institution in himself. He has dedicated his life to teaching children. He had authored hundreds of books on drawing, basic painting , craft, origami, pencil shading series and grade exam made easy. He is proud recepient of lifetime acheivement award from Rotary Kandivali and Sai Seva Mandal, Kandivali.</p>
                 </div>
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
                   <img src="/faculty2.jpg" alt="Avdhut Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
@@ -344,28 +347,27 @@ export default function Home() {
           <div className="container mx-auto px-6 md:px-12">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-4">Curriculum</div>
-              <h3 className="text-3xl md:text-5xl font-sans font-bold text-foreground mb-6">Programs & Courses</h3>
-              <p className="text-lg text-foreground/70 font-medium">Tailored instruction for every age and skill level. Click on standard classes below to flip them and see related artwork.</p>
+              <h3 className="text-3xl md:text-5xl font-sans font-bold text-foreground mb-6">Courses Offered</h3>
+              <p className="text-lg text-foreground/70 font-medium">Structured courses for every age and skill level.</p>
             </div>
 
             <Tabs defaultValue="tab1" className="w-full">
               <TabsList className="flex flex-wrap h-auto w-full justify-center bg-transparent mb-12 border-b border-border p-0 gap-4 md:gap-8">
-                <TabsTrigger value="tab1" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60">Kids & Teens</TabsTrigger>
+                <TabsTrigger value="tab1" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60">Kids</TabsTrigger>
                 <TabsTrigger value="tab2" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60">Teens & Adults</TabsTrigger>
-                <TabsTrigger value="tab3" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60">Video Lectures</TabsTrigger>
                 <TabsTrigger value="tab4" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary py-4 px-2 text-sm md:text-base font-bold data-[state=inactive]:text-foreground/60 relative">
                   Certified Courses <span className="absolute top-1 -right-4 bg-secondary text-white text-[10px] px-2 py-0.5 rounded-full font-bold">GOVT</span>
                 </TabsTrigger>
               </TabsList>
 
-              {/* Tab 1: Kids & Teens */}
+              {/* Tab 1: Kids */}
               <TabsContent value="tab1" className="animate-in fade-in-50 duration-500 pt-4">
                 <div className="flex overflow-x-auto pb-8 gap-6 snap-x hide-scrollbar">
                   {[
                     { title: "Child Art", desc: "Ages 4–10", icon: Palette },
-                    { title: "Elementary Exam", desc: "Prep Course", icon: BookOpen },
-                    { title: "Intermediate Exam", desc: "Prep Course", icon: Award },
-                    { title: "Pencil Shading", desc: "Sketching", icon: Pencil }
+                    { title: "Elementary & Intermediate Grade Exam", desc: "", icon: BookOpen },
+                    { title: "Advance Painting", desc: "", icon: Award },
+                    { title: "Pencil Shading", desc: "Sketching & Landscapes", icon: Pencil }
                   ].map((card, i) => (
                     <div key={i} className="min-w-[280px] snap-center">
                        <FlippableCourseCard card={card} />
@@ -380,35 +382,10 @@ export default function Home() {
                   {[
                     { title: "Watercolor Painting", icon: Palette },
                     { title: "Acrylic Painting", icon: Palette },
-                    { title: "Mandala Art", icon: Star }
+                    { title: "Pencil Shading", icon: Pencil }
                   ].map((card, i) => (
                      <FlippableCourseCard key={i} card={card} />
                   ))}
-                </div>
-              </TabsContent>
-
-              {/* Tab 3: Video Lectures */}
-              <TabsContent value="tab3" className="max-w-4xl mx-auto animate-in fade-in-50 duration-500 pt-4">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-primary text-white p-8 rounded-2xl shadow-lg flex flex-col hover:-translate-y-1 transition-transform">
-                    <Clock className="w-10 h-10 mb-6 opacity-90" />
-                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Primary Level</h4>
-                    <p className="text-white/90 font-medium mb-12">Fundamentals & basic techniques tailored for beginners establishing their core skills via pre-recorded lessons.</p>
-                  </div>
-                  <div className="bg-primary text-white p-8 rounded-2xl shadow-lg flex flex-col hover:-translate-y-1 transition-transform">
-                    <Clock className="w-10 h-10 mb-6 opacity-90" />
-                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Advanced Level</h4>
-                    <p className="text-white/90 font-medium mb-12">Intermediate subjects, complex compositions, and dedicated portfolio work via pre-recorded lessons.</p>
-                  </div>
-                </div>
-                <div className="bg-secondary text-white mt-6 p-6 rounded-2xl flex items-center gap-4 justify-center text-center shadow-lg">
-                  <Clock className="w-6 h-6 shrink-0" />
-                  <p className="font-semibold">Explore our massive library of 17+ online video courses below!</p>
-                </div>
-                <div className="flex justify-center mt-6">
-                  <Button onClick={() => scrollToSection("video-courses")} className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-8 py-6 shadow-lg">
-                    Browse Video Library
-                  </Button>
                 </div>
               </TabsContent>
 
@@ -449,7 +426,7 @@ export default function Home() {
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <h3 className="text-3xl md:text-4xl font-bold mb-4">Kids & Teens Art Classes</h3>
-              <div className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary font-bold text-sm rounded-full mb-6">Ideal for: Kids | Young Adults | Ages 4–15</div>
+              <div className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary font-bold text-sm rounded-full mb-6">Ideal for ages - 4 to 15 years</div>
               <p className="text-foreground/80 font-medium mb-8 leading-relaxed">
                 Our foundational art classes are designed to spark creativity and build core skills in young learners. From Child Art for beginners to Elementary and Intermediate Grade Exam Preparation, each session blends fun with structured learning.
               </p>
@@ -471,10 +448,10 @@ export default function Home() {
               <h3 className="text-3xl md:text-4xl font-bold mb-4">Teens & Adults Classes</h3>
               <div className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary font-bold text-sm rounded-full mb-6">14 years and above</div>
               <p className="text-foreground/80 font-medium mb-8 leading-relaxed">
-                Whether you're a hobbyist or an aspiring professional, our adult classes offer a relaxed yet structured Curriculum to explore a wide range of art mediums at your own pace.
+                Whether you're a hobbyist or an aspiring professional, our classes offer a relaxed yet structured Curriculum to explore a wide range of art mediums.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {["pencil shading", "charcoal art", "Watercolor painting", "Acrylic painting"].map((item, i) => (
+                {["Pencil Shading", "Charcoal Art", "Water Colour Painting", "Acrylic Painting", "Poster colour painting", "Colour Pencil", "Oil Pastels"].map((item, i) => (
                   <div key={i} className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" /><span className="text-sm font-semibold">{item}</span>
                   </div>
@@ -502,7 +479,7 @@ export default function Home() {
                 For those seeking a formal career in art and design, SNAA offers government-certified programs with proven results in national entrance examinations.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {["Art Teacher's Training course", "Fine Arts", "Video Courses", "Workshops"].map((item, i) => (
+                {["Art Teacher's Training course", "Fine Arts"].map((item, i) => (
                   <div key={i} className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" /><span className="text-sm font-semibold">{item}</span>
                   </div>
@@ -541,7 +518,7 @@ export default function Home() {
               <div className="md:w-[60%] z-10 text-center md:text-left flex flex-col items-center md:items-start">
                 <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">Begin Your Creative Journey at SNAA</h3>
                 <p className="text-white/80 text-lg font-medium mb-8 max-w-xl leading-relaxed">
-                  Expert-led art classes, government-certified courses, and entrance exam preparation — all in one place. Admissions open for 2025–26.
+                  Expert-led art classes, government-certified courses, and entrance exam preparation — all in one place. Admissions Open.
                 </p>
                 <Button onClick={() => scrollToSection("contact")} className="bg-white hover:bg-white/90 text-secondary font-bold rounded-full px-8 py-6 h-auto shadow-lg hover:-translate-y-1 transition-all">
                   ENQUIRE NOW
@@ -558,8 +535,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-
         {/* ========================================================================= */}
         {/* ==================== 8. PREMIUM VIDEO COURSES SECTION =================== */}
         {/* ========================================================================= */}
@@ -588,7 +563,6 @@ export default function Home() {
               </motion.p>
             </div>
           </section>
-
           {/* WHY CHOOSE OUR VIDEOS */}
           <section className="py-16 bg-white border-b border-border/50 relative -mt-12 z-20 container mx-auto px-6 md:px-12 rounded-3xl shadow-xl">
             <div className="grid md:grid-cols-3 gap-8">
@@ -728,8 +702,8 @@ export default function Home() {
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               {[
-                { src: "/workshop1.jpeg", alt: "Pichhwai Jharoka art" },
-                { src: "/workshop2.jpeg", alt: "Thread and Boho art" },
+                { src: "/workshop1.jpeg", alt: "Pichwai Art" },
+                { src: "/workshop2.jpeg", alt: "Boho art" },
                 { src: "/workshop3.jpeg", alt: "Knife painting" },
                 { src: "/workshop4.jpeg", alt: "Moon Light" },
                 { src: "/workshop5.jpeg", alt: "Lord Shiva art" },
@@ -795,7 +769,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 8. GALLERY SECTION (SHIFTED BELOW GOOGLE REVIEWS) */}
+        {/* 8. GALLERY SECTION */}
         <section id="gallery" className="py-20 md:py-28 bg-white">
           <div className="container mx-auto px-6 md:px-12">
             <div className="text-center mb-16">
