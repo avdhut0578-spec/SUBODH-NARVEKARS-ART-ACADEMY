@@ -34,20 +34,8 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
-const courseArtwork: { [key: string]: string } = {
-  // Kids & Teens
-  "Child Art": "/student4.jpg",
-  "Elementary & Intermediate Grade Exam": "/student13.jpeg",
-  "Advance Painting": "/student7.jpg",
-  "Pencil Shading": "/work4.jpg",
-  "Caricature": "/caricature.jpg",
-  
-  // Teens & Adults Hobby
-  "Watercolor Painting": "/work3.jpg",
-  "Acrylic Painting": "/work1.jpg",
-};
-
-const FlippableCourseCard = ({ card }: { card: { title: string; desc?: string; icon: any } }) => {
+// Updated to accept the image directly inside the card object
+const FlippableCourseCard = ({ card }: { card: { title: string; desc?: string; icon: any; img: string } }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const ArtworkIcon = card.icon;
 
@@ -73,7 +61,7 @@ const FlippableCourseCard = ({ card }: { card: { title: string; desc?: string; i
 
         <div className="absolute inset-0 h-full w-full bg-muted rounded-2xl [transform:rotateY(180deg)] [backface-visibility:hidden] flex items-center justify-center overflow-hidden border-4 border-primary">
           <img
-            src={courseArtwork[card.title] || "/class.png"}
+            src={card.img}
             alt={`${card.title} Artwork`}
             className="w-full h-full object-cover"
           />
@@ -124,7 +112,6 @@ export default function Home() {
     { label: "Contact", id: "contact" },
   ];
 
-  // Categorized video course data with your specific .jpeg assets and YouTube preview links
   const videoCategories = [
     {
       name: "Kids & Foundational Art",
@@ -153,7 +140,7 @@ export default function Home() {
         { title: "Oil Pastel Landscapes", img: "/voilpastellandscapes.jpeg", tag: "Vibrant Scenery", desc: "Create breathtaking sunset, night, and valley scenarios using high-vibrancy pastels.", price: "₹1,299", features: ["Scenic Tutorials", "Layering Guides", "Lifetime Access"], previewUrl: "https://youtu.be/Qd9uXiWMuZo?si=JtsImkaek4ctY8Az" },
         { title: "Watercolor Landscape", img: "/vwatercolourlandscape.jpeg", tag: "Classic Scenery", desc: "Control transparency, transparent color layers, light highlights, and depth in water scapes.", price: "₹1,699", features: ["Detailed Modules", "Wash Blueprints", "Lifetime Access"] },
         { title: "Watercolor Wet on Wet", img: "/vwatercolourwetonwet.jpeg", tag: "Advanced Flow", desc: "Control highly fluid pigments on moisture grids to form soft, atmospheric masterpieces.", price: "₹1,799", features: ["Advanced Sessions", "Pigment Flow Rules", "Lifetime Access"], previewUrl: "https://youtu.be/UASbQpyNUC4?si=sdJDFYjDEMHe8QKV" },
-        { title: "Watercolor Portraiture", img: "/vwaterclourportrait.jpeg", tag: "Elite Painting", desc: "Paint translucent skin tones, realistic bone shadow layers, and modern lighting accents.", price: "₹2,199", features: ["Masterclass Modules", "Skin Layer Recipes", "Lifetime Access"], previewUrl: "https://youtu.be/Y6kVTb75g0k?si=lR-jxj0Usjxsk7Ca" },
+        { title: "Watercolor Portraiture", img: "/vwatercolourportrait.jpeg", tag: "Elite Painting", desc: "Paint translucent skin tones, realistic bone shadow layers, and modern lighting accents.", price: "₹2,199", features: ["Masterclass Modules", "Skin Layer Recipes", "Lifetime Access"], previewUrl: "https://youtu.be/Y6kVTb75g0k?si=lR-jxj0Usjxsk7Ca" },
       ]
     },
     {
@@ -260,7 +247,7 @@ export default function Home() {
 
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative hidden lg:block">
               <div className="absolute inset-0 bg-primary/20 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/class.png" alt="Art Studio Class" className="w-full h-auto rounded-2xl object-cover shadow-2xl" />
+              <img src="/class.jpg" alt="Art Studio Class" className="w-full h-auto rounded-2xl object-cover shadow-2xl" />
             </motion.div>
           </div>
         </section>
@@ -319,19 +306,19 @@ export default function Home() {
               
               <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
-                  <img src="/faculty1.jpg" alt="Subodh Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
+                  <img src="/subodhsir.jpg" alt="Subodh Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Subodh Narvekar</h4>
                   <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Founder</p>
                   <p className="text-foreground/70 text-sm">Subodh Narvekar is an art institution in himself. He has dedicated his life to teaching children. He had authored hundreds of books on drawing, basic painting , craft, origami, pencil shading series and grade exam made easy. He is proud recepient of lifetime acheivement award from Rotary Kandivali and Sai Seva Mandal, Kandivali.</p>
                 </div>
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
-                  <img src="/faculty2.jpg" alt="Avdhut Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
+                  <img src="/Avdhutsir.jpg" alt="Avdhut Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Avdhut Narvekar</h4>
                   <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-4">Senior Instructor</p>
                   <p className="text-foreground/70 text-sm">Specializes in advanced techniques, perspective, and preparing students for competitive entrance exams.</p>
                 </div>
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
-                  <img src="/faculty3.jpg" alt="Hemangi Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
+                  <img src="/Hemangimaam.jpg" alt="Hemangi Narvekar" className="w-40 h-40 rounded-full object-cover mb-6 shadow-md border-4 border-muted" />
                   <h4 className="text-xl font-bold text-foreground mb-1">Hemangi Narvekar</h4>
                   <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-4">Senior Instructor</p>
                   <p className="text-foreground/70 text-sm">Expert in child art development, foundational sketching, and nurturing early creative talent.</p>
@@ -340,9 +327,7 @@ export default function Home() {
             </div>
 
           </div>
-        </section>
-
-        {/* 6. COURSES SECTION */}
+        </section>{/* 6. COURSES SECTION */}
         <section id="courses" className="py-20 md:py-28 bg-white">
           <div className="container mx-auto px-6 md:px-12">
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -364,10 +349,10 @@ export default function Home() {
               <TabsContent value="tab1" className="animate-in fade-in-50 duration-500 pt-4">
                 <div className="flex overflow-x-auto pb-8 gap-6 snap-x hide-scrollbar">
                   {[
-                    { title: "Child Art", desc: "Ages 4–10", icon: Palette },
-                    { title: "Elementary & Intermediate Grade Exam", desc: "", icon: BookOpen },
-                    { title: "Advance Painting", desc: "", icon: Award },
-                    { title: "Pencil Shading", desc: "Sketching & Landscapes", icon: Pencil }
+                    { title: "Child Art", desc: "Ages 4–10", icon: Palette, img: "/childart.jpg" },
+                    { title: "Elementary & Intermediate Grade Exam", desc: "", icon: BookOpen, img: "/Intermediate.jpg" },
+                    { title: "Advance Painting", desc: "", icon: Award, img: "/student.jpg" },
+                    { title: "Pencil Shading", desc: "Sketching & Landscapes", icon: Pencil, img: "/pencilshadingkids.jpeg" }
                   ].map((card, i) => (
                     <div key={i} className="min-w-[280px] snap-center">
                        <FlippableCourseCard card={card} />
@@ -380,9 +365,9 @@ export default function Home() {
               <TabsContent value="tab2" className="animate-in fade-in-50 duration-500 pt-4">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
-                    { title: "Watercolor Painting", icon: Palette },
-                    { title: "Acrylic Painting", icon: Palette },
-                    { title: "Pencil Shading", icon: Pencil }
+                    { title: "Watercolor Painting", icon: Palette, img: "/watercolor.jpg" },
+                    { title: "Acrylic Painting", icon: Palette, img: "/acrylicpainting.jpeg" },
+                    { title: "Pencil Shading", icon: Pencil, img: "/pencilshadingadults.jpeg" }
                   ].map((card, i) => (
                      <FlippableCourseCard key={i} card={card} />
                   ))}
@@ -422,7 +407,7 @@ export default function Home() {
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
               <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/group7.jpg" alt="Kids & Teens Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+              <img src="/group2.jpeg" alt="Kids & Teens Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <h3 className="text-3xl md:text-4xl font-bold mb-4">Kids & Teens Art Classes</h3>
@@ -461,7 +446,7 @@ export default function Home() {
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative order-1 md:order-2">
               <div className="absolute inset-0 bg-secondary/10 rounded-3xl -translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/work7.jpg" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+              <img src="/student4.jpg" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
           </div>
         </section>
@@ -470,7 +455,7 @@ export default function Home() {
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
               <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10"></div>
-              <img src="/work2.jpg" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+              <img src="/bagworkshop.jpg" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <h3 className="text-3xl md:text-4xl font-bold mb-4">Professional & Certified Courses</h3>
@@ -526,15 +511,17 @@ export default function Home() {
               </div>
               
               <div className="md:w-[40%] grid grid-cols-2 gap-4 z-10 w-full aspect-square md:aspect-auto">
-                <img src="/work5.jpg" alt="Artwork 1" className="rounded-xl w-full h-full object-cover shadow-md" />
-                <img src="/work2.jpg" alt="Artwork 2" className="rounded-xl w-full h-full object-cover shadow-md translate-y-4" />
-                <img src="/work8.jpg" alt="Artwork 3" className="rounded-xl w-full h-full object-cover shadow-md -translate-y-4" />
-                <img src="/work7.jpg" alt="Artwork 4" className="rounded-xl w-full h-full object-cover shadow-md" />
+                <img src="/kashvi.jpg" alt="Artwork 1" className="rounded-xl w-full h-full object-cover shadow-md" />
+                <img src="/student9.jpeg" alt="Artwork 2" className="rounded-xl w-full h-full object-cover shadow-md translate-y-4" />
+                <img src="/student11.jpeg" alt="Artwork 3" className="rounded-xl w-full h-full object-cover shadow-md -translate-y-4" />
+                <img src="/painting.jpg" alt="Artwork 4" className="rounded-xl w-full h-full object-cover shadow-md" />
               </div>
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
             </div>
           </div>
         </section>
+
+
         {/* ========================================================================= */}
         {/* ==================== 8. PREMIUM VIDEO COURSES SECTION =================== */}
         {/* ========================================================================= */}
@@ -563,6 +550,7 @@ export default function Home() {
               </motion.p>
             </div>
           </section>
+
           {/* WHY CHOOSE OUR VIDEOS */}
           <section className="py-16 bg-white border-b border-border/50 relative -mt-12 z-20 container mx-auto px-6 md:px-12 rounded-3xl shadow-xl">
             <div className="grid md:grid-cols-3 gap-8">
@@ -702,12 +690,18 @@ export default function Home() {
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               {[
-                { src: "/workshop1.jpeg", alt: "Pichwai Art" },
+                { src: "/workshop3.jpeg", alt: "Pichwai Art" },
                 { src: "/workshop2.jpeg", alt: "Boho art" },
-                { src: "/workshop3.jpeg", alt: "Knife painting" },
-                { src: "/workshop4.jpeg", alt: "Moon Light" },
-                { src: "/workshop5.jpeg", alt: "Lord Shiva art" },
-                { src: "/workshop6.jpeg", alt: "Lippan Art" }
+                { src: "/workshop4.jpeg", alt: "Knife painting" },
+                { src: "/workshop1.jpeg", alt: "Moon Light" },
+                { src: "/workshop6.jpeg", alt: "Lord Shiva art" },
+                { src: "/workshop5.jpeg", alt: "Lippan Art" },
+                { src: "/workshop13.jpeg", alt: "Upcoming Workshop" },
+                { src: "/workshop11.jpeg", alt: "Upcoming Workshop" },
+                { src: "/workshop8.jpeg", alt: "Upcoming Workshop" },
+                { src: "/workshop9.jpeg", alt: "Upcoming Workshop" },
+                { src: "/workshop10.jpeg", alt: "Upcoming Workshop" },
+                { src: "/workshop12.jpeg", alt: "Upcoming Workshop" }
               ].map((img, i) => (
                 <div key={i} className="flex flex-col gap-4 group">
                   <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-sm group-hover:shadow-xl transition-all cursor-pointer">
@@ -904,7 +898,7 @@ export default function Home() {
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl><SelectTrigger className="rounded-lg bg-muted/50 border-transparent focus-visible:bg-white"><SelectValue placeholder="Select a course category" /></SelectTrigger></FormControl>
                             <SelectContent>
-                              <SelectItem value="kids">Kids & Teens Art</SelectItem>
+                              <SelectItem value="kids">Kids Art</SelectItem>
                               <SelectItem value="exam_prep">Govt. Exam Preparation</SelectItem>
                               <SelectItem value="adults">Adults / Hobby Art</SelectItem>
                               <SelectItem value="attc">ATTC (Teacher Training)</SelectItem>
