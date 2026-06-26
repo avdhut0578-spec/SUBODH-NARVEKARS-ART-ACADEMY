@@ -461,56 +461,6 @@ export default function Home() {
               </TabsContent>
             </Tabs>
           </div>
-        </section>
-
-        {/* COURSE DETAILS SECTION 1 */}
-        <section className="py-12 md:py-20 bg-muted/20">
-          <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
-              <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-3 translate-y-3 -z-10"></div>
-              <img src="/group2.jpeg" alt="Kids & Teens Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <h3 className="text-2xl md:text-3xl font-bold mb-3">Kids & Teens Art Classes</h3>
-              <div className="inline-block px-3 py-1 bg-secondary/10 text-secondary font-bold text-xs md:text-sm rounded-full mb-5">Ideal for ages - 4 to 15 years</div>
-              <p className="text-foreground/80 font-medium mb-6 leading-relaxed text-sm md:text-base">
-                Our foundational art classes are designed to spark creativity and build core skills in young learners. From Child Art for beginners to Elementary and Intermediate Grade Exam Preparation, each session blends fun with structured learning.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-                {["Child art", "Advance painting", "Elementary exam preparation", "Intermediate exam preparation", "Pencil shading and sketching", "Cartoon art", "Art and craft", "Advance child art"].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-secondary shrink-0" /><span className="text-xs md:text-sm font-semibold">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <Button onClick={() => scrollToSection("contact")} className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-6 py-5 h-auto text-sm">ENQUIRE NOW</Button>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* COURSE DETAILS SECTION 2 */}
-        <section className="py-12 md:py-20 bg-white overflow-hidden">
-          <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="order-2 md:order-1">
-              <h3 className="text-2xl md:text-3xl font-bold mb-3">Teens & Adults Classes</h3>
-              <div className="inline-block px-3 py-1 bg-secondary/10 text-secondary font-bold text-xs md:text-sm rounded-full mb-5">14 years and above</div>
-              <p className="text-foreground/80 font-medium mb-6 leading-relaxed text-sm md:text-base">
-                Whether you're a hobbyist or an aspiring professional, our classes offer a relaxed yet structured Curriculum to explore a wide range of art mediums.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-                {["Pencil Shading", "Charcoal Art", "Water Colour Painting", "Acrylic Painting", "Poster colour painting", "Colour Pencil", "Oil Pastels"].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-secondary shrink-0" /><span className="text-xs md:text-sm font-semibold">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <Button onClick={() => scrollToSection("contact")} className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-6 py-5 h-auto text-sm">ENQUIRE NOW</Button>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative order-1 md:order-2">
-              <div className="absolute inset-0 bg-secondary/10 rounded-3xl -translate-x-3 translate-y-3 -z-10"></div>
-              <img src="/student4.jpg" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
-            </motion.div>
-          </div>
         </section>{/* COURSE DETAILS SECTION 3 */}
         <section className="py-12 md:py-20 bg-white">
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-center">
@@ -581,6 +531,159 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ========================================================================= */}
+        {/* ==================== PREMIUM VIDEO COURSES SECTION ====================== */}
+        {/* ========================================================================= */}
+        
+        <div id="video-courses">
+          {/* CINEMATIC HERO SECTION */}
+          <section className="relative pt-20 pb-28 bg-slate-900 text-white overflow-hidden">
+            <div className="absolute inset-0 z-0 opacity-20">
+              <img src="/work7.jpg" alt="Background Texture" className="w-full h-full object-cover blur-sm" />
+              <div className="absolute inset-0 bg-slate-900/80"></div>
+            </div>
+            
+            <div className="container mx-auto px-6 md:px-12 relative z-10 text-center max-w-4xl">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 text-white text-xs font-bold uppercase tracking-wider mb-6 rounded-full border border-white/20">
+                  <Video className="w-4 h-4" /> Premium Online Learning
+                </div>
+              </motion.div>
+              
+              <motion.h1 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold leading-[1.1] mb-6">
+                Master Art Anytime,<br/>Anywhere.
+              </motion.h1>
+              
+              <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base md:text-lg text-white/80 mb-10 leading-relaxed font-medium">
+                Step-by-step, high-quality video tutorials taught by Subodh Narvekar and our senior faculty. Bring the studio experience directly to your home.
+              </motion.p>
+            </div>
+          </section>
+
+          {/* WHY CHOOSE OUR VIDEOS */}
+          <section className="py-12 bg-white border-b border-border/50 relative -mt-12 z-20 container mx-auto px-6 md:px-12 rounded-3xl shadow-xl">
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="flex flex-col items-center text-center p-4">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                  <Video className="w-7 h-7" />
+                </div>
+                <h4 className="text-base font-bold text-foreground mb-2">Crystal Clear Quality</h4>
+                <p className="text-foreground/70 font-medium text-sm">High-Definition (4K) recording so students can see every brushstroke.</p>
+              </div>
+              
+              <div className="flex flex-col items-center text-center p-4 border-y md:border-y-0 md:border-x border-border/50">
+                <div className="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mb-4">
+                  <PlayCircle className="w-7 h-7" />
+                </div>
+                <h4 className="text-base font-bold text-foreground mb-2">Total Flexibility</h4>
+                <p className="text-foreground/70 font-medium text-sm">Pause, rewind, and learn at your own pace from the comfort of your home.</p>
+              </div>
+
+              <div className="flex flex-col items-center text-center p-4">
+                <div className="w-14 h-14 rounded-full bg-[#4285F4]/10 flex items-center justify-center text-[#4285F4] mb-4">
+                  <Infinity className="w-7 h-7" />
+                </div>
+                <h4 className="text-base font-bold text-foreground mb-2">Lifetime Access</h4>
+                <p className="text-foreground/70 font-medium text-sm">Buy once, keep forever. Revisit the deep lessons whenever you need a refresher.</p>
+              </div>
+            </div>
+          </section>
+
+          {/* DYNAMIC CATEGORIZED COURSE SECTIONS */}
+          {videoCategories.map((cat, catIdx) => (
+            <section key={catIdx} className={`py-12 md:py-16 ${catIdx % 2 === 0 ? "bg-muted/10" : "bg-white"}`}>
+              <div className="container mx-auto px-6 md:px-12">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="h-6 w-2 bg-primary rounded-full"></div>
+                  <h3 className="text-2xl md:text-3xl font-sans font-bold text-foreground tracking-tight">{cat.name}</h3>
+                </div>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {cat.courses.map((course, i) => {
+                    const whatsappUrl = `https://wa.me/918779739115?text=Hi%2C%20I'm%20interested%20in%20purchasing%20the%20%22${encodeURIComponent(course.title)}%22%20video%20course%20for%20${course.price}.%20Please%20guide%20me%20on%20how%20to%20complete%20the%20payment%20and%20get%20access.`;
+                    
+                    return (
+                      <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-border flex flex-col group">
+                        <div className="relative aspect-video overflow-hidden bg-muted">
+                          <img src={course.img} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                          <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-foreground text-[10px] md:text-xs font-bold px-2 py-1 rounded-full border border-border/50 shadow-sm">{course.tag}</div>
+                        </div>
+                        <div className="p-5 flex flex-col flex-grow">
+                          <h4 className="text-lg font-bold text-foreground leading-tight mb-2">{course.title}</h4>
+                          <p className="text-foreground/70 text-xs md:text-sm mb-4 leading-relaxed flex-grow">{course.desc}</p>
+                          
+                          <ul className="space-y-2 mb-5 pt-3 border-t border-border/40">
+                            {course.features.map((feat, fIdx) => (
+                              <li key={fIdx} className="flex items-center gap-2 text-[11px] md:text-xs font-semibold text-foreground/80">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0" /> {feat}
+                              </li>
+                            ))}
+                          </ul>
+
+                          <div className="flex items-center justify-between pt-4 border-t border-border/50 mt-auto">
+                            <span className="text-lg font-black text-foreground">{course.price}</span>
+                            <div className="flex gap-2">
+                              {course.previewUrl && (
+                                <a href={course.previewUrl} target="_blank" rel="noreferrer">
+                                  <Button variant="outline" className="rounded-full px-3 h-8 text-[10px] md:text-xs border-primary text-primary hover:bg-primary/10 flex items-center gap-1 shadow-sm">
+                                    <Youtube size={14} /> Preview
+                                  </Button>
+                                </a>
+                              )}
+                              <a href={whatsappUrl} target="_blank" rel="noreferrer">
+                                <Button className="bg-[#25D366] hover:bg-[#20ba53] text-white font-bold rounded-full px-3 h-8 text-[10px] md:text-xs flex items-center gap-1 shadow-sm">
+                                  <FaWhatsapp size={14} /> Enquire
+                                </Button>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+          ))}
+
+          {/* FREE PREVIEW PLAYLIST SECTION */}
+          <section className="py-16 md:py-20 bg-slate-900 text-white border-t border-border/10">
+            <div className="container mx-auto px-6 md:px-12 text-center max-w-4xl">
+              <h3 className="text-3xl md:text-4xl font-sans font-bold mb-4">Try Before You Buy</h3>
+              <p className="text-base md:text-lg text-white/80 font-medium mb-8">Not sure which course is right for you? Watch our free preview lessons on YouTube to experience the teaching quality.</p>
+              <a href="https://youtube.com/playlist?list=PLwB_a_c_n1B65545B82" target="_blank" rel="noreferrer">
+                <Button className="bg-red-600 hover:bg-red-700 text-white font-bold rounded-full px-6 py-5 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                  <Youtube className="w-5 h-5 mr-2" /> Watch Free Previews
+                </Button>
+              </a>
+            </div>
+          </section>
+
+          {/* HOW TO GET ACCESS GUIDE */}
+          <section className="py-16 md:py-20 bg-white border-y border-border">
+            <div className="container mx-auto px-6 md:px-12 max-w-4xl">
+              <h3 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-10">How To Purchase Your Course</h3>
+              <div className="grid md:grid-cols-3 gap-6 relative">
+                <div className="flex flex-col items-center text-center p-4">
+                  <div className="w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center text-base mb-3 shadow-md">1</div>
+                  <h5 className="font-bold text-base mb-2">Click Enquire</h5>
+                  <p className="text-xs md:text-sm text-foreground/70 font-medium">Click the WhatsApp button on your chosen course to connect with our academy instantly.</p>
+                </div>
+                <div className="flex flex-col items-center text-center p-4">
+                  <div className="w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center text-base mb-3 shadow-md">2</div>
+                  <h5 className="font-bold text-base mb-2">Pay via UPI / GPay</h5>
+                  <p className="text-xs md:text-sm text-foreground/70 font-medium">We will share our official UPI handle. Complete the transaction securely and share a screenshot.</p>
+                </div>
+                <div className="flex flex-col items-center text-center p-4">
+                  <div className="w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center text-base mb-3 shadow-md">3</div>
+                  <h5 className="font-bold text-base mb-2">Instant Access</h5>
+                  <p className="text-xs md:text-sm text-foreground/70 font-medium">Our team will instantly share your personalized, permanent stream links straight to your chat!</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
 
         {/* WORKSHOPS CAROUSEL SECTION */}
         <section id="workshops" className="py-12 md:py-20 bg-muted/20">
@@ -826,7 +929,7 @@ export default function Home() {
                   <li><button onClick={() => scrollToSection("courses")} className="text-white/60 hover:text-white transition-colors font-medium text-sm md:text-base">Child Art</button></li>
                   <li><button onClick={() => scrollToSection("courses")} className="text-white/60 hover:text-white transition-colors font-medium text-sm md:text-base">Exam Prep</button></li>
                   <li><button onClick={() => scrollToSection("courses")} className="text-white/60 hover:text-white transition-colors font-medium text-sm md:text-base">ATTC Certification</button></li>
-                  <li><button onClick={() => window.location.href = '/video-courses'} className="text-white/60 hover:text-white transition-colors font-medium text-sm md:text-base">Video Lectures</button></li>
+                  <li><button onClick={() => scrollToSection("video-courses")} className="text-white/60 hover:text-white transition-colors font-medium text-sm md:text-base">Video Lectures</button></li>
                 </ul>
               </div>
             </div>
