@@ -152,55 +152,45 @@ export default function Home() {
 
   const workshopImages = [
     { src: "/workshop3.jpeg", alt: "Pichwai Art" },
-    { src: "/workshop2.jpeg", alt: "Boho art" },
-    { src: "/workshop4.jpeg", alt: "Knife painting" },
-    { src: "/workshop1.jpeg", alt: "Moon Light" },
-    { src: "/workshop6.jpeg", alt: "Lord Shiva art" },
+    { src: "/workshop2.jpeg", alt: "Boho Art" },
+    { src: "/workshop4.jpeg", alt: "Knife Painting" },
+    { src: "/workshop1.jpeg", alt: "Moonlight Art" },
+    { src: "/workshop6.jpeg", alt: "Lord Shiva Art" },
     { src: "/workshop5.jpeg", alt: "Lippan Art" },
     { src: "/workshop13.jpeg", alt: "Brushpen Calligraphy" },
-    { src: "/workshop11.jpeg", alt: "Warli art" },
-    { src: "/workshop8.jpeg", alt: "Sand art" },
+    { src: "/workshop11.jpeg", alt: "Warli Art" },
+    { src: "/workshop8.jpeg", alt: "Sand Art" },
     { src: "/workshop9.jpeg", alt: "Texture Art" },
     { src: "/workshop10.jpeg", alt: "Buddha Line Art" },
-    { src: "/workshop12.jpeg", alt: "Glass painting" }
+    { src: "/workshop12.jpeg", alt: "Glass Painting" }
   ];
 
   const videoCategories = [
     {
-      name: "Kids & Foundational Art",
+      name: "Video courses for kids",
       courses: [
-        { title: "Cartoon Art", img: "/vcartoons.jpeg", tag: "Kids Special", desc: "Fun, step-by-step cartoon character styling and creative expressions for young minds.", price: "₹999", features: ["HD Video Lessons", "Ages 5-12", "Lifetime Access"], previewUrl: "https://youtu.be/XNjtZYZ0qoI?si=BDP4tqB5sPVzkAYW" },
-        { title: "Pencil Shading for Kids", img: "/vpencilshadingforkids.jpeg", tag: "Foundational", desc: "Introduces basic light, shadow, and tonal control with pencils for junior artists.", price: "₹1,199", features: ["Core Modules", "Kid Friendly", "Lifetime Access"], previewUrl: "https://youtu.be/nWzlU6gXn20?si=u0t9H_oh4bTAI8Ab" },
-        { title: "Figure Drawing for Kids", img: "/vfiguredrawingforkids.jpeg", tag: "Junior Anatomy", desc: "Simplifies human body proportions into basic geometric shapes for quick learning.", price: "₹1,299", features: ["Practice Videos", "Easy Methods", "Lifetime Access"] },
+        { title: "Figure Drawing for Kids", img: "/vfiguredrawingforkids.jpeg", desc: "Specially for kids of grades 2 to 6. Over 48 human figures demonstrated in simple language.", price: "₹600", features: ["34 Lessons", "Grades 2 to 6", "48+ Human Figures"] },
+        { title: "Pencil Shading for Kids", img: "/vpencilshadingforkids.jpeg", desc: "Specially for kids of grades 2 to 6.", price: "₹600", features: ["15 Lessons", "Grades 2 to 6", "Lifetime Access"], previewUrl: "https://youtu.be/nWzlU6gXn20?si=u0t9H_oh4bTAI8Ab" },
+        { title: "Cartoon Art", img: "/vcartoons.jpeg", desc: "Includes Animal cartoons, creative cartoons, kawaii animation, Mario Miranda style, cartoon characters. PDF images included.", price: "₹600", features: ["37 Lessons", "Grades 2 to 6", "PDF Included"], previewUrl: "https://youtu.be/XNjtZYZ0qoI?si=BDP4tqB5sPVzkAYW" },
+        { title: "Oil Pastel Landscapes", img: "/voilpastellandscapes.jpeg", desc: "For both kids and adults. Includes 7 intro lessons, 11 landscapes, and 1 bonus lesson.", price: "₹750", features: ["19 Lessons", "Kids & Adults", "Bonus Lesson"], previewUrl: "https://youtu.be/Qd9uXiWMuZo?si=JtsImkaek4ctY8Az" }
       ]
     },
     {
-      name: "Sketching & Anatomy Mastery",
+      name: "Video courses for teens & adults",
       courses: [
-        { title: "Pencil Objects Shading", img: "/vpencilobjects.jpeg", tag: "Still Life", desc: "Master realistic 3D textures, drapery, and complex shading structures of daily objects.", price: "₹1,499", features: ["Deep-Dive Modules", "Material Guides", "Lifetime Access"], previewUrl: "https://youtu.be/cB5IvOosbCs?si=pI0jRHK52_z6HJHU" },
-        { title: "Pencil Landscapes", img: "/vpencillandscapes.jpeg", tag: "Perspective", desc: "Understand 1-point, 2-point perspective guidelines, skies, trees, and detailed nature drawing.", price: "₹1,499", features: ["Detailed Chapters", "Perspective Rules", "Lifetime Access"], previewUrl: "https://youtu.be/wq1dHb4fsqg?si=AHlaLCeEbYw1nA-6" },
-        { title: "Human Figures Study", img: "/vhumanfigures.jpeg", tag: "Anatomy", desc: "Comprehensive anatomical body maps, skeletal breakdowns, and realistic gesture poses.", price: "₹1,799", features: ["Step-by-Step Clips", "Proportions Blueprint", "Lifetime Access"], previewUrl: "https://youtu.be/v0o2DB77gYs?si=U3REitQ4bThoC4p-" },
-        { title: "Sketching People Live", img: "/vsketchingpeople.jpeg", tag: "Live Sketching", desc: "Capture real-time gestures, clothing folds, and natural human postures rapidly.", price: "₹1,599", features: ["Action Demos", "Live Techniques", "Lifetime Access"] },
-        { title: "Caricature Design", img: "/vcaricature.jpeg", tag: "Creative Stylization", desc: "Learn exaggeration rules to morph basic portraits into humorous, artistic caricatures.", price: "₹1,499", features: ["Conceptual Modules", "Proportion Warping", "Lifetime Access"], previewUrl: "https://youtu.be/BcC0GXsGNGk?si=qoPlYSAOVRFnA00s" },
-        { title: "Pencil Portraiture", img: "/vpencilportrait.jpeg", tag: "Advanced Portrait", desc: "Detailed mapping of hyper-realistic facial features, hair rendering, and soft skin shading.", price: "₹1,999", features: ["Hyper-Detail Videos", "Feature Breakdowns", "Lifetime Access"] },
-      ]
-    },
-    {
-      name: "Coloring & Painting Mediums",
-      courses: [
-        { title: "Object Painting Basics", img: "/vobjectpainting.jpeg", tag: "Color Theory", desc: "Transition from pencil tones to volumetric color application using brush strategies.", price: "₹1,399", features: ["Fundamental Lessons", "Color Mixing Plans", "Lifetime Access"], previewUrl: "https://youtu.be/7P25y-R0wRY?si=hKzInLMmw-yzyaSc" },
-        { title: "Oil Pastel Objects", img: "/voilpastelobjects.jpeg", tag: "Pastel Medium", desc: "Learn smooth blending, scrapings, and vibrant color layering tricks using oil pastels.", price: "₹1,199", features: ["Practical Modules", "Blending Methods", "Lifetime Access"] },
-        { title: "Oil Pastel Landscapes", img: "/voilpastellandscapes.jpeg", tag: "Vibrant Scenery", desc: "Create breathtaking sunset, night, and valley scenarios using high-vibrancy pastels.", price: "₹1,299", features: ["Scenic Tutorials", "Layering Guides", "Lifetime Access"], previewUrl: "https://youtu.be/Qd9uXiWMuZo?si=JtsImkaek4ctY8Az" },
-        { title: "Watercolor Landscape", img: "/vwatercolourlandscape.jpeg", tag: "Classic Scenery", desc: "Control transparency, transparent color layers, light highlights, and depth in water scapes.", price: "₹1,699", features: ["Detailed Modules", "Wash Blueprints", "Lifetime Access"] },
-        { title: "Watercolor Wet on Wet", img: "/vwatercolourwetonwet.jpeg", tag: "Advanced Flow", desc: "Control highly fluid pigments on moisture grids to form soft, atmospheric masterpieces.", price: "₹1,799", features: ["Advanced Sessions", "Pigment Flow Rules", "Lifetime Access"], previewUrl: "https://youtu.be/UASbQpyNUC4?si=sdJDFYjDEMHe8QKV" },
-        { title: "Watercolor Portraiture", img: "/vwatercolourportrait.jpeg", tag: "Elite Painting", desc: "Paint translucent skin tones, realistic bone shadow layers, and modern lighting accents.", price: "₹2,199", features: ["Masterclass Modules", "Skin Layer Recipes", "Lifetime Access"], previewUrl: "https://youtu.be/Y6kVTb75g0k?si=lR-jxj0Usjxsk7Ca" },
-      ]
-    },
-    {
-      name: "Art Grade Exam Specials",
-      courses: [
-        { title: "Memory Drawing Vol. 1", img: "/vmemorydrawing1.jpeg", tag: "Art Grade Exam", desc: "Master daily human action scenes, overlapping figures, and background grids for Elementary exams.", price: "₹1,999", features: ["Complete Scenarios", "Exam Guideline Check", "Lifetime Access"] },
-        { title: "Memory Drawing Vol. 2", img: "/vmemorydrawing2.jpeg", tag: "Art Grade Exam", desc: "Complex crowd layouts, market grids, and technical coloring constraints for Intermediate exams.", price: "₹2,499", features: ["Complex Composition Demos", "Time Optimization", "Lifetime Access"] },
+        { title: "Pencil Portraiture", img: "/vpencilportrait.jpeg", desc: "Detailed mapping of hyper-realistic facial features, hair rendering, and soft skin shading.", price: "₹1,999", features: ["Hyper-Detail Videos", "Feature Breakdowns", "Lifetime Access"] },
+        { title: "Pencil Objects Shading", img: "/vpencilobjects.jpeg", desc: "Master realistic 3D textures, drapery, and complex shading structures of daily objects.", price: "₹1,499", features: ["Deep-Dive Modules", "Material Guides", "Lifetime Access"], previewUrl: "https://youtu.be/cB5IvOosbCs?si=pI0jRHK52_z6HJHU" },
+        { title: "Pencil Landscapes", img: "/vpencillandscapes.jpeg", desc: "Understand 1-point, 2-point perspective guidelines, skies, trees, and detailed nature drawing.", price: "₹1,499", features: ["Detailed Chapters", "Perspective Rules", "Lifetime Access"], previewUrl: "https://youtu.be/wq1dHb4fsqg?si=AHlaLCeEbYw1nA-6" },
+        { title: "Human Figures Study", img: "/vhumanfigures.jpeg", desc: "Comprehensive anatomical body maps, skeletal breakdowns, and realistic gesture poses.", price: "₹1,799", features: ["Step-by-Step Clips", "Proportions Blueprint", "Lifetime Access"], previewUrl: "https://youtu.be/v0o2DB77gYs?si=U3REitQ4bThoC4p-" },
+        { title: "Sketching People Live", img: "/vsketchingpeople.jpeg", desc: "Capture real-time gestures, clothing folds, and natural human postures rapidly.", price: "₹1,599", features: ["Action Demos", "Live Techniques", "Lifetime Access"] },
+        { title: "Caricature Design", img: "/vcaricature.jpeg", desc: "Learn exaggeration rules to morph basic portraits into humorous, artistic caricatures.", price: "₹1,499", features: ["Conceptual Modules", "Proportion Warping", "Lifetime Access"], previewUrl: "https://youtu.be/BcC0GXsGNGk?si=qoPlYSAOVRFnA00s" },
+        { title: "Object Painting Basics", img: "/vobjectpainting.jpeg", desc: "Transition from pencil tones to volumetric color application using brush strategies.", price: "₹1,399", features: ["Fundamental Lessons", "Color Mixing Plans", "Lifetime Access"], previewUrl: "https://youtu.be/7P25y-R0wRY?si=hKzInLMmw-yzyaSc" },
+        { title: "Oil Pastel Objects", img: "/voilpastelobjects.jpeg", desc: "Learn smooth blending, scrapings, and vibrant color layering tricks using oil pastels.", price: "₹1,199", features: ["Practical Modules", "Blending Methods", "Lifetime Access"] },
+        { title: "Watercolor Landscape", img: "/vwatercolourlandscape.jpeg", desc: "Control transparency, transparent color layers, light highlights, and depth in water scapes.", price: "₹1,699", features: ["Detailed Modules", "Wash Blueprints", "Lifetime Access"] },
+        { title: "Watercolor Wet on Wet", img: "/vwatercolourwetonwet.jpeg", desc: "Control highly fluid pigments on moisture grids to form soft, atmospheric masterpieces.", price: "₹1,799", features: ["Advanced Sessions", "Pigment Flow Rules", "Lifetime Access"], previewUrl: "https://youtu.be/UASbQpyNUC4?si=sdJDFYjDEMHe8QKV" },
+        { title: "Watercolor Portraiture", img: "/vwatercolourportrait.jpeg", desc: "Paint translucent skin tones, realistic bone shadow layers, and modern lighting accents.", price: "₹2,199", features: ["Masterclass Modules", "Skin Layer Recipes", "Lifetime Access"], previewUrl: "https://youtu.be/Y6kVTb75g0k?si=lR-jxj0Usjxsk7Ca" },
+        { title: "Memory Drawing Vol. 1", img: "/vmemorydrawing1.jpeg", desc: "Master daily human action scenes, overlapping figures, and background grids for Elementary exams.", price: "₹1,999", features: ["Complete Scenarios", "Exam Guideline Check", "Lifetime Access"] },
+        { title: "Memory Drawing Vol. 2", img: "/vmemorydrawing2.jpeg", desc: "Complex crowd layouts, market grids, and technical coloring constraints for Intermediate exams.", price: "₹2,499", features: ["Complex Composition Demos", "Time Optimization", "Lifetime Access"] }
       ]
     }
   ];
@@ -331,7 +321,7 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }}>
                 <div className="inline-block px-4 py-1 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-4">About Us</div>
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-foreground mb-6 leading-tight">A Legacy since 1984 in Art Education</h3>
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-foreground mb-6 leading-tight">A Legacy Since 1984 in Art Education</h3>
                 <div className="space-y-4 text-foreground/70 text-base md:text-lg mb-8">
                   <p>Established by Subodh Narvekar, SNAA has grown into one of Mumbai's most respected art institutions, a legacy since 1984 in art education.</p>
                   <p>From nurturing young children's creativity to preparing serious students for government-certified professional examinations, the academy combines disciplined classical training with an encouraging, studio-like atmosphere.</p>
@@ -362,19 +352,19 @@ export default function Home() {
                   <img src="/subodhsir.jpg" alt="Subodh Narvekar" className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mb-4 shadow-md border-4 border-muted" />
                   <h4 className="text-lg md:text-xl font-bold text-foreground mb-1">Subodh Narvekar</h4>
                   <p className="text-primary font-semibold text-xs uppercase tracking-wider mb-3">Founder</p>
-                  <p className="text-foreground/70 text-xs md:text-sm">Subodh Narvekar is an art institution in himself. He has dedicated his life to teaching children. He had authored hundreds of books on drawing, basic painting , craft, origami, pencil shading series and grade exam made easy. He is proud recepient of lifetime acheivement award from Rotary Kandivali and Sai Seva Mandal, Kandivali.</p>
+                  <p className="text-foreground/70 text-xs md:text-sm">Subodh Narvekar is an art institution in himself. He has dedicated his life to teaching children. He has authored hundreds of books on drawing, basic painting, craft, origami, the Pencil Shading Series, and Grade Exam Made Easy. He is the proud recipient of the Lifetime Achievement Award from Rotary Kandivali and Sai Seva Mandal, Kandivali.</p>
                 </div>
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
                   <img src="/Avdhutsir.jpg" alt="Avdhut Narvekar" className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mb-4 shadow-md border-4 border-muted" />
                   <h4 className="text-lg md:text-xl font-bold text-foreground mb-1">Avdhut Narvekar</h4>
                   <p className="text-secondary font-semibold text-xs uppercase tracking-wider mb-3">Senior Instructor</p>
-                  <p className="text-foreground/70 text-xs md:text-sm">Specializes in advanced techniques, perspective, and preparing students for competitive entrance exams.</p>
+                  <p className="text-foreground/70 text-xs md:text-sm">Specializes in advanced techniques, perspective, and preparing students for competitive entrance exams. BFA (Drawing and Painting) JJ School of Art 2002.</p>
                 </div>
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-shadow flex flex-col items-center">
                   <img src="/Hemangimaam.jpg" alt="Hemangi Narvekar" className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mb-4 shadow-md border-4 border-muted" />
                   <h4 className="text-lg md:text-xl font-bold text-foreground mb-1">Hemangi Narvekar</h4>
                   <p className="text-secondary font-semibold text-xs uppercase tracking-wider mb-3">Senior Instructor</p>
-                  <p className="text-foreground/70 text-xs md:text-sm">Expert in child art development, foundational sketching, and nurturing early creative talent.</p>
+                  <p className="text-foreground/70 text-xs md:text-sm">Expert in child art development, foundational sketching, and nurturing early creative talent. BFA (Textile Designing) JJ School of Art 2002. Diploma Course from IITC in Fashion Designing.</p>
                 </div>
               </div>
             </div>
@@ -411,8 +401,8 @@ export default function Home() {
                 <div className="flex overflow-x-auto pb-6 gap-6 snap-x hide-scrollbar">
                   {[
                     { title: "Child Art", desc: "Ages 4–10", icon: Palette, img: "/childart.jpg" },
-                    { title: "Elementary & Intermediate Grade Exam", desc: "", icon: BookOpen, img: "/Intermediate.jpg" },
-                    { title: "Advance Painting", desc: "", icon: Award, img: "/student.jpg" },
+                    { title: "Elementary & Intermediate Grade Exam", desc: "", icon: BookOpen, img: "/student13.jpeg" },
+                    { title: "Advanced Painting", desc: "", icon: Award, img: "/student.jpg" },
                     { title: "Pencil Shading", desc: "Sketching & Landscapes", icon: Pencil, img: "/pencilshadingkids.jpeg" }
                   ].map((card, i) => (
                     <div key={i} className="min-w-[260px] snap-center">
@@ -461,12 +451,62 @@ export default function Home() {
               </TabsContent>
             </Tabs>
           </div>
+        </section>
+
+        {/* COURSE DETAILS SECTION 1 */}
+        <section className="py-12 md:py-20 bg-muted/20">
+          <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-center">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
+              <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-3 translate-y-3 -z-10"></div>
+              <img src="/group2.jpeg" alt="Kids & Teens Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">Kids Art Classes</h3>
+              <div className="inline-block px-3 py-1 bg-secondary/10 text-secondary font-bold text-xs md:text-sm rounded-full mb-5">Ideal for ages 4 to 15 years</div>
+              <p className="text-foreground/80 font-medium mb-6 leading-relaxed text-sm md:text-base">
+                Our foundational art classes are designed to spark creativity and build core skills in young learners. From Child Art for beginners to Elementary and Intermediate Grade Exam Preparation, each session blends fun with structured learning.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                {["Child Art", "Advanced Painting", "Elementary Exam Preparation", "Intermediate Exam Preparation", "Pencil Shading & Sketching", "Cartoon Art", "Art & Craft", "Advanced Child Art"].map((item, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-secondary shrink-0" /><span className="text-xs md:text-sm font-semibold">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <Button onClick={() => scrollToSection("contact")} className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-6 py-5 h-auto text-sm">ENQUIRE NOW</Button>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* COURSE DETAILS SECTION 2 */}
+        <section className="py-12 md:py-20 bg-white overflow-hidden">
+          <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-center">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="order-2 md:order-1">
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">Teens & Adults Classes</h3>
+              <div className="inline-block px-3 py-1 bg-secondary/10 text-secondary font-bold text-xs md:text-sm rounded-full mb-5">14 years and above</div>
+              <p className="text-foreground/80 font-medium mb-6 leading-relaxed text-sm md:text-base">
+                Whether you're a hobbyist or an aspiring professional, our classes offer a relaxed yet structured Curriculum to explore a wide range of art mediums.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                {["Pencil Shading", "Charcoal Art", "Watercolor Painting", "Acrylic Painting", "Poster Colour Painting", "Colour Pencils", "Oil Pastels"].map((item, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-secondary shrink-0" /><span className="text-xs md:text-sm font-semibold">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <Button onClick={() => scrollToSection("contact")} className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-6 py-5 h-auto text-sm">ENQUIRE NOW</Button>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative order-1 md:order-2">
+              <div className="absolute inset-0 bg-secondary/10 rounded-3xl -translate-x-3 translate-y-3 -z-10"></div>
+              <img src="/student4.jpg" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+            </motion.div>
+          </div>
         </section>{/* COURSE DETAILS SECTION 3 */}
         <section className="py-12 md:py-20 bg-white">
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
               <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-3 translate-y-3 -z-10"></div>
-              <img src="/bagworkshop.jpg" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+              <img src="/attc.jpeg" alt="Professional Courses" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <h3 className="text-2xl md:text-3xl font-bold mb-3">Professional & Certified Courses</h3>
@@ -475,7 +515,7 @@ export default function Home() {
                 For those seeking a formal career in art and design, SNAA offers government-certified programs with proven results in national entrance examinations.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-                {["Art Teacher's Training course", "Fine Arts"].map((item, i) => (
+                {["Art Teacher's Training Course (Offline)", "Art Teacher's Training Course (Online)", "Fine Arts Course", "Drawing & Painting Course", "Pencil Shading Course"].map((item, i) => (
                   <div key={i} className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-secondary shrink-0" /><span className="text-xs md:text-sm font-semibold">{item}</span>
                   </div>
@@ -552,11 +592,11 @@ export default function Home() {
               </motion.div>
               
               <motion.h1 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold leading-[1.1] mb-6">
-                Master Art Anytime,<br/>Anywhere.
+                Video Courses
               </motion.h1>
               
               <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base md:text-lg text-white/80 mb-10 leading-relaxed font-medium">
-                Step-by-step, high-quality video tutorials taught by Subodh Narvekar and our senior faculty. Bring the studio experience directly to your home.
+                Step-by-step, high-quality video tutorials taught by Avdhut Narvekar. Bring the studio experience directly to your home.
               </motion.p>
             </div>
           </section>
@@ -607,7 +647,6 @@ export default function Home() {
                       <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-border flex flex-col group">
                         <div className="relative aspect-video overflow-hidden bg-muted">
                           <img src={course.img} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                          <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-foreground text-[10px] md:text-xs font-bold px-2 py-1 rounded-full border border-border/50 shadow-sm">{course.tag}</div>
                         </div>
                         <div className="p-5 flex flex-col flex-grow">
                           <h4 className="text-lg font-bold text-foreground leading-tight mb-2">{course.title}</h4>
