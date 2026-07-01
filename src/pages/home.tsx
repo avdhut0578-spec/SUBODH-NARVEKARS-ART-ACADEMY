@@ -170,7 +170,7 @@ export default function Home() {
       name: "Video courses for kids",
       courses: [
         { title: "Figure Drawing for Kids", img: "/vfiguredrawingforkids.jpeg", desc: "Specially for kids of grades 2 to 6. Over 48 human figures demonstrated in simple language.", price: "₹600", features: ["34 Lessons", "Grades 2 to 6", "48+ Human Figures"] },
-        { title: "Pencil Shading for Kids", img: "/vpencilshadingforkids.jpeg", desc: "Specially for kids of grades 2 to 6.", price: "₹600", features: ["15 Lessons", "Grades 2 to 6", "Lifetime Access"], previewUrl: "https://youtu.be/nWzlU6gXn20?si=u0t9H_oh4bTAI8Ab" },
+        { title: "Pencil Shading for Kids", img: "/vpencilshadingforkids.jpeg", desc: "Specially for kids of grades 2 to 6. Introduces basic light, shadow, and tonal control.", price: "₹600", features: ["15 Lessons", "Grades 2 to 6", "Lifetime Access"], previewUrl: "https://youtu.be/nWzlU6gXn20?si=u0t9H_oh4bTAI8Ab" },
         { title: "Cartoon Art", img: "/vcartoons.jpeg", desc: "Includes Animal cartoons, creative cartoons, kawaii animation, Mario Miranda style, cartoon characters. PDF images included.", price: "₹600", features: ["37 Lessons", "Grades 2 to 6", "PDF Included"], previewUrl: "https://youtu.be/XNjtZYZ0qoI?si=BDP4tqB5sPVzkAYW" },
         { title: "Oil Pastel Landscapes", img: "/voilpastellandscapes.jpeg", desc: "For both kids and adults. Includes 7 intro lessons, 11 landscapes, and 1 bonus lesson.", price: "₹750", features: ["19 Lessons", "Kids & Adults", "Bonus Lesson"], previewUrl: "https://youtu.be/Qd9uXiWMuZo?si=JtsImkaek4ctY8Az" }
       ]
@@ -178,19 +178,20 @@ export default function Home() {
     {
       name: "Video courses for teens & adults",
       courses: [
-        { title: "Pencil Portraiture", img: "/vpencilportrait.jpeg", desc: "Detailed mapping of hyper-realistic facial features, hair rendering, and soft skin shading.", price: "₹1,999", features: ["Hyper-Detail Videos", "Feature Breakdowns", "Lifetime Access"] },
-        { title: "Pencil Objects Shading", img: "/vpencilobjects.jpeg", desc: "Master realistic 3D textures, drapery, and complex shading structures of daily objects.", price: "₹1,499", features: ["Deep-Dive Modules", "Material Guides", "Lifetime Access"], previewUrl: "https://youtu.be/cB5IvOosbCs?si=pI0jRHK52_z6HJHU" },
-        { title: "Pencil Landscapes", img: "/vpencillandscapes.jpeg", desc: "Understand 1-point, 2-point perspective guidelines, skies, trees, and detailed nature drawing.", price: "₹1,499", features: ["Detailed Chapters", "Perspective Rules", "Lifetime Access"], previewUrl: "https://youtu.be/wq1dHb4fsqg?si=AHlaLCeEbYw1nA-6" },
-        { title: "Human Figures Study", img: "/vhumanfigures.jpeg", desc: "Comprehensive anatomical body maps, skeletal breakdowns, and realistic gesture poses.", price: "₹1,799", features: ["Step-by-Step Clips", "Proportions Blueprint", "Lifetime Access"], previewUrl: "https://youtu.be/v0o2DB77gYs?si=U3REitQ4bThoC4p-" },
-        { title: "Sketching People Live", img: "/vsketchingpeople.jpeg", desc: "Capture real-time gestures, clothing folds, and natural human postures rapidly.", price: "₹1,599", features: ["Action Demos", "Live Techniques", "Lifetime Access"] },
-        { title: "Caricature Design", img: "/vcaricature.jpeg", desc: "Learn exaggeration rules to morph basic portraits into humorous, artistic caricatures.", price: "₹1,499", features: ["Conceptual Modules", "Proportion Warping", "Lifetime Access"], previewUrl: "https://youtu.be/BcC0GXsGNGk?si=qoPlYSAOVRFnA00s" },
-        { title: "Object Painting Basics", img: "/vobjectpainting.jpeg", desc: "Transition from pencil tones to volumetric color application using brush strategies.", price: "₹1,399", features: ["Fundamental Lessons", "Color Mixing Plans", "Lifetime Access"], previewUrl: "https://youtu.be/7P25y-R0wRY?si=hKzInLMmw-yzyaSc" },
-        { title: "Oil Pastel Objects", img: "/voilpastelobjects.jpeg", desc: "Learn smooth blending, scrapings, and vibrant color layering tricks using oil pastels.", price: "₹1,199", features: ["Practical Modules", "Blending Methods", "Lifetime Access"] },
-        { title: "Watercolor Landscape", img: "/vwatercolourlandscape.jpeg", desc: "Control transparency, transparent color layers, light highlights, and depth in water scapes.", price: "₹1,699", features: ["Detailed Modules", "Wash Blueprints", "Lifetime Access"] },
-        { title: "Watercolor Wet on Wet", img: "/vwatercolourwetonwet.jpeg", desc: "Control highly fluid pigments on moisture grids to form soft, atmospheric masterpieces.", price: "₹1,799", features: ["Advanced Sessions", "Pigment Flow Rules", "Lifetime Access"], previewUrl: "https://youtu.be/UASbQpyNUC4?si=sdJDFYjDEMHe8QKV" },
-        { title: "Watercolor Portraiture", img: "/vwatercolourportrait.jpeg", desc: "Paint translucent skin tones, realistic bone shadow layers, and modern lighting accents.", price: "₹2,199", features: ["Masterclass Modules", "Skin Layer Recipes", "Lifetime Access"], previewUrl: "https://youtu.be/Y6kVTb75g0k?si=lR-jxj0Usjxsk7Ca" },
-        { title: "Memory Drawing Vol. 1", img: "/vmemorydrawing1.jpeg", desc: "Master daily human action scenes, overlapping figures, and background grids for Elementary exams.", price: "₹1,999", features: ["Complete Scenarios", "Exam Guideline Check", "Lifetime Access"] },
-        { title: "Memory Drawing Vol. 2", img: "/vmemorydrawing2.jpeg", desc: "Complex crowd layouts, market grids, and technical coloring constraints for Intermediate exams.", price: "₹2,499", features: ["Complex Composition Demos", "Time Optimization", "Lifetime Access"] }
+        { title: "Pencil Shading Portraits", img: "/vpencilportrait.jpeg", desc: "Detailed mapping of hyper-realistic facial features, hair rendering, and soft skin shading.", price: "₹750", features: ["21 Lessons", "Lifetime Access"] },
+        { title: "Pencil Objects Shading", img: "/vpencilobjects.jpeg", desc: "Perspective, shade and light, shading without smudging, man-made & natural objects.", price: "₹750", features: ["26 Lessons", "17 Intro & 9 Objects", "Lifetime Access"], previewUrl: "https://youtu.be/cB5IvOosbCs?si=pI0jRHK52_z6HJHU" },
+        { title: "Pencil Shading Landscapes", img: "/vpencillandscapes.jpeg", desc: "Understand 1-point, 2-point perspective guidelines, skies, trees, and detailed nature drawing.", price: "₹750", features: ["18 Lessons", "Lifetime Access"], previewUrl: "https://youtu.be/wq1dHb4fsqg?si=AHlaLCeEbYw1nA-6" },
+        { title: "Human Figures Study", img: "/vhumanfigures.jpeg", desc: "Adult to child body proportion, male/female faces, sitting/standing figures, sports/dance action poses.", price: "₹840", features: ["23 Lessons", "Lifetime Access"], previewUrl: "https://youtu.be/v0o2DB77gYs?si=U3REitQ4bThoC4p-" },
+        { title: "Sketching People", img: "/vsketchingpeople.jpeg", desc: "Capture real-time gestures, clothing folds, and natural human postures rapidly.", price: "₹600", features: ["13 Lessons", "Lifetime Access"] },
+        { title: "Caricatures", img: "/vcaricature.jpeg", desc: "Learn exaggeration rules to morph basic portraits. Includes 3 intro lessons and 25 caricatures.", price: "₹750", features: ["28 Lessons", "Lifetime Access"], previewUrl: "https://youtu.be/BcC0GXsGNGk?si=qoPlYSAOVRFnA00s" },
+        { title: "Object Painting", img: "/vobjectpainting.jpeg", desc: "Transition from pencil tones to volumetric color application using brush strategies.", price: "₹750", features: ["34 Lessons", "Lifetime Access"], previewUrl: "https://youtu.be/7P25y-R0wRY?si=hKzInLMmw-yzyaSc" },
+        { title: "Oil Pastels Objects", img: "/voilpastelobjects.jpeg", desc: "Learn smooth blending, scrapings, and vibrant color layering tricks using oil pastels.", price: "₹750", features: ["34 Lessons", "Lifetime Access"] },
+        { title: "Water Colour Landscapes", img: "/vwatercolourlandscape.jpeg", desc: "Control transparency, transparent color layers, light highlights, and depth in water scapes.", price: "₹750", features: ["22 Lessons", "Lifetime Access"] },
+        { title: "Wet on Wet Watercolours", img: "/vwatercolourwetonwet.jpeg", desc: "Step by step in Hindi with English captions. Control highly fluid pigments.", price: "₹500", features: ["21 Lessons", "Hindi & English", "Lifetime Access"], previewUrl: "https://youtu.be/UASbQpyNUC4?si=sdJDFYjDEMHe8QKV" },
+        { title: "Water Colour Portrait", img: "/vwatercolourportrait.jpeg", desc: "Drawing Portraits accurately, tonal value, skin tone combinations, monochrome & colour portraits.", price: "₹750", features: ["25 Lessons", "Lifetime Access"], previewUrl: "https://youtu.be/Y6kVTb75g0k?si=lR-jxj0Usjxsk7Ca" },
+        { title: "Perspective", img: "/student3.jpg", desc: "1, 2 & 3 point perspective, room view, outdoor view, stairs drawing, figures in perspective.", price: "₹600", features: ["26 Lessons", "Lifetime Access"] },
+        { title: "Memory Drawing Vol. 1", img: "/vmemorydrawing1.jpeg", desc: "Master daily human action scenes, overlapping figures, and background grids for Elementary exams.", price: "₹1250", features: ["27 Lessons", "Lifetime Access"] },
+        { title: "Memory Drawing Vol. 2", img: "/vmemorydrawing2.jpeg", desc: "Human Figure Proportions, women dressed in saree, hands and feet, 5 Memory drawings.", price: "₹1750", features: ["12 Lessons", "Lifetime Access"] }
       ]
     }
   ];
@@ -451,9 +452,7 @@ export default function Home() {
               </TabsContent>
             </Tabs>
           </div>
-        </section>
-
-        {/* COURSE DETAILS SECTION 1 */}
+        </section>{/* COURSE DETAILS SECTION 1 */}
         <section className="py-12 md:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
@@ -501,7 +500,9 @@ export default function Home() {
               <img src="/student4.jpg" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
             </motion.div>
           </div>
-        </section>{/* COURSE DETAILS SECTION 3 */}
+        </section>
+
+        {/* COURSE DETAILS SECTION 3 */}
         <section className="py-12 md:py-20 bg-white">
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
