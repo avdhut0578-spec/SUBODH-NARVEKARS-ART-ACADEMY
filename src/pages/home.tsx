@@ -179,18 +179,18 @@ export default function Home() {
       name: "Video courses for teens & adults",
       courses: [
         { title: "Pencil Shading Portraits", img: "/vpencilportrait.jpeg", desc: "Detailed mapping of hyper-realistic facial features, hair rendering, and soft skin shading.", price: "₹750", features: ["21 Lessons", "Lifetime Access"] },
-        { title: "Pencil Objects Shading", img: "/vpencilobjects.jpeg", desc: "Perspective, shade and light, shading without smudging, man-made & natural objects.", price: "₹750", features: ["26 Lessons", "17 Intro & 9 Objects", "Lifetime Access"], previewUrl: "https://youtu.be/cB5IvOosbCs?si=pI0jRHK52_z6HJHU" },
+        { title: "Pencil Objects Shading", img: "/vpencilobjects.jpeg", desc: "Perspective, shade and light, shading without smudging, man-made & natural objects.", price: "₹1750", features: ["26 Lessons", "17 Intro & 9 Objects", "Lifetime Access"], previewUrl: "https://youtu.be/cB5IvOosbCs?si=pI0jRHK52_z6HJHU" },
         { title: "Pencil Shading Landscapes", img: "/vpencillandscapes.jpeg", desc: "Understand 1-point, 2-point perspective guidelines, skies, trees, and detailed nature drawing.", price: "₹750", features: ["18 Lessons", "Lifetime Access"], previewUrl: "https://youtu.be/wq1dHb4fsqg?si=AHlaLCeEbYw1nA-6" },
         { title: "Human Figures Study", img: "/vhumanfigures.jpeg", desc: "Adult to child body proportion, male/female faces, sitting/standing figures, sports/dance action poses.", price: "₹840", features: ["23 Lessons", "Lifetime Access"], previewUrl: "https://youtu.be/v0o2DB77gYs?si=U3REitQ4bThoC4p-" },
         { title: "Sketching People", img: "/vsketchingpeople.jpeg", desc: "Capture real-time gestures, clothing folds, and natural human postures rapidly.", price: "₹600", features: ["13 Lessons", "Lifetime Access"] },
         { title: "Caricatures", img: "/vcaricature.jpeg", desc: "Learn exaggeration rules to morph basic portraits. Includes 3 intro lessons and 25 caricatures.", price: "₹750", features: ["28 Lessons", "Lifetime Access"], previewUrl: "https://youtu.be/BcC0GXsGNGk?si=qoPlYSAOVRFnA00s" },
-        { title: "Object Painting", img: "/vobjectpainting.jpeg", desc: "Transition from pencil tones to volumetric color application using brush strategies.", price: "₹750", features: ["34 Lessons", "Lifetime Access"], previewUrl: "https://youtu.be/7P25y-R0wRY?si=hKzInLMmw-yzyaSc" },
+        { title: "Object Painting Basics", img: "/vobjectpainting.jpeg", desc: "Transition from pencil tones to volumetric color application using brush strategies.", price: "₹1750", features: ["34 Lessons", "Lifetime Access"], previewUrl: "https://youtu.be/7P25y-R0wRY?si=hKzInLMmw-yzyaSc" },
         { title: "Oil Pastels Objects", img: "/voilpastelobjects.jpeg", desc: "Learn smooth blending, scrapings, and vibrant color layering tricks using oil pastels.", price: "₹750", features: ["34 Lessons", "Lifetime Access"] },
         { title: "Water Colour Landscapes", img: "/vwatercolourlandscape.jpeg", desc: "Control transparency, transparent color layers, light highlights, and depth in water scapes.", price: "₹750", features: ["22 Lessons", "Lifetime Access"] },
         { title: "Wet on Wet Watercolours", img: "/vwatercolourwetonwet.jpeg", desc: "Step by step in Hindi with English captions. Control highly fluid pigments.", price: "₹500", features: ["21 Lessons", "Hindi & English", "Lifetime Access"], previewUrl: "https://youtu.be/UASbQpyNUC4?si=sdJDFYjDEMHe8QKV" },
         { title: "Water Colour Portrait", img: "/vwatercolourportrait.jpeg", desc: "Drawing Portraits accurately, tonal value, skin tone combinations, monochrome & colour portraits.", price: "₹750", features: ["25 Lessons", "Lifetime Access"], previewUrl: "https://youtu.be/Y6kVTb75g0k?si=lR-jxj0Usjxsk7Ca" },
         { title: "Perspective", img: "/student3.jpg", desc: "1, 2 & 3 point perspective, room view, outdoor view, stairs drawing, figures in perspective.", price: "₹600", features: ["26 Lessons", "Lifetime Access"] },
-        { title: "Memory Drawing Vol. 1", img: "/vmemorydrawing1.jpeg", desc: "Master daily human action scenes, overlapping figures, and background grids for Elementary exams.", price: "₹1250", features: ["27 Lessons", "Lifetime Access"] },
+        { title: "Memory Drawing Vol. 1", img: "/vmemorydrawing1.jpeg", desc: "Master daily human action scenes, overlapping figures, and background grids for Elementary exams.", price: "₹1750", features: ["27 Lessons", "Lifetime Access"] },
         { title: "Memory Drawing Vol. 2", img: "/vmemorydrawing2.jpeg", desc: "Human Figure Proportions, women dressed in saree, hands and feet, 5 Memory drawings.", price: "₹1750", features: ["12 Lessons", "Lifetime Access"] }
       ]
     }
@@ -452,6 +452,56 @@ export default function Home() {
               </TabsContent>
             </Tabs>
           </div>
+        </section>
+
+        {/* COURSE DETAILS SECTION 1 */}
+        <section className="py-12 md:py-20 bg-muted/20">
+          <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-center">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
+              <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-3 translate-y-3 -z-10"></div>
+              <img src="/group2.jpeg" alt="Kids & Teens Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">Kids Art Classes</h3>
+              <div className="inline-block px-3 py-1 bg-secondary/10 text-secondary font-bold text-xs md:text-sm rounded-full mb-5">Ideal for ages 4 to 15 years</div>
+              <p className="text-foreground/80 font-medium mb-6 leading-relaxed text-sm md:text-base">
+                Our foundational art classes are designed to spark creativity and build core skills in young learners. From Child Art for beginners to Elementary and Intermediate Grade Exam Preparation, each session blends fun with structured learning.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                {["Child Art", "Advanced Painting", "Elementary Exam Preparation", "Intermediate Exam Preparation", "Pencil Shading & Sketching", "Cartoon Art", "Art & Craft", "Advanced Child Art"].map((item, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-secondary shrink-0" /><span className="text-xs md:text-sm font-semibold">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <Button onClick={() => scrollToSection("contact")} className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-6 py-5 h-auto text-sm">ENQUIRE NOW</Button>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* COURSE DETAILS SECTION 2 */}
+        <section className="py-12 md:py-20 bg-white overflow-hidden">
+          <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-center">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="order-2 md:order-1">
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">Teens & Adults Classes</h3>
+              <div className="inline-block px-3 py-1 bg-secondary/10 text-secondary font-bold text-xs md:text-sm rounded-full mb-5">14 years and above</div>
+              <p className="text-foreground/80 font-medium mb-6 leading-relaxed text-sm md:text-base">
+                Whether you're a hobbyist or an aspiring professional, our classes offer a relaxed yet structured Curriculum to explore a wide range of art mediums.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                {["Pencil Shading", "Charcoal Art", "Watercolor Painting", "Acrylic Painting", "Poster Colour Painting", "Colour Pencils", "Oil Pastels"].map((item, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-secondary shrink-0" /><span className="text-xs md:text-sm font-semibold">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <Button onClick={() => scrollToSection("contact")} className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-6 py-5 h-auto text-sm">ENQUIRE NOW</Button>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative order-1 md:order-2">
+              <div className="absolute inset-0 bg-secondary/10 rounded-3xl -translate-x-3 translate-y-3 -z-10"></div>
+              <img src="/student4.jpg" alt="Teens & Adults Art" className="w-full h-auto rounded-2xl shadow-xl object-cover" />
+            </motion.div>
+          </div>
         </section>{/* COURSE DETAILS SECTION 1 */}
         <section className="py-12 md:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-center">
@@ -597,7 +647,7 @@ export default function Home() {
               </motion.h1>
               
               <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base md:text-lg text-white/80 mb-10 leading-relaxed font-medium">
-                Step-by-step, high-quality video tutorials taught by Avdhut Narvekar. Bring the studio experience directly to your home.
+                Step-by-step, high-quality video tutorials. Bring the studio experience directly to your home.
               </motion.p>
             </div>
           </section>
@@ -692,7 +742,7 @@ export default function Home() {
             <div className="container mx-auto px-6 md:px-12 text-center max-w-4xl">
               <h3 className="text-3xl md:text-4xl font-sans font-bold mb-4">Try Before You Buy</h3>
               <p className="text-base md:text-lg text-white/80 font-medium mb-8">Not sure which course is right for you? Watch our free preview lessons on YouTube to experience the teaching quality.</p>
-              <a href="https://youtube.com/playlist?list=PLwB_a_c_n1B65545B82" target="_blank" rel="noreferrer">
+              <a href="https://youtube.com/playlist?list=PLMwHrQAebSzYRqWFrRj-bv9xqJECbv8YR&si=TWm150j6IElHHVr6" target="_blank" rel="noreferrer">
                 <Button className="bg-red-600 hover:bg-red-700 text-white font-bold rounded-full px-6 py-5 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                   <Youtube className="w-5 h-5 mr-2" /> Watch Free Previews
                 </Button>
